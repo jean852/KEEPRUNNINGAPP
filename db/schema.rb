@@ -10,9 +10,71 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_125942) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_142516) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.integer "strava_id"
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "distance"
+    t.integer "moving_time"
+    t.integer "elapsed_time"
+    t.string "type"
+    t.date "start_date"
+    t.float "average_speed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "activity_type"
+    t.string "type"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "target_distance"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_challenges_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "country"
+    t.string "username"
+    t.string "sex"
+    t.string "profile_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "refresh_tokens", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "athlete_id"
+    t.string "refresh_token_code"
+    t.boolean "scope"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_refresh_tokens_on_user_id"
+  end
+
+  create_table "sl_access_tokens", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "athlete_id"
+    t.boolean "scope"
+    t.string "sl_access_token_code"
+    t.datetime "expires_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sl_access_tokens_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +88,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_125942) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "users"
+  add_foreign_key "challenges", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "refresh_tokens", "users"
+  add_foreign_key "sl_access_tokens", "users"
 end

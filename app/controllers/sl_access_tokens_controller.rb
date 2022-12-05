@@ -1,0 +1,2 @@
+class SlAccessTokensController < ApplicationController
+end
