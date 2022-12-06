@@ -18,24 +18,24 @@ class User < ApplicationRecord
 
 
   def self.create_from_strava(provider_data)
-    puts "we are in the Strva User creation method"
-    puts a = provider_data
-    raise
+    puts "we are in the Strava User creation method"
 
-    # Create User
     where(athlete_id: provider_data.athlete.id).first_or_create do |user|
 
-      user.email = provider_data.info.email
+      # Create User
+      # user.email = provider_data.info.email
+      user.email = "#{provider_data.athlete.id}@strava.com"
+      user.athlete_id = provider_data.athlete.id
       user.password = Devise.friendly_token[0, 20]
 
+
+      # Create profile
+
+      # Create Short-lived Access Token
+
+      # Create the Refresh Token
+
     end
-
-    # Create profile
-
-    # Create Short-lived Access Token
-
-    # Create the Refresh Token
-
 
   end
 
