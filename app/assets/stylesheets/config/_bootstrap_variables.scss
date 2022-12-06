@@ -23,3 +23,15 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+$krblack: #000000 ;
+$krgrey: #BCBFBE ;
+$krwhite: #FFFFFF ;
+$kryellow: #FEFF00 ;
+$krgreen: #00C784 ;
+$krorange: #FC4C02 ;
+
+
+.nav-link {
+  color: $krwhite !important;
+}

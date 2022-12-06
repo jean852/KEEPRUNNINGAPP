@@ -1,6 +1,29 @@
-<h2>Log in</h2>
+<div class="container justify-content-center">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+
+  <div class="text-center">
+    <h1 class="p-5 text-left">🧐 Does it have to be so hard to keep running ?</h1>
+  </div>
+
+  <div class="container">
+    <%= image_tag("runningtiger.png", :alt => "run away from the keeprunning tiger", class: "tiger-image")  %>
+  </div>
+
+  <div class="text-center">
+    <%= render "devise/shared/links" %>
+    <p>Need help to keep running? Connect now</p>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+<% simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
@@ -16,5 +39,3 @@
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
