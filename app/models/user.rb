@@ -5,8 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:strava]
 
+  has_one :profile, dependent: :destroy
+  has_one :refresh_token, dependent: :destroy
+  has_one :sl_access_token, dependent: :destroy
+
   has_many :activities
   has_many :challenges
+
 
   def self.create_from_provider_data(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
@@ -27,17 +32,7 @@ class User < ApplicationRecord
       user.email = "#{provider_data.athlete.id}@strava.com"
       user.athlete_id = provider_data.athlete.id
       user.password = Devise.friendly_token[0, 20]
-
-
-      # Create profile
-
-      # Create Short-lived Access Token
-
-      # Create the Refresh Token
-
     end
-
   end
-
 
 end
