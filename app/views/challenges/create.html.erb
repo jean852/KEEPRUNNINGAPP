@@ -1,0 +1,17 @@
+<div class="box2-gradient">
+
+
+  <h1>New challenge</h1>
+
+  <%= simple_form_for @challenge do|f|%>
+  <%= f.input :activity_type  %>
+  <%= f.input :type %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :target_distance %>
+  <%= f.input :status %>
+
+  <%= f.button :submit, class: "btn btn-primary btn-block mt-5"  %>
+  <% end %>
+
+</div>
