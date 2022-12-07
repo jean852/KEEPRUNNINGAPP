@@ -1,11 +1,12 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenges, only: %i[show edit update destroy]
+  before_action :set_challenge, only: %i[show edit update destroy]
 
   def index
     @challenges = Challenge.all
   end
 
-  def show
+  def new
+    @challenge = Challenge.new
   end
 
   def create
@@ -17,6 +18,9 @@ class ChallengesController < ApplicationController
     else
       render :new # TODO: redirect to correct step
     end
+  end
+
+  def show
   end
 
   def edit
@@ -35,11 +39,11 @@ class ChallengesController < ApplicationController
 
   private
 
-  def set_challenges
+  def set_challenge
     @challenge = Challenge.find(params[:id])
   end
 
   def challenge_params
-    params.require(:challenge).permit(:activity_type, :type, :start_date, :end_date, :target_distance, :status)
+    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :status)
   end
 end
