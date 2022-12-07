@@ -2,15 +2,23 @@ class ChallengesController < ApplicationController
   before_action :set_challenges, only: %i[show edit update destroy]
 
   def index
-    @challenges = Challenge.all
+    @challenges = policy_scope(Challenge)
+    # @challenges = Challenge.all
   end
 
   def show
+    authorize @challenge
+  end
+
+  def new
+    @challenge = Challenge.new
+    authorize @challenge
   end
 
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
+    authorize @challenge
 
     if @challenge.save
       redirect_to challenge_path(@challenge) # TODO: redirect to payment
@@ -20,10 +28,12 @@ class ChallengesController < ApplicationController
   end
 
   def edit
+    authorize @challenge
   end
 
   # TODO: maybe switch this method to only update status
   def update
+    authorize @challenge
     @challenge.update(challenge_params)
 
     if @challenge.save
