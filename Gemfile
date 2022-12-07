@@ -61,8 +61,14 @@ gem 'multi_json', '~> 1.11', '>= 1.11.2'
 # # Strava Gem
 gem 'strava-ruby-client'
 
+
+# for Sidekiq and run background jobs
+gem "sidekiq"
+gem "sidekiq-failures", "~> 1.0"
+
 # Pundit Authorization Gem
 gem "pundit"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
