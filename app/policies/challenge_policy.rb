@@ -23,8 +23,4 @@ class ChallengePolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
-
-  def manage?
-    true
-  end
 end

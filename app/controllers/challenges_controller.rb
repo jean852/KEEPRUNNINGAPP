@@ -18,13 +18,13 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
-    authorize @challenge
 
     if @challenge.save
       redirect_to challenge_path(@challenge) # TODO: redirect to payment
     else
       render :new # TODO: redirect to correct step
     end
+    authorize @challenge
   end
 
   def edit
@@ -33,7 +33,6 @@ class ChallengesController < ApplicationController
 
   # TODO: maybe switch this method to only update status
   def update
-    authorize @challenge
     @challenge.update(challenge_params)
 
     if @challenge.save
@@ -41,6 +40,7 @@ class ChallengesController < ApplicationController
     else
       render :edit
     end
+    authorize @challenge
   end
 
   private
