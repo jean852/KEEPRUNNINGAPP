@@ -46,8 +46,8 @@ class OmniauthController < Devise::OmniauthCallbacksController
 
   def oauth_client
     @oauth_client ||= Strava::OAuth::Client.new(
-      client_id: ENV.fetch('STRAVA_CLIENT_ID', nil),
-      client_secret: ENV.fetch('STRAVA_CLIENT_SECRET', nil)
+      client_id: Rails.application.credentials.dig(:strava, :strava_client_id),
+      client_secret: Rails.application.credentials.dig(:strava, :strava_client_secret)
     )
   end
 
