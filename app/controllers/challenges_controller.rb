@@ -2,11 +2,18 @@ class ChallengesController < ApplicationController
   before_action :set_challenge, only: %i[show edit update destroy]
 
   def index
-    @challenges = Challenge.all
+    @challenges = policy_scope(Challenge)
+    # @challenges = Challenge.all
+  end
+
+
+  def show
+    authorize @challenge
   end
 
   def new
     @challenge = Challenge.new
+    authorize @challenge
   end
 
   def create
@@ -18,12 +25,14 @@ class ChallengesController < ApplicationController
     else
       render :new # TODO: redirect to correct step
     end
+    authorize @challenge
   end
 
   def show
   end
 
   def edit
+    authorize @challenge
   end
 
   # TODO: maybe switch this method to only update status
@@ -35,6 +44,7 @@ class ChallengesController < ApplicationController
     else
       render :edit
     end
+    authorize @challenge
   end
 
   private

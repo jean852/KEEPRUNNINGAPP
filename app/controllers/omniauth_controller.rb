@@ -25,7 +25,6 @@ class OmniauthController < Devise::OmniauthCallbacksController
       newprofile = Profile.create_profile_from_strava(response, @user)
       newprofile.save!
 
-
       # create refresh token entry
       newrefreshtoken = RefreshToken.create_refresh_token_from_strava(response, @user)
       newrefreshtoken.save!
@@ -38,7 +37,7 @@ class OmniauthController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: 'Strava') if is_navigational_format?
     else
       puts "if persited was false"
-      flash[:error]='There was a problem signing you in through Strava. Please register or try signing in later.'
+      flash[:error] = 'There was a problem signing you in through Strava. Please register or try signing in later.'
       redirect_to new_user_session_url
     end
 
