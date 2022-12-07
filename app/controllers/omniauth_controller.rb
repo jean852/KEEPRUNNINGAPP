@@ -52,6 +52,6 @@ class OmniauthController < Devise::OmniauthCallbacksController
   end
 
   def get_access_token!(code)
-    oauth_client.oauth_token(code:, grant_type: 'authorization_code')
+    oauth_client.oauth_token(code: code, grant_type: 'authorization_code')
   end
 end
