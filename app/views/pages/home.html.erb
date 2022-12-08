@@ -11,10 +11,14 @@
       <img alt="running shoe circle" class="landing-image p-3" src="/assets/running_circle.png" style="width: 200px;">
     </div>
 
-    <div class="container bg-success rounded p-3 text-center techcrunch-quote">
-      <h3 class="px-0"><i class="fa-sharp fa-solid fa-quote-left"></i>&ensp;&ensp;One of the breakout Strava Apps of 2022&ensp;&ensp;<i class="fa-sharp fa-solid fa-quote-right"></i></h3>
-      <div class="">
-        <svg class="my-2" width="208" height="31" viewBox="0 0 208 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="text-center p-3 mb-5">
+      <a href="/users/sign_in"><button class="login-button">Start your journey</button></a>
+    </div>
+
+    <div class="container rounded p-3 text-center techcrunch-quote">
+      <h3 class="text-center"><i class="fa-sharp fa-solid fa-quote-left"></i>&ensp;&ensp;One of the breakout Strava Apps of 2022&ensp;&ensp;<i class="fa-sharp fa-solid fa-quote-right"></i></h3>
+      <div>
+        <svg width="208" height="31" viewBox="0 0 208 31" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M38.8677 10.5418H58.3189V0.625488H38.8677V10.5418Z" fill="white"></path>
           <path d="M0 0.625488V10.5418H9.70825V30.3744H19.4165V10.5418H29.1594V0.625488H0Z" fill="white"></path>
           <path d="M29.1594 30.3743H58.3189V20.458H38.8677V10.5417H29.1594V30.3743Z" fill="white"></path>
@@ -32,25 +36,45 @@
       </div>
     </div>
 
-    <div class="p-3 text-center">
+    <div class="container p-3 text-center">
       <img alt="shoelaces circle" class="landing-image p-3" src="/assets/shoelaces.png" style="width: 200px;">
     </div>
 
+    <div class="container py-3 px-0 text-center">
+      <h3 class="p-3">Why Keep Running?</h3>
+      <div class="text-center">
+        <img alt="motivation graph" class="landing-image py-3 px-0" src="/assets/motivation_table.png" style="width: 300px;">
+      </div>
+    </div>
+
+    <div class="py-3 px-0">
+      <h4 class="text-center mb-3">Stick to a habit</h4>
+      <div class="py-3 px-0">
+        <ul class="fa-ul py-3 px-0">
+          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-list-check"></i></span>Create challenges: your activity, your way</li>
+          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-circle-exclamation"></i></span>Instant penalty: don't stop till the top</li>
+          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-gift"></i></span>Get rewards: winners receive credits</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="py-3 px-0">
+      <h4 class="text-center mb-3">Maintain Your Goals 📈</h4>
+      <div class="py-3 px-0">
+        <ul class="fa-ul py-3 px-0">
+          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-scale-balanced"></i></span>Stay motivated: wager against yourself</li>
+          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-brands fa-strava"></i></span>Easy use: simply connect through Strava</li>
+          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-people-group"></i></span>Leaderboard: community goal-setting</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <div class="text-center p-3">
-
-  <br>
-
-  <br>
-
-
-
+  <%# <div class="p-3 mb-3 text-center">
     <form class="button_to" method="post" action="/users/auth/strava"><button class="stravalogin" data-turbo="false" type="submit"></button><input type="hidden" name="authenticity_token" value="bua1j19XrVIyMVawMQsTGd6NVeT-96rogorwIfW_6rPqh02JPa8UVGu6-lyV3GVM4zeclDr9lmQ3Q4Ws60Oh3g" autocomplete="off"></form><br>
-
-    <p>Need help to keep running? Connect now</p>
+    <p>Start your journey of perseverance</p>
+  </div> %>
+  <div class="text-center p-3 mb-5">
+    <a href="/users/sign_in"><button class="login-button">Start your journey</button></a>
   </div>
-
-
-
 </div>
