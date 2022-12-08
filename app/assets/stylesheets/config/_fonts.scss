@@ -1,9 +1,11 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;700;800&family=Nunito:wght@400;700&family=Work+Sans:wght@400;700&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Poppins", "Helvetica", "sans-serif";
-$headers-font: "Poppins", "Helvetica", "sans-serif";
+
+$headers-font: 'Manrope', sans-serif;
+// $headers-font-weight: 700;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +16,21 @@ $headers-font: "Poppins", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// // Weights
+// $hairline-weight: 100;
+// $thin-weight:     200;
+// $light-weight:    300;
+// $normal-weight:   400;
+// $medium-weight:   500;
+// $semibold-weight: 600;
+// $bold-weight:     700;
+// $xbold-weight:    800;
+// $black-weight:    900;
+
+// // Synonyms
+// $regular-weight:    $normal-weight;
+// $book-weight:       $light-weight;
+// $xlight-weight:     $hairline-weight;
+// $ultralight-weight: $hairline-weight;
+// $heavy-weight:      $xbold-weight;

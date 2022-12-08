@@ -6,13 +6,12 @@ class ChallengesController < ApplicationController
     # @challenges = Challenge.all
   end
 
-
-  def show
+  def new
+    @challenge = Challenge.new
     authorize @challenge
   end
 
-  def new
-    @challenge = Challenge.new
+  def show
     authorize @challenge
   end
 
@@ -26,9 +25,6 @@ class ChallengesController < ApplicationController
       render :new # TODO: redirect to correct step
     end
     authorize @challenge
-  end
-
-  def show
   end
 
   def edit
