@@ -1,0 +1,138 @@
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  .scroll-card {
+    flex: 0 0 auto;
+    width: 300px;
+    aspect-ratio: 3 / 2;
+    margin-left: 20px;
+    background-color: white;
+    border: 2px solid $kryellow;
+    border-radius: 10px;
+  }
+}
+
+.scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrolling-wrapper {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll-card-title {
+  background-color: rgba(0,0,0,1) !important;
+  opacity: 1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  vertical-align: middle;
+
+  h6 {
+    color: white;
+    text-align: left;
+    padding: 5px;
+    margin-bottom: 0rem;
+  }
+}
+
+
+.scroll-card-info {
+  padding: 10px;
+  height: 100%;
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+}
+
+.info-card-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+}
+
+.kilometer-card {
+  background-color: $krblack;
+  // border: 2px solid $kryellow;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 0px 20px;
+  align-content: center;
+  vertical-align: middle;
+
+  h1, h6 {
+    color:white;
+  }
+  h1 {
+    font-weight: 900;
+  }
+}
+.challenge-count-card {
+  background-color: white;
+  margin-right: 20px;
+  border: 2px solid $kryellow;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+  padding: 5px;
+  align-content: center;
+  h1, h6 {
+    text-align: center;
+  }
+  h1 {
+    font-weight: 900;
+  }
+}
+
+
+
+.latest-activities-card {
+  background-color: $krblack;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 0 20px;
+  th, td {
+    color:white;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  h6 {
+    color: $kryellow;
+  }
+
+}
+
+.progress-bar, .progress {
+  border-radius: 10px;
+  p {
+    text-align: right;
+  }
+}
+
+
+.challenge-details {
+  display:flex;
+  align-items: stretch;
+
+  .badge {
+    color: $kryellow;
+    background-color: $krblack;
+    border-radius: 5px;
+  }
+
+}
+
+.challenge-detail-block {
+  width: 50%;
+  padding: 5px;
+}
+
+
+.bg-green {
+  background-color: $krgreen;
+}

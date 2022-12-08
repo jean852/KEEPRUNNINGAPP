@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :challenges, only: [:create, :index, :new, :update, :edit, :show, :destroy]
   resources :activities, only: [:index]
-  get "dashboard", to: "page#dashboard"
+  get "dashboard", to: "pages#dashboard"
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
