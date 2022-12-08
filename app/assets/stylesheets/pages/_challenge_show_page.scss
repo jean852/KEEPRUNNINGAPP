@@ -1,0 +1,20 @@
+.challenge-showpage {
+  // background-color: $krblack;
+}
+
+.challenge-card {
+  background-color: $krblack;
+  // border: 2px solid $kryellow;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 0px 20px;
+  align-content: center;
+  vertical-align: middle;
+
+  h1, h6 {
+    color:white;
+  }
+  h1 {
+    font-weight: 900;
+  }
+}
