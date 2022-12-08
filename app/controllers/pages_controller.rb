@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
+    @challenges = Challenge.where('user_id = ?', current_user.id)
+    @activities = Activity.where('user_id = ?', current_user.id)
   end
 end
