@@ -1,17 +1,24 @@
-<div class="box2-gradient">
+<div data-controller="flatpickr" class="box2-gradient">
 
-
-  <h1>New challenge</h1>
 
   <%= simple_form_for @challenge do|f|%>
-  <%= f.input :activity_type  %>
-  <%= f.input :challenge_type %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :target_distance %>
-  <%= f.input :status %>
 
-  <%= f.button :submit, class: "btn btn-primary btn-block mt-5"  %>
+    <div data-controller='step' >
+      <div class="step1" data-step-target="step1">
+        <%= f.input :activity_type, collection: Challenge::ACTIVITY_TYPE, as: :radio_buttons,required: true  %>
+        <%= f.input :challenge_type, input_html: {class:"form_input"}%>
+
+        <div data-action="click->step#next_step">Next</div>
+      </div>
+
+      <div class="d-none" data-step-target="step2">
+
+      <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, hint: "When would like to start"%>
+      <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+      <%= f.input :target_distance, input_html: {class:"form_input"} %>
+      <%= f.input :status %>
+      <%= f.button :submit, class: "btn btn-primary"  %>
+      </div>
+    </div>
   <% end %>
-
 </div>
