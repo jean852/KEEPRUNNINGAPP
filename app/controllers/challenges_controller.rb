@@ -6,9 +6,9 @@ class ChallengesController < ApplicationController
     # @challenges = Challenge.all
   end
 
-
   def show
     authorize @challenge
+    @challenge = Challenge.new
   end
 
   def new
