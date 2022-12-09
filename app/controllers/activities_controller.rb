@@ -1,5 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.all
+    # skip_policy_scope
+    @activities = policy_scope(Activity)
+    # @activities = Activity.all
   end
 end

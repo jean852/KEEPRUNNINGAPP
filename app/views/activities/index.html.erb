@@ -1,0 +1,85 @@
+<div class="d-flex flex-column justify-content-between mt-5">
+  <div class="latest-activities-card">
+    <%# <h6>All your activities:</h6> %>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="running-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Running</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="cycling-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Cycling</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    </div>
+
+    <div style="overflow:scroll; height:500px;">
+
+      <table class="table border-success">
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Date</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Distance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Run</th>
+            <td>22/11/2022</td>
+            <td>00:42</td>
+            <td>5.4km</td>
+          </tr>
+          <tr>
+            <th scope="row">Run</th>
+            <td>16/11/2022</td>
+            <td>00:42</td>
+            <td>5.6km</td>
+          </tr>
+          <tr>
+            <th scope="row">Run</th>
+            <td>14/11/2022</td>
+            <td>00:42</td>
+            <td>5.4km</td>
+          </tr>
+                    <tr>
+            <th scope="row">Run</th>
+            <td>12/11/2022</td>
+            <td>00:42</td>
+            <td>5.21km</td>
+          </tr>
+                    <tr>
+            <th scope="row">Run</th>
+            <td>10/11/2022</td>
+            <td>00:42</td>
+            <td>5.2km</td>
+          </tr>
+                    <tr>
+            <th scope="row">Run</th>
+            <td>09/11/2022</td>
+            <td>00:42</td>
+            <td>5.7km</td>
+          </tr>
+                    <tr>
+            <th scope="row">Run</th>
+            <td>07/11/2022</td>
+            <td>00:42</td>
+            <td>5.75km</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+  <div class="text-center p-3 mb-5 mt-3 d-flex flex-column align-items-center">
+    <a href="/users/"><button class="profile-button">See Strava Profile</button></a>
+  </div>
+</div>

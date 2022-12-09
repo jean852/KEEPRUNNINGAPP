@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-sticky-top navbar-lewagon">
   <div class=" container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to user_root_path, class: "navbar-brand" do %>
       <%= image_tag "keeprunninglogo.png" %>
     <% end %>
     <div class="d-flex">
@@ -25,13 +25,13 @@
       <ul class="navbar-nav me-auto list-group-horizontal justify-content-between">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "My activities", "#", class: "nav-link" %>
+            <%= link_to "🐆 Activities", "/activities", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Challenges", "#", class: "nav-link" %>
+            <%= link_to "🚀 New Challenge", new_challenge_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Leaderboard", "#", class: "nav-link" %>
+            <%= link_to "🥇 Leaderboard", leaderboard_path, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
