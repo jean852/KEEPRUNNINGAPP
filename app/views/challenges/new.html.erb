@@ -1,23 +1,40 @@
-<div data-controller="flatpickr" class="box2-gradient">
-
-
+<div data-controller="flatpickr" class="container">
   <%= simple_form_for @challenge do|f|%>
 
     <div data-controller='step' >
       <div class="step1" data-step-target="step1">
-        <%= f.input :activity_type, collection: Challenge::ACTIVITY_TYPE, as: :radio_buttons,required: true  %>
-        <%= f.input :challenge_type, input_html: {class:"form_input"}%>
+        <div data-controller='activity' >
+          <div class="activities">
+            <div class="activity">
+            <%= image_tag("runningwild.png", :alt => "run away from the keeprunning tiger", class: "activity-image", input_html: { data: { action: "click->activity#running" }})  %>
+            <h3>Running</h3>
+            </div>
+             <div class="activity">
+            <%= image_tag("bicycle.png", :alt => "run away from the keeprunning tiger", class: "activity-image") %>
+            <h3>Cycling</h3>
+            </div>
+            <div data-action="click->step#to_step2", class="btn btn-primary">continue</div>
+          </div>
+         <img src="./assets/images/runningwild.png" style="width: 200px;" data-action="click->activity#running">
+          <img src="bicycle.png" style="width: 200px;" data-action="click->activity#cycling">
+          <%= f.input :activity_type, as: :hidden,required: true, input_html: { data: { activity_target: "activity" }} %>
 
-        <div data-action="click->step#next_step">Next</div>
+        </div>
+
+
       </div>
 
       <div class="d-none" data-step-target="step2">
+        <%= f.input :challenge_type, collection: Challenge::CHALLENGE_TYPE, input_html: {class:"form_input"}%>
+        <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }, hint: "When would like to start"%>
+        <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
+        <%= f.input :target_distance, input_html: {class:"form_input"} %>
+        <div data-action="click->step#to_step3", class="btn btn-primary">Continue</div>
+      </div>
 
-      <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } }, hint: "When would like to start"%>
-      <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-      <%= f.input :target_distance, input_html: {class:"form_input"} %>
-      <%= f.input :status %>
-      <%= f.button :submit, class: "btn btn-primary"  %>
+      <div class="d-none" data-step-target="step3">
+        <%= f.input :bet_amount, input_html: {class:"form_input"}%>
+        <%= f.button :submit, class: "btn btn-primary"  %>
       </div>
     </div>
   <% end %>
