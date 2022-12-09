@@ -25,7 +25,7 @@
       <ul class="navbar-nav me-auto list-group-horizontal justify-content-between">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "🐆 Activities", "#", class: "nav-link" %>
+            <%= link_to "🐆 Activities", "/activities", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "🚀 New Challenge", new_challenge_path, class: "nav-link" %>
