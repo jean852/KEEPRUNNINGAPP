@@ -6,15 +6,17 @@
     <h5 class="p-3 text-left">With Keep Running, find the best way to optimize your sport activities</h5>
   </div>
 
+   <div class="text-center p-3">
+      <a href="/users/sign_in"><button class="login-button">Start your journey</button></a>
+  </div>
+
   <div class="container">
     <div class="p-3 text-center">
       <%# <img alt="running shoe circle" class="landing-image p-3" src="/assets/running_circle.png" style="width: 200px;"> %>
       <%= image_tag("running_circle.png", :alt => "running shoe circle", class: "landing-image p-3")  %>
     </div>
 
-    <div class="text-center p-3 mb-5">
-      <a href="/users/sign_in"><button class="login-button">Start your journey</button></a>
-    </div>
+
 
     <div class="container rounded p-3 text-center techcrunch-quote">
       <h3 class="text-center"><i class="fa-sharp fa-solid fa-quote-left"></i>&ensp;&ensp;One of the breakout Strava Apps of 2022&ensp;&ensp;<i class="fa-sharp fa-solid fa-quote-right"></i></h3>
@@ -45,7 +47,8 @@
     <div class="container py-3 px-0 text-center">
       <h3 class="p-3">Why Keep Running?</h3>
       <div class="text-center">
-        <img alt="motivation graph" class="landing-image py-3 px-0" src="/assets/motivation_table.png" style="width: 300px;">
+        <%# <img alt="motivation graph" class="landing-image py-3 px-0" src="/assets/motivation_table.png" style="width: 300px;"> %>
+        <%= image_tag("motivation_table.png", :alt => "motivation graph", class: "landing-image py-3 px-0")  %>
       </div>
     </div>
 
