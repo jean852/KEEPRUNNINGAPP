@@ -1,5 +1,6 @@
 .challenge-showpage {
   // background-color: $krblack;
+  margin: 0 20px;
 }
 
 .challenge-card {
@@ -17,4 +18,23 @@
   h1 {
     font-weight: 900;
   }
+}
+
+
+.latest-activities-card-show {
+  background-color: $krblack;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 0 0px;
+  th, td {
+    color:white;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  h6 {
+    color: $kryellow;
+  }
+
 }

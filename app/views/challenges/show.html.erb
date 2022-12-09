@@ -1,12 +1,12 @@
-<div class="container challenge-showpage">
-  <div class="scroll-card p-3">
+<div class="challenge-showpage mt-5">
+
+  <div class="scroll-card bg-white shadow">
     <div class="scroll-card-title p-1">
-      <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= @challenge.user_id  %></h6>
+      <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= @challenge.id  %></h6>
     </div>
 
-    <div class="scroll-card-info">
+    <div class="scroll-card-info ">
       <p>Running 185km from 01/10/2022 to 31/12/2022</p>
-
 
       <div class="challenge-details mt-3">
 
@@ -32,13 +32,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="d-flex justify-content-between mt-5 p-3">
-    <div class="latest-activities-card">
+  <div class="d-flex justify-content-between mt-5">
+    <div class="latest-activities-card-show">
       <h6>Challenge activities:</h6>
-
       <div style="overflow:scroll; height:200px;">
-
         <table class="table border-success">
           <thead>
             <tr>
@@ -67,32 +66,31 @@
               <td>00:42</td>
               <td>5.4km</td>
             </tr>
-                      <tr>
+            <tr>
               <th scope="row">Run</th>
               <td>12/11/2022</td>
               <td>00:42</td>
               <td>5.21km</td>
             </tr>
-                      <tr>
+            <tr>
               <th scope="row">Run</th>
               <td>10/11/2022</td>
               <td>00:42</td>
               <td>5.2km</td>
             </tr>
-                      <tr>
+            <tr>
               <th scope="row">Run</th>
               <td>09/11/2022</td>
               <td>00:42</td>
               <td>5.7km</td>
             </tr>
-                      <tr>
+            <tr>
               <th scope="row">Run</th>
               <td>07/11/2022</td>
               <td>00:42</td>
               <td>5.75km</td>
             </tr>
           </tbody>
-
         </table>
       </div>
     </div>
