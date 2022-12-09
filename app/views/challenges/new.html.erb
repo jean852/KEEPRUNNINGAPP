@@ -28,12 +28,16 @@
         <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }, hint: "When would like to start"%>
         <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
         <%= f.input :target_distance, input_html: {class:"form_input"} %>
+        <div class="step2">
         <div data-action="click->step#to_step3", class="btn btn-primary">Continue</div>
+      </div>
       </div>
 
       <div class="d-none" data-step-target="step3">
         <%= f.input :bet_amount, input_html: {class:"form_input"}%>
+        <div class="step2">
         <%= f.button :submit, class: "btn btn-primary"  %>
+        </div>
       </div>
     </div>
   <% end %>
