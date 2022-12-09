@@ -18,6 +18,7 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
+    @challenge.status = "PENDIDNG"
 
     if @challenge.save
       redirect_to challenge_path(@challenge) # TODO: redirect to payment
@@ -50,6 +51,6 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :status)
+    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :bet_amount)
   end
 end

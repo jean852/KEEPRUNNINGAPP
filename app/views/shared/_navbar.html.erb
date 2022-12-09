@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-sticky-top navbar-lewagon">
   <div class=" container-fluid">
     <%= link_to user_root_path, class: "navbar-brand" do %>
       <%= image_tag "keeprunninglogo.png" %>
@@ -31,7 +31,7 @@
             <%= link_to "🚀 New Challenge", new_challenge_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "🥇 Leaderboard", "#", class: "nav-link" %>
+            <%= link_to "🥇 Leaderboard", leaderboard_path, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
