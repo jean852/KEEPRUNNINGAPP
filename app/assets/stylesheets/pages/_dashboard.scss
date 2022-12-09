@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  padding: 20px 0;
 
   .scroll-card {
     flex: 0 0 auto;
@@ -9,9 +10,13 @@
     aspect-ratio: 6 / 3;
     margin-left: 20px;
     background-color: white;
-    border: 2px solid $kryellow;
+    // border: 2px solid $kryellow;
     border-radius: 10px;
   }
+}
+
+.scroll-card {
+  border-radius: 10px;
 }
 
 .scrolling-wrapper {
