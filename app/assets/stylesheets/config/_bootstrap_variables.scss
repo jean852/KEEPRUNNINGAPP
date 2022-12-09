@@ -35,3 +35,7 @@ $krorange: #FC4C02 ;
 .nav-link {
   color: $krwhite !important;
 }
+
+.nav-link.active {
+  color: $krgreen !important;
+}
