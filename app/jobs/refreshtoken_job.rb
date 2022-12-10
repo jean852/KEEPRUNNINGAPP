@@ -5,8 +5,8 @@ class RefreshtokenJob < ApplicationJob
     # Do something later
     puts "I'm starting the job for user: #{user.profile.first_name}"
     oauth_client ||= Strava::OAuth::Client.new(
-      client_id: ENV.fetch('STRAVA_CLIENT_ID', nil),
-      client_secret: ENV.fetch('STRAVA_CLIENT_SECRET', nil)
+      client_id: Rails.application.credentials.dig(:strava, :strava_client_id),
+      client_secret: Rails.application.credentials.dig(:strava, :strava_client_secret)
     )
 
     if user.sl_access_token.expires_at && Time.now + 1.hour < user.sl_access_token.expires_at
