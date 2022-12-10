@@ -5,4 +5,5 @@ task refresh_token: :environment do
   users.each do |user|
     RefreshtokenJob.perform_later(user)
   end
+  puts "Refreshed short-lived access token for all users"
 end
