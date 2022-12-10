@@ -3,3 +3,7 @@ require_relative "application"
 
 # Initialize the Rails application.
 Rails.application.initialize!
+
+
+# Initialise Redis
+config.gem 'redis'
