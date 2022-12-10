@@ -277,7 +277,7 @@ Devise.setup do |config|
   # ENV['STRAVA_CLIENT_SECRET'], scope:'read_all'
 
   config.omniauth :strava, Rails.application.credentials.dig(:strava, :strava_client_id),
-  Rails.application.credentials.dig(:strava, :strava_client_secret), scope:'read_all'
+  Rails.application.credentials.dig(:strava, :strava_client_secret), scope:'read_all,activity:read_all'
 
 
 
