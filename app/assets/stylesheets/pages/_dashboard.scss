@@ -151,3 +151,68 @@
   text-decoration: none !important;
   color: #222222;
 }
+
+
+
+
+// CARD FOR FIRST CHALLENGE
+
+.new-challenge-card {
+  border-radius: 10px;
+  background-color: aquamarine;
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  margin: 0px 20px;
+}
+
+
+._card{
+  padding:1.5em;
+  border: none;
+  transition: all 0.5s ease-in-out;
+  &:hover{
+    transform:translateZ(1000px);
+  }
+  background: linear-gradient(to bottom right, $kryellow, $krgreen);
+  ._card-icon{
+    display:flex;
+    color:$krblack;
+    justify-content:center;
+    align-items:center;
+    padding:0.2em;
+    font-size:100px;
+  }
+  ._card-body{
+    padding-bottom:1em;
+    align-items: center;
+    ._card-heading{
+      font-size:1.6em;
+      font-weight:bold;
+      font-family:sans-serif;
+      color:$krblack;
+      opacity:1;
+    }
+    ._card-text{
+      display:block;
+      color: $krblack;
+      opacity:1;
+      text-align:center;
+    }
+    ._card-input{
+      margin-top:15px;
+      background:none;
+      margin-bottom:17px;
+      font-size:1em;
+      color:snow;
+    }
+    ._card-button{
+      color:snow;
+      font-family:sans-serif;
+      font-weight:200;
+      font-size:0.9em;
+      &:hover{
+        color:black;
+      }
+    }
+  }
+}

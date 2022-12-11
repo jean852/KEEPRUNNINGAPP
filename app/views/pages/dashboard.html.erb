@@ -12,37 +12,53 @@
 
 
 <div class="scrolling-wrapper mt-3">
-
-  <% @challenges.each do |c| %>
-
-    <%= link_to challenge_path(c.id), class: "link" do %>
-      <div class="scroll-card shadow">
-        <div class="scroll-card-title p-1">
-          <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= c.id %></h6>
-        </div>
-        <div class="scroll-card-info">
-          <p>Running <%= c.target_distance %>km from <%= c.start_date.strftime("%b %d, %Y") %> to <%= c.end_date.strftime("%b %d, %Y") %></p>
-          <div class="challenge-details mt-3">
-            <div class="challenge-detail-block pl-2 text-left">
-              <p class="mb-2">Status: <span class="badge"><%= c.status %></span></p>
-              <p class="mb-2">Progress: <span class="badge">Late</span></p>
-              <p class="mb-2">Distance left: 60km</p>
-            </div>
-            <div class="progress-block challenge-detail-block">
-              <p style="text-align: left;">Progress</p>
-              <div class="progress mb-2">
-                <div class="progress-bar bg-green" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
+  <% if @challenges.count > 1 %>
+  <%# IF MULTIPLE CHALLENGES %>
+    <% @challenges.each do |c| %>
+      <%= link_to challenge_path(c.id), class: "link" do %>
+        <div class="scroll-card shadow">
+          <div class="scroll-card-title p-1">
+            <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= c.id %></h6>
+          </div>
+          <div class="scroll-card-info">
+            <p>Running <%= c.target_distance %>km from <%= c.start_date.strftime("%b %d, %Y") %> to <%= c.end_date.strftime("%b %d, %Y") %></p>
+            <div class="challenge-details mt-3">
+              <div class="challenge-detail-block pl-2 text-left">
+                <p class="mb-2">Status: <span class="badge"><%= c.status %></span></p>
+                <p class="mb-2">Progress: <span class="badge">Late</span></p>
+                <p class="mb-2">Distance left: 60km</p>
               </div>
-              <p style="text-align: left;">Distance</p>
-              <div class="progress ">
-                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+              <div class="progress-block challenge-detail-block">
+                <p style="text-align: left;">Progress</p>
+                <div class="progress mb-2">
+                  <div class="progress-bar bg-green" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
+                </div>
+                <p style="text-align: left;">Distance</p>
+                <div class="progress ">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       <% end %>
+    <% end %>
+  <% elsif @challenges.count == 1%>
+  <%# IF ONLY ONE CHALLENGE %>
 
+  <% else %>
+  <%# IF NO CHALLENGES CREATED YET %>
+    <%# <div class="new-challenge-card">
+      <h6>Hey create a new challenge</h6>
+    </div> %>
+    <div class="_card card shadow h-100">
+    <div class="_card-body">
+      <h4 class="text-center _card-heading">No active challenge yet? </h4>
+      <span class="mb-4 _card-text text-center">
+      It's time to build a new habit! Create a challenge, deposit a bet and we will make sure you stick to it!</span>
+      <%= link_to "Create a new challenge now!",new_challenge_path, class: "btn _card-button btn-outline-light btn-block" %>
+    </div>
+  </div>
 
   <% end %>
 
@@ -51,7 +67,7 @@
 
 </div>
 
-<div class="d-flex justify-content-between mt-5">
+<div class="d-flex justify-content-between mt-2">
   <div class="latest-activities-card">
     <h6>Your latest activities:</h6>
 
