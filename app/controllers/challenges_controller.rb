@@ -18,7 +18,7 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
-    @challenge.status = "PENDIDNG"
+    @challenge.status = "PENDING"
 
     if @challenge.save
       redirect_to challenge_path(@challenge) # TODO: redirect to payment

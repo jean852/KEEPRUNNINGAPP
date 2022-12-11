@@ -39,3 +39,11 @@ $krorange: #FC4C02 ;
 .nav-link.active {
   color: $krgreen !important;
 }
+
+
+h1, h2 {
+  letter-spacing: -0.1rem;
+  h1 {
+    font-weight: 900;
+  }
+}

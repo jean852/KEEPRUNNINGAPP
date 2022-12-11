@@ -13,6 +13,18 @@
     // border: 2px solid $kryellow;
     border-radius: 10px;
   }
+
+  .scroll-card-full {
+    // flex: 0 0 auto;
+    width: 100% !important;
+    aspect-ratio: 7 / 3;
+    margin-left: 20px;
+    margin-right: 20px;
+    // margin-right: 20px;
+    background-color: white;
+    // border: 2px solid $kryellow;
+    border-radius: 10px;
+  }
 }
 
 .scroll-card {
@@ -189,6 +201,7 @@
       font-size:1.6em;
       font-weight:bold;
       font-family:sans-serif;
+      letter-spacing: -8%;
       color:$krblack;
       opacity:1;
     }
@@ -208,7 +221,8 @@
     ._card-button{
       color:snow;
       font-family:sans-serif;
-      font-weight:200;
+      font-weight:500;
+      letter-spacing: -8%;
       font-size:0.9em;
       &:hover{
         color:black;
