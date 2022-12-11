@@ -4,7 +4,7 @@
     <h6>challenges</h6>
   </div>
   <div class="kilometer-card">
-    <h1 class="mt-3 text-center">125 km</h1>
+    <h1 class="mt-3 text-center"><%= @last_month_distance_m / 1000.00%> km</h1>
     <h6 class="text-center">last 30 days</h6>
   </div>
 
@@ -98,65 +98,30 @@
 
 <div class="d-flex justify-content-between mt-2">
   <div class="latest-activities-card">
-    <h6>Your latest activities:</h6>
+    <h6>Your 5 latest activities:</h6>
 
     <div style="overflow:scroll; height:200px;">
 
       <table class="table border-success">
-        <thead>
-          <tr>
-            <th scope="col">Type</th>
-            <th scope="col">Date</th>
-            <th scope="col">Duration</th>
-            <th scope="col">Distance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Run</th>
-            <td>22/11/2022</td>
-            <td>00:42</td>
-            <td>5.4km</td>
-          </tr>
-          <tr>
-            <th scope="row">Run</th>
-            <td>16/11/2022</td>
-            <td>00:42</td>
-            <td>5.6km</td>
-          </tr>
-          <tr>
-            <th scope="row">Run</th>
-            <td>14/11/2022</td>
-            <td>00:42</td>
-            <td>5.4km</td>
-          </tr>
-                    <tr>
-            <th scope="row">Run</th>
-            <td>12/11/2022</td>
-            <td>00:42</td>
-            <td>5.21km</td>
-          </tr>
-                    <tr>
-            <th scope="row">Run</th>
-            <td>10/11/2022</td>
-            <td>00:42</td>
-            <td>5.2km</td>
-          </tr>
-                    <tr>
-            <th scope="row">Run</th>
-            <td>09/11/2022</td>
-            <td>00:42</td>
-            <td>5.7km</td>
-          </tr>
-                    <tr>
-            <th scope="row">Run</th>
-            <td>07/11/2022</td>
-            <td>00:42</td>
-            <td>5.75km</td>
-          </tr>
-        </tbody>
-
-      </table>
+            <thead>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Date</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Distance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @top5.each do |a|%>
+                <tr>
+                  <th scope="row"><%= a.activity_type %></th>
+                  <td><%= a.start_date %></td>
+                  <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
+                  <td><%= a.distance / 1000.0 %>km</td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
     </div>
 
 
