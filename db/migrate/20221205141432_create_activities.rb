@@ -7,7 +7,7 @@ class CreateActivities < ActiveRecord::Migration[7.0]
       t.integer :distance
       t.integer :moving_time
       t.integer :elapsed_time
-      t.string :type
+      t.string :activity_type
       t.date :start_date
       t.float :average_speed
 
