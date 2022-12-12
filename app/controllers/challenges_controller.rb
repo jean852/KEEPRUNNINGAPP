@@ -21,16 +21,24 @@ class ChallengesController < ApplicationController
     @challenge.status = "PENDING"
 
     if @challenge.save
-      redirect_to challenge_path(@challenge) # TODO: redirect to payment
+      if @challenge.price_cents.zero?
+        redirect_to challenge_path(@challenge)
+      else
+        redirect_to orders_path(challenge_id: @challenge.id)
+      end
     else
       render :new # TODO: redirect to correct step
     end
     authorize @challenge
   end
 
+
+
   def edit
     authorize @challenge
   end
+
+
 
   # TODO: maybe switch this method to only update status
   def update
@@ -51,6 +59,6 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :bet_amount)
+    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :price_cents)
   end
 end
