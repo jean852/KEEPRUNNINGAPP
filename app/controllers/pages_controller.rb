@@ -49,5 +49,6 @@ class PagesController < ApplicationController
         res.sendStatus(403)
       end
     end
+    puts "Finished def Webhook"
   end
 end
