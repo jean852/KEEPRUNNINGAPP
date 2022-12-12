@@ -11,6 +11,4 @@ class RefreshToken < ApplicationRecord
     end
   end
 
-  def destroy
-  end
 end
