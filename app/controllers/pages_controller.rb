@@ -9,12 +9,13 @@ class PagesController < ApplicationController
   def dashboard
     @challenges = Challenge.where('user_id = ?', current_user.id)
     @activities = Activity.where('user_id = ?', current_user.id)
+    @activities.sort_by(&:start_date)
     @top5 = []
-    @top5 << @activities.first
-    @top5 << @activities.second
-    @top5 << @activities.third
-    @top5 << @activities.fourth
-    @top5 << @activities.fifth
+    @top5 << @activities.first unless @activities.first.nil?
+    @top5 << @activities.second unless @activities.second.nil?
+    @top5 << @activities.third unless @activities.third.nil?
+    @top5 << @activities.fourth unless @activities.fourth.nil?
+    @top5 << @activities.fifth unless @activities.fifth.nil?
 
     now = Date.today
     thirty_days_ago = (now - 30)
