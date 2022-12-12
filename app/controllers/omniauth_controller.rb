@@ -34,7 +34,7 @@ class OmniauthController < Devise::OmniauthCallbacksController
       newshortlivedaccesstoken.save!
 
       # load activites
-      GetUserActivitiesJob.perform_now(@user)
+      GetUserActivitiesJob.perform_later(@user)
 
       sign_in_and_redirect @user
       set_flash_message(:notice, :success, kind: 'Strava') if is_navigational_format?
