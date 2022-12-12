@@ -72,6 +72,9 @@ gem "pundit"
 # instal Redis
 gem 'redis'
 
+#install stripe
+gem 'money-rails'
+gem 'stripe'
 
 
 
