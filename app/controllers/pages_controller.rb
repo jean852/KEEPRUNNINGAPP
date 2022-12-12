@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home,:webhook,:handle_activities]
+  skip_before_action :verify_authenticity_token
 
   def home
 
@@ -30,25 +31,46 @@ class PagesController < ApplicationController
     @profiles = Profile.all
   end
 
-  def webhook(req,res)
+  def webhook
     # Your verify token. Should be a random string.
-    VERIFY_TOKEN = "STRAVA"
-    # Parses the query params
-    @mode = req.query['hub.mode']
-    @token = req.query['hub.verify_token']
-    @challenge = req.query['hub.challenge']
-    # Checks if a token and mode is in the query string of the request
-    if (@mode && @token)
-      # Verifies that the mode and token sent are valid
-      if (@mode == 'subscribe' && @token == VERIFY_TOKEN)
-        # Responds with the challenge token from the request
-        puts ('WEBHOOK_VERIFIED')
-        res.json({"hub.challenge":challenge})
-      else
-        # Responds with '403 Forbidden' if verify tokens do not match
-        res.sendStatus(403)
-      end
-    end
+    # VERIFY_TOKEN = "STRAVA"
     puts "Finished def Webhook"
+    render json: {"hub.mode": "subscribe", "hub.challenge": params["hub.challenge"], "hub.verify_token": "STRAVA"}
+    # Parses the query params
+  end
+
+  def handle_activities
+  puts "Can go before put param"
+
+  puts params
+  newactivity = Activity.new
+  puts "Can go after put param"
+  puts newactivity
+  newactivity.strava_id =  params["object_id"]
+  newactivity.user_id =params["owner_id"]
+  puts newactivity.strava_id
+  puts newactivity.user_id
+  puts "checked 2 first params"
+
+  newactivity.name = "hello"
+  newactivity.distance = 3
+  newactivity.moving_time = 123
+  newactivity.elapsed_time = 333
+  #newactivity.activity_type = "run hello"
+  newactivity.start_date = "01/01/2022"
+  newactivity.average_speed = 123
+
+  newactivity.save!
+
   end
 end
+
+# GET https://mycallbackurl.com?hub.verify_token=STRAVA&hub.challenge=15f7d1a91c1f40f8a748fd134752feb3&hub.mode=subscribe
+      # t.references :user, null: false, foreign_key: true
+      # t.string :name
+      # t.integer :distance
+      # t.integer :moving_time
+      # t.integer :elapsed_time
+      # t.string :activity_type
+      # t.date :start_date
+      # t.float :average_speed

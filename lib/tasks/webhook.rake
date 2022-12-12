@@ -9,15 +9,15 @@ namespace :webhook do
       [
         [
           'client_id',
-          Rails.application.credentials.dig(:strava, :strava_client_id)
+          '98174'
         ],
         [
           'client_secret',
-          Rails.application.credentials.dig(:strava, :strava_client_secret)
+          '272a8d719e6b21b1784d85e9d9d963387e067672'
         ],
         [
           'callback_url',
-          'https://www.keeprunning.app/webhook'
+          'https://7f51-2a01-cb19-a2e-bf00-7c61-97b9-8b5-40d1.eu.ngrok.io/webhook'
         ],
         [
           'verify_token',
@@ -47,3 +47,11 @@ namespace :webhook do
     puts "Rake finished..."
 
 end
+
+# curl -G https://www.strava.com/api/v3/push_subscriptions \
+#     -d client_id=98174 \
+#     -d client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
+
+# curl -X DELETE https://www.strava.com/api/v3/push_subscriptions/231112 \
+#     -F client_id=98174 \
+#     -F client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
