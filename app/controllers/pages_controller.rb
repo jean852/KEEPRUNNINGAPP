@@ -30,7 +30,24 @@ class PagesController < ApplicationController
     @profiles = Profile.all
   end
 
-  def webhook
-    puts "From webhook"
+  def webhook(req,res)
+    # Your verify token. Should be a random string.
+    VERIFY_TOKEN = "STRAVA"
+    # Parses the query params
+    @mode = req.query['hub.mode']
+    @token = req.query['hub.verify_token']
+    @challenge = req.query['hub.challenge']
+    # Checks if a token and mode is in the query string of the request
+    if (@mode && @token)
+      # Verifies that the mode and token sent are valid
+      if (@mode == 'subscribe' && @token == VERIFY_TOKEN)
+        # Responds with the challenge token from the request
+        puts ('WEBHOOK_VERIFIED')
+        res.json({"hub.challenge":challenge})
+      else
+        # Responds with '403 Forbidden' if verify tokens do not match
+        res.sendStatus(403)
+      end
+    end
   end
 end
