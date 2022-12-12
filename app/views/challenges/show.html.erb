@@ -98,3 +98,10 @@
     </div>
   </div>
 </div>
+
+
+
+<%= form_with url: orders_path do %>
+  <%= hidden_field_tag 'challenge_id', @challenge.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>

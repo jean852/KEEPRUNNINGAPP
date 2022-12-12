@@ -73,8 +73,9 @@ gem "pundit"
 gem 'redis'
 
 #install stripe
-gem 'money-rails'
-gem 'stripe'
+gem 'money-rails', '~>1.12'
+gem 'stripe', '~> 8.0'
+gem 'stripe_event'
 
 
 
