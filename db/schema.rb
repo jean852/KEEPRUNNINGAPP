@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_133919) do
     t.integer "distance"
     t.integer "moving_time"
     t.integer "elapsed_time"
-    t.string "type"
+    t.string "activity_type"
     t.date "start_date"
     t.float "average_speed"
     t.datetime "created_at", null: false
