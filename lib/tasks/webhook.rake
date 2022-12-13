@@ -9,15 +9,15 @@ namespace :webhook do
       [
         [
           'client_id',
-          98174
+          '98174'
         ],
         [
           'client_secret',
-          ccc937bb2bfc0f1f4a4f33ded9dd211e41270f1e
+          'ccc937bb2bfc0f1f4a4f33ded9dd211e41270f1e'
         ],
         [
           'callback_url',
-          'https://7f51-2a01-cb19-a2e-bf00-7c61-97b9-8b5-40d1.eu.ngrok.io/webhook'
+          'https://5db6-2a01-cb19-a2e-bf00-2059-2875-25d8-898e.eu.ngrok.io/webhook'
         ],
         [
           'verify_token',
