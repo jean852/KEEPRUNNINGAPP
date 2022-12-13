@@ -24,6 +24,9 @@ class PagesController < ApplicationController
     @lastmonthactivities.each do |a|
       @last_month_distance_m += a.distance
     end
+
+
+    # @challenge.all_activities_km
   end
 
   def leaderboard

@@ -18,7 +18,7 @@
       <%= link_to challenge_path(c.id), class: "link" do %>
         <div class="scroll-card shadow">
           <div class="scroll-card-title p-1">
-            <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= c.id %></h6>
+            <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= c.id %> // hello <%= c.all_activities_km%></h6>
           </div>
           <div class="scroll-card-info">
             <p><%= c.activity_type.capitalize %> <%= c.target_distance %>km from <%= c.start_date.strftime("%b %d, %Y") %> to <%= c.end_date.strftime("%b %d, %Y") %></p>
@@ -52,7 +52,7 @@
         <div class="scroll-card-full shadow">
           <%= link_to challenge_path(c.id), class: "link" do %>
           <div class="scroll-card-title p-1">
-            <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= c.id %></h6>
+            <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= c.id %> // hello <%= c.all_activities_km%></h6>
           </div>
           <div class="scroll-card-info">
             <p>Running <%= c.target_distance %>km from <%= c.start_date.strftime("%b %d, %Y") %> to <%= c.end_date.strftime("%b %d, %Y") %></p>
