@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
   def webhook
     puts "Finished def Webhook"
-    render json: { 'hub.mode': 'subscribe', 'hub.challenge': params['hub.challenge'], 'hub.verify_token': 'STRAVA' }
+    render json: {"hub.mode": 'subscribe', "hub.challenge": params['hub.challenge'], "hub.verify_token": 'STRAVA' }
   end
 
   def handle_activities
