@@ -85,7 +85,16 @@
   }
 }
 
+.leaderboard-scrolling {
+  overflow:scroll; height:350px;
+  // scrollbar hide
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
 
+.leaderboard-scrolling::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
 
 
 // TEXT GRADIENT PART
@@ -157,3 +166,13 @@
         background-size: 650%;
     }
 }
+
+// Hide scrollbar
+
+// .container {
+//   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+//   scrollbar-width: none;  /* Firefox */
+// }
+// .container::-webkit-scrollbar {
+//   display: none;  /* Safari and Chrome */
+// }
