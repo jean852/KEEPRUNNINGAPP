@@ -9,15 +9,15 @@ namespace :webhook do
   [
     [
       'client_id',
-      'ENV['STRAVA_CLIENT_ID']'
+      ENV['STRAVA_CLIENT_ID']
     ],
     [
       'client_secret',
-      'ENV['STRAVA_CLIENT_SECRET']'
+      ENV['STRAVA_CLIENT_SECRET']
     ],
     [
       'callback_url',
-      'ENV['STRAVA_CALLBACK_URL']'
+      ENV['STRAVA_CALLBACK_URL']
     ],
     [
       'verify_token',
@@ -52,15 +52,15 @@ end
 # ENV['STRAVA_CLIENT_SECRET']
 # ENV['STRAVA_CALLBACK_URL']
 # curl -G https://www.strava.com/api/v3/push_subscriptions \
-#     -d client_id=98174 \
-#     -d client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
+#      -d client_id=98174 \
+#      -d client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
 
-# curl -X DELETE https://www.strava.com/api/v3/push_subscriptions/231192 \
-#     -F client_id=98174 \
-#     -F client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
+# curl -X DELETE https://www.strava.com/api/v3/push_subscriptions/231193 \
+#      -F client_id=98174 \
+#      -F client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
 
-# curl -X POST https://www.strava.com/api/v3/push_subscriptions \
-#       -F client_id=98174 \
-#       -F client_secret=272a8d719e6b21b1784d85e9d9d963387e067672 \
-#       -F callback_url=https://5db6-2a01-cb19-a2e-bf00-2059-2875-25d8-898e.eu.ngrok.io/webhook \
-#       -F verify_token=STRAVA
+#  curl -X POST https://www.strava.com/api/v3/push_subscriptions \
+#        -F client_id=97925 \
+#        -F client_secret=16aabbc6e337c4c839bd7f38116e793e98b7fb4d \
+#        -F callback_url=https://www.keeprunning.app/webhook \
+#        -F verify_token=STRAVA
