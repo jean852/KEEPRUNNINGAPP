@@ -34,6 +34,4 @@ class PagesController < ApplicationController
     puts "From webhook"
   end
 
-
-
 end
