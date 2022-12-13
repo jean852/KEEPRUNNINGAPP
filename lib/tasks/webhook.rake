@@ -9,11 +9,11 @@ namespace :webhook do
       [
         [
           'client_id',
-          '98174'
+          98174
         ],
         [
           'client_secret',
-          'ccc937bb2bfc0f1f4a4f33ded9dd211e41270f1e'
+          '272a8d719e6b21b1784d85e9d9d963387e067672'
         ],
         [
           'callback_url',
