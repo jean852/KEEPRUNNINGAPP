@@ -6,7 +6,7 @@
     </div>
 
     <div class="scroll-card-info ">
-      <p>Running 185km from 01/10/2022 to 31/12/2022</p>
+      <p><%= @challenge.activity_type.capitalize %> <%= @challenge.target_distance %>km from <%= @challenge.start_date.strftime("%b %d, %Y") %> to <%= @challenge.end_date.strftime("%b %d, %Y") %></p>
 
       <div class="challenge-details mt-3">
 
@@ -22,9 +22,11 @@
         </div>
 
         <div class="progress-block challenge-detail-block">
+          <% a = 0 %>
+          <% a = number_to_percentage((Date.today - @challenge.start_date).fdiv(@challenge.end_date - @challenge.start_date)*100,precision: 2) if Date.today >= @challenge.start_date%>
           <p style="text-align: left;">Progress</p>
           <div class="progress mb-2">
-            <div class="progress-bar bg-green" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
+            <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= a %></div>
           </div>
           <p style="text-align: left;">Distance</p>
           <div class="progress ">

@@ -22,9 +22,8 @@ class PagesController < ApplicationController
     @lastmonthactivities = Activity.where('user_id = ? AND start_date > ?', current_user.id, thirty_days_ago)
     @last_month_distance_m = 0
     @lastmonthactivities.each do |a|
-    @last_month_distance_m += a.distance
+      @last_month_distance_m += a.distance
     end
-
   end
 
   def leaderboard
@@ -34,4 +33,7 @@ class PagesController < ApplicationController
   def webhook
     puts "From webhook"
   end
+
+
+
 end
