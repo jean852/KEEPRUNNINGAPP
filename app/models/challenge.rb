@@ -8,7 +8,7 @@ class Challenge < ApplicationRecord
 
   def all_activities_km
     distance = 0
-    self.Activities.where('date_start > ? AND date_start < ? AND user_id = ?', start_date, start_date, user_id) do |a|
+    Activity.where('date_start > ? AND date_start < ? AND user_id = ?', start_date, start_date, user_id) do |a|
       distance += a.distance
     end
     puts distance
