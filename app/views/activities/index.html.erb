@@ -33,7 +33,7 @@
               <% @allactivities.each do |a|%>
                 <tr>
                   <th scope="row"><%= a.activity_type %></th>
-                  <td><%= a.start_date %></td>
+                  <td><%= a.start_date.strftime("%b %d, %Y") %></td>
                   <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
                   <td><%= a.distance / 1000.0 %>km</td>
                   <td><%= link_to "🔗", "https://www.strava.com/activities/#{a.strava_id}", class:"navlink" %></td>
@@ -57,7 +57,7 @@
             <tbody>
               <% @runningactivities.each do |a|%>
                 <tr>
-                  <td><%= a.start_date %></td>
+                  <td><%= a.start_date.strftime("%b %d, %Y") %></td>
                   <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
                   <td><%= a.distance / 1000.0 %>km</td>
                   <td><%= link_to "🔗", "https://www.strava.com/activities/#{a.strava_id}", class:"navlink" %></td>
@@ -81,7 +81,7 @@
             <tbody>
               <% @ridingactivities.each do |a|%>
                 <tr>
-                  <td><%= a.start_date %></td>
+                  <td><%= a.start_date.strftime("%b %d, %Y") %></td>
                   <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
                   <td><%= a.distance / 1000.0 %>km</td>
                   <td><%= link_to "🔗", "https://www.strava.com/activities/#{a.strava_id}" %></td>
