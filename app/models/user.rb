@@ -8,12 +8,11 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_one :refresh_token, dependent: :destroy
   has_one :sl_access_token, dependent: :destroy
-  has_one :activity, dependent: :destroy
-  has_one :challenge, dependent: :destroy
 
-  has_many :activities
-  has_many :challenges
-  has_many :orders
+  has_many :challenges, dependent: :destroy
+  has_many :activities, dependent: :destroy
+  has_many :orders, dependent: :destroy
+
 
   def self.create_from_provider_data(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
