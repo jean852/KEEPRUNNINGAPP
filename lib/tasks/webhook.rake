@@ -9,11 +9,11 @@ namespace :webhook do
       [
         [
           'client_id',
-          '98174'
+          98174
         ],
         [
           'client_secret',
-          '272a8d719e6b21b1784d85e9d9d963387e067672'
+          ccc937bb2bfc0f1f4a4f33ded9dd211e41270f1e
         ],
         [
           'callback_url',
@@ -37,19 +37,17 @@ namespace :webhook do
 
     case res
     when Net::HTTPSuccess, Net::HTTPRedirection
-      puts "sucessfully created subscription..."
+      # OK
+    puts "sucessfully created subscription..."
 
     else
       res.value
     end
   end
     puts "Rake finished..."
+
 end
 
-# curl -G https://www.strava.com/api/v3/push_subscriptions \
-#     -d client_id=98174 \
-#     -d client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
-
-# curl -X DELETE https://www.strava.com/api/v3/push_subscriptions/231112 \
-#     -F client_id=98174 \
-#     -F client_secret=272a8d719e6b21b1784d85e9d9d963387e067672
+# ENV['STRAVA_CLIENT_ID']
+# ENV['STRAVA_CLIENT_SECRET']
+# ENV['STRAVA_CALLBACK_URL']

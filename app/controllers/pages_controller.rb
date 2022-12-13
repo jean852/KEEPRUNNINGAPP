@@ -33,6 +33,7 @@ class PagesController < ApplicationController
   end
 
   def handle_activities
+    puts params
     userwh = User.find_by athlete_id: params["owner_id"]
 
     slaccesstoken = SlAccessToken.find_by user_id: userwh.id
@@ -43,9 +44,9 @@ class PagesController < ApplicationController
     )
 
     puts "this is the activity id #{params['object_id']}"
-    puts params["object_id"]
-    puts params["aspect_type"]
-    puts params["object_type"]
+    puts params['object_id']
+    puts params['aspect_type']
+    puts params['object_type']
 
     if params["aspect_type"] == "create" && params["object_type"] == "activity"
       puts "create loop"
