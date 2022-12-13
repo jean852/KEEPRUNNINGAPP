@@ -9,3 +9,15 @@
 // #cycling-tab {
 //   color: $krorange !important;
 // }
+
+.activities-scrolling {
+  overflow:scroll;
+  height:500px;
+  // scrollbar hide
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.activities-scrolling::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
