@@ -37,15 +37,13 @@ namespace :webhook do
 
     case res
     when Net::HTTPSuccess, Net::HTTPRedirection
-      # OK
-    puts "sucessfully created subscription..."
+      puts "sucessfully created subscription..."
 
     else
       res.value
     end
   end
     puts "Rake finished..."
-
 end
 
 # curl -G https://www.strava.com/api/v3/push_subscriptions \
