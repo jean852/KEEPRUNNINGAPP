@@ -24,21 +24,22 @@
             <p><%= c.activity_type.capitalize %> <%= c.target_distance %>km from <%= c.start_date.strftime("%b %d, %Y") %> to <%= c.end_date.strftime("%b %d, %Y") %></p>
             <div class="challenge-details mt-3">
               <div class="challenge-detail-block pl-2 text-left">
-                <p class="mb-2">Status: <span class="badge"><%= c.status %></span></p>
+                <p class="mb-2">Status: <span class="badge"><%= c.status.capitalize %></span></p>
                 <p class="mb-2">Progress: <span class="badge">Late</span></p>
-                <p class="mb-2">Distance left: 60km</p>
+                <p class="mb-2">Distance left: <%= c.target_distance - c.all_activities_km %></p>
               </div>
               <div class="progress-block challenge-detail-block">
-                <p style="text-align: left;">Progress</p>
+                <p style="text-align: left;">Elapsed time</p>
                 <div class="progress mb-2">
                   <% a = 0 %>
                   <% a = number_to_percentage((Date.today - c.start_date).fdiv(c.end_date - c.start_date)*100,precision: 2) if Date.today >= c.start_date%>
                   <% a %>
                   <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= a %></div>
                 </div>
-                <p style="text-align: left;">Distance</p>
+                <p style="text-align: left;">Distance achieved</p>
+                <% distance_progress = number_to_percentage((c.all_activities_km / c.target_distance)*100, precision: 2) %>
                 <div class="progress ">
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  <div class="progress-bar bg-green" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= distance_progress %></div>
                 </div>
               </div>
             </div>
@@ -58,18 +59,22 @@
             <p>Running <%= c.target_distance %>km from <%= c.start_date.strftime("%b %d, %Y") %> to <%= c.end_date.strftime("%b %d, %Y") %></p>
             <div class="challenge-details mt-3">
               <div class="challenge-detail-block pl-2 text-left">
-                <p class="mb-2">Status: <span class="badge"><%= c.status %></span></p>
-                <p class="mb-2">Progress: <span class="badge">Late</span></p>
-                <p class="mb-2">Distance left: 60km</p>
+                <p class="mb-2">Status: <span class="badge"><%= c.status.capitalize %></span></p>
+                <p class="mb-2">Progress: <span class="badge"><%= c.progress_text %></span></p>
+                <p class="mb-2">Distance left: <%= c.target_distance - c.all_activities_km %>km</p>
               </div>
               <div class="progress-block challenge-detail-block">
-                <p style="text-align: left;">Progress</p>
+                <p style="text-align: left;">Elapsed time</p>
                 <div class="progress mb-2">
-                  <div class="progress-bar bg-green" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
+                  <% a = 0 %>
+                  <% a = number_to_percentage((Date.today - c.start_date).fdiv(c.end_date - c.start_date)*100,precision: 2) if Date.today >= c.start_date%>
+                  <% a %>
+                  <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= a %></div>
                 </div>
-                <p style="text-align: left;">Distance</p>
+                <p style="text-align: left;">Distance achieved</p>
+                <% distance_progress = number_to_percentage((c.all_activities_km / c.target_distance)*100, precision: 2) %>
                 <div class="progress ">
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                  <div class="progress-bar bg-green" role="progressbar" style="width: <%= distance_progress %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= distance_progress %></div>
                 </div>
               </div>
             </div>
@@ -118,7 +123,7 @@
               <% @top5.each do |a|%>
                 <tr>
                   <th scope="row"><%= a.activity_type %></th>
-                  <td><%= a.start_date %></td>
+                  <td><%= a.start_date.strftime("%b %d, %Y") %></td>
                   <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
                   <td><%= a.distance / 1000.0 %>km</td>
                 </tr>
