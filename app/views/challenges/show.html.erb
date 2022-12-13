@@ -11,27 +11,28 @@
       <div class="challenge-details mt-3">
 
         <div class="challenge-detail-block pl-2 text-left">
-          <p class="mb-2">Challenge Type: <span class="badge"><%= @challenge.challenge_type %></span></p>
-          <p class="mb-2">Activity Type: <span class="badge"><%= @challenge.activity_type %></span></p>
-          <%# We will need to change Status below to @challenge.status once backend is finished %>
-          <p class="mb-2">Status: <span class="badge">Active</span></p>
-          <p class="mb-2">Progress: <span class="badge">Late</span></p>
-          <p class="mb-2">Distance left: 60km</p>
-          <p>Amount: <%= humanized_money_with_symbol(@challenge.price) %></p>
+          <p class="mb-2">Challenge Type: <span class="badge"><%= @challenge.challenge_type.capitalize %></span></p>
+          <p class="mb-2">Activity Type: <span class="badge"><%= @challenge.activity_type.capitalize %></span></p>
+          <p class="mb-2">Status: <span class="badge"><%= @challenge.status.capitalize %></span></p>
+
+          <p class="mb-2">Distance left: <%= @challenge.target_distance - @challenge.all_activities_km %>km</p>
+          <p>Amount : <%= humanized_money_with_symbol(@challenge.price_cents) %></p>
 
         </div>
 
         <div class="progress-block challenge-detail-block">
           <% a = 0 %>
           <% a = number_to_percentage((Date.today - @challenge.start_date).fdiv(@challenge.end_date - @challenge.start_date)*100,precision: 2) if Date.today >= @challenge.start_date%>
-          <p style="text-align: left;">Progress</p>
+          <p style="text-align: left;">Elapsed time</p>
           <div class="progress mb-2">
             <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= a %></div>
           </div>
-          <p style="text-align: left;">Distance</p>
+          <p style="text-align: left;">Distance achieved</p>
+          <% distance_progress = number_to_percentage((@challenge.all_activities_km / @challenge.target_distance)*100, precision: 2) %>
           <div class="progress ">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: <%= distance_progress %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= distance_progress %></div>
           </div>
+          <p class="mb-2 text-center bold mt-2"><%= @challenge.progress_text %></p>
         </div>
       </div>
     </div>
@@ -51,48 +52,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">Run</th>
-              <td>22/11/2022</td>
-              <td>00:42</td>
-              <td>5.4km</td>
-            </tr>
-            <tr>
-              <th scope="row">Run</th>
-              <td>1/11/2022</td>
-              <td>00:42</td>
-              <td>5.6km</td>
-            </tr>
-            <tr>
-              <th scope="row">Run</th>
-              <td>14/11/2022</td>
-              <td>00:42</td>
-              <td>5.4km</td>
-            </tr>
-            <tr>
-              <th scope="row">Run</th>
-              <td>12/11/2022</td>
-              <td>00:42</td>
-              <td>5.21km</td>
-            </tr>
-            <tr>
-              <th scope="row">Run</th>
-              <td>10/11/2022</td>
-              <td>00:42</td>
-              <td>5.2km</td>
-            </tr>
-            <tr>
-              <th scope="row">Run</th>
-              <td>09/11/2022</td>
-              <td>00:42</td>
-              <td>5.7km</td>
-            </tr>
-            <tr>
-              <th scope="row">Run</th>
-              <td>07/11/2022</td>
-              <td>00:42</td>
-              <td>5.75km</td>
-            </tr>
+            <% @challenge.all_activities.each do |a| %>
+              <tr>
+                <th scope="row"><%= a.activity_type %></th>
+                <td><%= a.start_date.strftime("%b %d, %Y") %></td>
+                <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
+                <td><%= a.distance / 1000.0 %>km</td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
