@@ -9,15 +9,15 @@ namespace :webhook do
   [
     [
       'client_id',
-      '98174'
+      'ENV['STRAVA_CLIENT_ID']'
     ],
     [
       'client_secret',
-      '272a8d719e6b21b1784d85e9d9d963387e067672'
+      'ENV['STRAVA_CLIENT_SECRET']'
     ],
     [
       'callback_url',
-      'https://5db6-2a01-cb19-a2e-bf00-2059-2875-25d8-898e.eu.ngrok.io/webhook'
+      'ENV['STRAVA_CALLBACK_URL']'
     ],
     [
       'verify_token',

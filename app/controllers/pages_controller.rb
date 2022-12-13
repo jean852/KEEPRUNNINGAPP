@@ -42,14 +42,10 @@ class PagesController < ApplicationController
     client = Strava::Api::Client.new(
       access_token: slaccesstoken.sl_access_token_code
     )
-
     puts "this is the activity id #{params['object_id']}"
-    puts params['object_id']
-    puts params['aspect_type']
-    puts params['object_type']
 
     if params["aspect_type"] == "create" && params["object_type"] == "activity"
-      puts "create loop"
+      puts "entering the create loop"
       # get the activity
       activity = client.activity(params["object_id"])
       # create new activity
@@ -65,7 +61,7 @@ class PagesController < ApplicationController
       newactivity.average_speed = activity.average_speed
       newactivity.save!
     elsif params["aspect_type"] == "delete" && params["object_type"] == "activity"
-      puts "delte loop"
+      puts "entering the delete loop"
       activity_to_delete = Activity.find_by strava_id: params["object_id"]
       activity_to_delete.destroy
       puts "Activity #{params['object_id']} has been destroyed"
