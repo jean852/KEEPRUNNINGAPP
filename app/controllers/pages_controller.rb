@@ -27,7 +27,9 @@ class PagesController < ApplicationController
   end
 
   def leaderboard
-    @profiles = Profile.all
+    @users = User.all
+    @users = @users.sort_by { |u| u.total_km_thirty_days }
+    @users_from_fourth = @users.drop(3)
   end
 
   def webhook
