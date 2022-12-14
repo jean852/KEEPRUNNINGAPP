@@ -27,7 +27,7 @@
           <div>
             <p class="supertitle-gradient text-center mt-3 mb-2">Select your <br> challenge type:</p>
           </div>
-          <div data-controller='challengetype' style="margin-bottom:12px;min-height:100%">
+          <div data-controller='challengetype' style="margin-bottom:8px;min-height:100%">
               <div class="text-center p-3 mt-3 mb-0" data-action="click->challengetype#km" style="border-radius:5px;border:2px solid #FEFF00;margin:15px 0">
                 <%# <h4><u>Challenge per distance:</u></h4> %>
                 <h4><strong>KM: total distance</strong></h4>
@@ -46,19 +46,19 @@
           </div>
 
           <div style="width:100%;">
-            <div data-action="click->step#to_step3", class="btn btn-primary mt-0" style="width:100%">Continue</div>
+            <div data-action="click->step#to_step3", class="btn btn-primary mt-3" style="width:100%">Continue</div>
           </div>
         </div>
         <%# 3) SELECT CHALLENGE PARAMETERS %>
-        <div data-step-target="step3" class="d-none d-flex flex-column justify-content-between align-items-center" style="min-height:89vh">
-            <div class="flex-grow-1">
-                <h2>What distance do you target?</h2>
+        <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
+            <div class="text-center mt-5">
+                <h2 class="mt-5">What distance do you target?</h2>
                 <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
-                <h2>Over which period of time?</h2>
+                <h2 class="mt-5">Over which period of time?</h2>
                 <%= f.input :start_date, as: :string,  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
                 <%= f.input :end_date, as: :string, label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
             </div>
-            <div style="width:100%;margin-bottom:20px;bottom:20px">
+            <div style="width:100%;margin-top:160px;top:160px;margin-bottom:20px;bottom:20px">
               <div data-action="click->step#to_step4", class="btn btn-primary" style="width:100%">Continue</div>
             </div>
         </div>
