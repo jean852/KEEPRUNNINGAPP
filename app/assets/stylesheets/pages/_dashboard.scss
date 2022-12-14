@@ -230,3 +230,17 @@
     }
   }
 }
+
+// Scrollbar
+
+.dashboard-scrolling {
+  overflow: scroll;
+  height: 200px;
+   // scrollbar hide
+   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+   scrollbar-width: none;  /* Firefox */
+}
+
+.dashboard-scrolling::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}

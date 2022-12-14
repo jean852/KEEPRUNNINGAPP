@@ -1,85 +1,69 @@
-<div class="container justify-content-center landing-page">
-
-
-  <div class="p-3 text-center">
-    <p class="p-3 text-left supertitle-gradient">How far will <strong>you</strong> go to challenge yourself 👟</p>
-    <h5 class="p-3 text-left">With Keep Running, find the best way to optimize your sport activities</h5>
+<div class="container justify-content-center landing-page m-0 p-0">
+  <div class="mt-3 mb-2 p-3 text-center">
+    <p class="supertitle-gradient mt-3 mb-2 p-3">How far will <strong>you</strong> go to challenge yourself 👟</p>
+    <h5 class="mt-3 mb-2 p-3">With Keep Running, find the best way to optimize your sport activities</h5>
   </div>
 
-   <div class="text-center p-3">
-      <a href="/users/sign_in"><button class="login-button">Start your journey</button></a>
+  <div class="text-center mt-3 mb-2">
+    <a href="/users/sign_in"><button class="login-button">Start your journey</button></a>
   </div>
 
-  <div class="container">
-    <div class="p-3 text-center">
-      <%# <img alt="running shoe circle" class="landing-image p-3" src="/assets/running_circle.png" style="width: 200px;"> %>
-      <%= image_tag("running_circle.png", :alt => "running shoe circle", class: "landing-image p-3")  %>
-    </div>
+  <div class="mt-3 mb-2 text-center">
+    <%# <img alt="running shoe circle" class="landing-image p-3" src="/assets/running_circle.png" style="width: 200px;"> %>
+    <%= image_tag("running_circle.png", :alt => "running shoe circle", class: "landing-image p-5")  %>
+  </div>
 
-
-
-    <div class="container rounded p-3 text-center techcrunch-quote">
-      <h3 class="text-center"><i class="fa-sharp fa-solid fa-quote-left"></i>&ensp;&ensp;One of the breakout Strava Apps of 2022&ensp;&ensp;<i class="fa-sharp fa-solid fa-quote-right"></i></h3>
-      <div>
-        <svg width="208" height="31" viewBox="0 0 208 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M38.8677 10.5418H58.3189V0.625488H38.8677V10.5418Z" fill="white"></path>
-          <path d="M0 0.625488V10.5418H9.70825V30.3744H19.4165V10.5418H29.1594V0.625488H0Z" fill="white"></path>
-          <path d="M29.1594 30.3743H58.3189V20.458H38.8677V10.5417H29.1594V30.3743Z" fill="white"></path>
-          <path d="M83.1097 8.11475H68.8247V12.2408H73.6095V25.1735H78.3249V12.2408H83.1097V8.11475Z" fill="white"></path>
-          <path d="M88.4839 12.1021C85.1207 12.1021 82.6243 14.3557 82.6243 18.7938C82.6243 22.7118 84.7393 25.4509 88.5879 25.4509C90.5989 25.4509 92.2285 24.9308 93.7888 23.9947L92.1245 21.1862C90.8416 21.845 89.9401 22.0877 88.7959 22.0877C87.6171 22.0877 86.7849 21.4636 86.6116 20.042H94.1355C94.1702 19.834 94.1702 19.5566 94.1702 19.1752C94.2048 14.4251 92.0205 12.1021 88.4839 12.1021ZM86.6809 17.3029C86.8196 16.02 87.3744 15.3612 88.3799 15.3612C89.6628 15.3612 90.1135 16.02 90.3215 17.3029H86.6809Z" fill="white"></path>
-          <path d="M102.526 21.8797C101.347 21.8797 100.723 20.8395 100.723 18.7938C100.723 16.7828 101.278 15.6386 102.422 15.6386C103.358 15.6386 103.774 16.1587 104.398 17.3029L107.415 15.0145C106.305 13.2116 104.919 12.1021 102.491 12.1021C98.4002 12.1021 96.3892 14.8065 96.3892 18.7245C96.3892 23.0238 98.6429 25.4162 102.387 25.4162C104.641 25.4162 106.028 24.5494 107.519 22.3651L104.745 20.1807C103.913 21.4289 103.358 21.8797 102.526 21.8797Z" fill="white"></path>
-          <path d="M117.643 12.1022C116.118 12.1022 115.216 12.6222 114.419 13.2117V7.42139L110.015 9.18968V25.2083H114.419V17.8924C114.419 16.2975 114.974 15.8468 115.91 15.8468C116.811 15.8468 117.366 16.2975 117.366 17.9271V25.2083H121.769V17.3724C121.769 14.0091 120.417 12.1022 117.643 12.1022Z" fill="white"></path>
-          <path d="M132.344 21.3247C130.299 21.3247 129.466 19.2444 129.466 16.6439C129.466 13.9395 130.333 11.9632 132.31 11.9632C133.87 11.9632 134.459 12.9687 135.049 14.5636L139.348 12.8646C138.169 9.64012 136.505 7.83716 132.31 7.83716C127.733 7.83716 124.508 11.1657 124.508 16.6439C124.508 21.7061 127.213 25.4507 132.275 25.4507C136.332 25.4507 138.239 23.2663 139.383 21.0473L135.395 18.9323C134.459 20.5272 133.835 21.3247 132.344 21.3247Z" fill="white"></path>
-          <path d="M146.456 13.3156V12.3794H142.052V25.1735H146.456V18.2044C146.456 16.6441 147.115 16.124 148.189 16.124C149.056 16.124 149.68 16.5748 150.235 17.1989L151.275 12.6568C150.755 12.3448 150.131 12.1021 149.195 12.1021C148.051 12.1021 147.184 12.5875 146.456 13.3156Z" fill="white"></path>
-          <path d="M160.672 19.6953C160.672 21.2902 160.117 21.7409 159.215 21.7409C158.314 21.7409 157.759 21.2902 157.759 19.6606V12.3794H153.356V20.2153C153.356 23.5786 154.708 25.4509 157.516 25.4509C159.007 25.4509 159.943 24.9308 160.706 24.3413V25.2082H165.11V12.4141H160.706V19.6953" fill="white"></path>
-          <path d="M175.893 12.1021C174.367 12.1021 173.466 12.6221 172.668 13.2116V12.3448H168.265V25.1389H172.668V17.823C172.668 16.2281 173.223 15.7773 174.159 15.7773C175.061 15.7773 175.615 16.2281 175.615 17.8577V25.1389H180.019V17.3029C180.019 14.009 178.701 12.1021 175.893 12.1021Z" fill="white"></path>
-          <path d="M188.756 21.8797C187.577 21.8797 186.953 20.8395 186.953 18.7938C186.953 16.7828 187.508 15.6386 188.617 15.6386C189.554 15.6386 189.97 16.1587 190.594 17.3029L193.61 15.0145C192.501 13.2116 191.114 12.1021 188.687 12.1021C184.595 12.1021 182.584 14.8065 182.584 18.7245C182.584 23.0238 184.838 25.4162 188.583 25.4162C190.837 25.4162 192.223 24.5494 193.714 22.3651L190.941 20.1807C190.178 21.4289 189.588 21.8797 188.756 21.8797Z" fill="white"></path>
-          <path d="M203.873 12.1022C202.348 12.1022 201.446 12.6222 200.649 13.2117V7.42139L196.245 9.18968V25.2083H200.649V17.8924C200.649 16.2975 201.204 15.8468 202.14 15.8468C203.041 15.8468 203.596 16.2975 203.596 17.9271V25.2083H207.999V17.3724C208.034 14.0091 206.682 12.1022 203.873 12.1022Z" fill="white"></path>
-        </svg>
-      </div>
-    </div>
-
-    <div class="container p-3 text-center">
-      <%# <img alt="shoelaces circle" class="landing-image p-3" src="/assets/shoelaces.png" style="width: 200px;"> %>
-      <%= image_tag("shoelaces.png", :alt => "shoelaces circle", class: "landing-image p-3")  %>
-    </div>
-
-    <div class="container py-3 px-0 text-center">
-      <h3 class="p-3">Why Keep Running?</h3>
-      <div class="text-center">
-        <%# <img alt="motivation graph" class="landing-image py-3 px-0" src="/assets/motivation_table.png" style="width: 300px;"> %>
-        <%= image_tag("motivation_table.png", :alt => "motivation graph", class: "landing-image py-3 px-0")  %>
-      </div>
-    </div>
-
-    <div class="py-3 px-0">
-      <h4 class="text-center mb-3">Stick to a habit</h4>
-      <div class="py-3 px-0">
-        <ul class="fa-ul py-3 px-0">
-          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-list-check"></i></span>Create challenges: your activity, your way</li>
-          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-circle-exclamation"></i></span>Instant penalty: don't stop till the top</li>
-          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-gift"></i></span>Get rewards: winners receive credits</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="py-3 px-0">
-      <h4 class="text-center mb-3">Maintain Your Goals 📈</h4>
-      <div class="py-3 px-0">
-        <ul class="fa-ul py-3 px-0">
-          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-scale-balanced"></i></span>Stay motivated: wager against yourself</li>
-          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-brands fa-strava"></i></span>Easy use: simply connect through Strava</li>
-          <li class="py-3 pr-2 text-left"><span class="fa-li pr-5"><i class="fa-sharp fa-solid fa-people-group"></i></span>Leaderboard: community goal-setting</li>
-        </ul>
-      </div>
+  <div class="container rounded m-0 p-3 text-center techcrunch-quote">
+    <h3 class="text-center"><i class="fa-sharp fa-solid fa-quote-left"></i>&ensp;&ensp;One of the breakout Strava Apps of 2022&ensp;&ensp;<i class="fa-sharp fa-solid fa-quote-right"></i></h3>
+    <div>
+      <svg width="208" height="31" viewBox="0 0 208 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M38.8677 10.5418H58.3189V0.625488H38.8677V10.5418Z" fill="white"></path>
+        <path d="M0 0.625488V10.5418H9.70825V30.3744H19.4165V10.5418H29.1594V0.625488H0Z" fill="white"></path>
+        <path d="M29.1594 30.3743H58.3189V20.458H38.8677V10.5417H29.1594V30.3743Z" fill="white"></path>
+        <path d="M83.1097 8.11475H68.8247V12.2408H73.6095V25.1735H78.3249V12.2408H83.1097V8.11475Z" fill="white"></path>
+        <path d="M88.4839 12.1021C85.1207 12.1021 82.6243 14.3557 82.6243 18.7938C82.6243 22.7118 84.7393 25.4509 88.5879 25.4509C90.5989 25.4509 92.2285 24.9308 93.7888 23.9947L92.1245 21.1862C90.8416 21.845 89.9401 22.0877 88.7959 22.0877C87.6171 22.0877 86.7849 21.4636 86.6116 20.042H94.1355C94.1702 19.834 94.1702 19.5566 94.1702 19.1752C94.2048 14.4251 92.0205 12.1021 88.4839 12.1021ZM86.6809 17.3029C86.8196 16.02 87.3744 15.3612 88.3799 15.3612C89.6628 15.3612 90.1135 16.02 90.3215 17.3029H86.6809Z" fill="white"></path>
+        <path d="M102.526 21.8797C101.347 21.8797 100.723 20.8395 100.723 18.7938C100.723 16.7828 101.278 15.6386 102.422 15.6386C103.358 15.6386 103.774 16.1587 104.398 17.3029L107.415 15.0145C106.305 13.2116 104.919 12.1021 102.491 12.1021C98.4002 12.1021 96.3892 14.8065 96.3892 18.7245C96.3892 23.0238 98.6429 25.4162 102.387 25.4162C104.641 25.4162 106.028 24.5494 107.519 22.3651L104.745 20.1807C103.913 21.4289 103.358 21.8797 102.526 21.8797Z" fill="white"></path>
+        <path d="M117.643 12.1022C116.118 12.1022 115.216 12.6222 114.419 13.2117V7.42139L110.015 9.18968V25.2083H114.419V17.8924C114.419 16.2975 114.974 15.8468 115.91 15.8468C116.811 15.8468 117.366 16.2975 117.366 17.9271V25.2083H121.769V17.3724C121.769 14.0091 120.417 12.1022 117.643 12.1022Z" fill="white"></path>
+        <path d="M132.344 21.3247C130.299 21.3247 129.466 19.2444 129.466 16.6439C129.466 13.9395 130.333 11.9632 132.31 11.9632C133.87 11.9632 134.459 12.9687 135.049 14.5636L139.348 12.8646C138.169 9.64012 136.505 7.83716 132.31 7.83716C127.733 7.83716 124.508 11.1657 124.508 16.6439C124.508 21.7061 127.213 25.4507 132.275 25.4507C136.332 25.4507 138.239 23.2663 139.383 21.0473L135.395 18.9323C134.459 20.5272 133.835 21.3247 132.344 21.3247Z" fill="white"></path>
+        <path d="M146.456 13.3156V12.3794H142.052V25.1735H146.456V18.2044C146.456 16.6441 147.115 16.124 148.189 16.124C149.056 16.124 149.68 16.5748 150.235 17.1989L151.275 12.6568C150.755 12.3448 150.131 12.1021 149.195 12.1021C148.051 12.1021 147.184 12.5875 146.456 13.3156Z" fill="white"></path>
+        <path d="M160.672 19.6953C160.672 21.2902 160.117 21.7409 159.215 21.7409C158.314 21.7409 157.759 21.2902 157.759 19.6606V12.3794H153.356V20.2153C153.356 23.5786 154.708 25.4509 157.516 25.4509C159.007 25.4509 159.943 24.9308 160.706 24.3413V25.2082H165.11V12.4141H160.706V19.6953" fill="white"></path>
+        <path d="M175.893 12.1021C174.367 12.1021 173.466 12.6221 172.668 13.2116V12.3448H168.265V25.1389H172.668V17.823C172.668 16.2281 173.223 15.7773 174.159 15.7773C175.061 15.7773 175.615 16.2281 175.615 17.8577V25.1389H180.019V17.3029C180.019 14.009 178.701 12.1021 175.893 12.1021Z" fill="white"></path>
+        <path d="M188.756 21.8797C187.577 21.8797 186.953 20.8395 186.953 18.7938C186.953 16.7828 187.508 15.6386 188.617 15.6386C189.554 15.6386 189.97 16.1587 190.594 17.3029L193.61 15.0145C192.501 13.2116 191.114 12.1021 188.687 12.1021C184.595 12.1021 182.584 14.8065 182.584 18.7245C182.584 23.0238 184.838 25.4162 188.583 25.4162C190.837 25.4162 192.223 24.5494 193.714 22.3651L190.941 20.1807C190.178 21.4289 189.588 21.8797 188.756 21.8797Z" fill="white"></path>
+        <path d="M203.873 12.1022C202.348 12.1022 201.446 12.6222 200.649 13.2117V7.42139L196.245 9.18968V25.2083H200.649V17.8924C200.649 16.2975 201.204 15.8468 202.14 15.8468C203.041 15.8468 203.596 16.2975 203.596 17.9271V25.2083H207.999V17.3724C208.034 14.0091 206.682 12.1022 203.873 12.1022Z" fill="white"></path>
+      </svg>
     </div>
   </div>
 
-  <%# <div class="p-3 mb-3 text-center">
-    <form class="button_to" method="post" action="/users/auth/strava"><button class="stravalogin" data-turbo="false" type="submit"></button><input type="hidden" name="authenticity_token" value="bua1j19XrVIyMVawMQsTGd6NVeT-96rogorwIfW_6rPqh02JPa8UVGu6-lyV3GVM4zeclDr9lmQ3Q4Ws60Oh3g" autocomplete="off"></form><br>
-    <p>Start your journey of perseverance</p>
-  </div> %>
-  <div class="text-center p-3 mb-5">
+  <div class="mt-2 mb-3 text-center">
+    <%# <img alt="shoelaces circle" class="landing-image p-3" src="/assets/shoelaces.png" style="width: 200px;"> %>
+    <%= image_tag("shoelaces.png", :alt => "shoelaces circle", class: "landing-image p-5")  %>
+  </div>
+
+  <div class="mt-2 mb-3 text-center">
+    <p class="supertitle-gradient mt-3 mb-2 p-3">Why Keep Running?</p>
+    <%# <img alt="motivation graph" class="landing-image py-3 px-0" src="/assets/motivation_table.png" style="width: 300px;"> %>
+    <%= image_tag("motivation_table.png", :alt => "motivation graph", class: "landing-image mt-3 mb-2 px-0 py-5")  %>
+  </div>
+
+  <div class="mt-2 mb-3 text-center p-3">
+    <p class="supertitle-gradient p-3">Stick to a habit</p>
+    <ul class="fa-ul">
+      <li class="p-3 text-left"><span class="fa-li pr-3"><i class="fa-sharp fa-solid fa-list-check"></i></span>Create challenges: your activities, your way</li>
+      <li class="p-3 text-left"><span class="fa-li pr-3"><i class="fa-sharp fa-solid fa-circle-exclamation"></i></span>Instant penalty: don't stop till you reach the top</li>
+      <li class="p-3 text-left"><span class="fa-li pr-3"><i class="fa-sharp fa-solid fa-gift"></i></span>Get rewards: winners receive credits towards prizes</li>
+    </ul>
+  </div>
+
+  <div class="mt-2 mb-3 text-center p-3">
+    <p class="supertitle-gradient p-3">Maintain Your Goals</p>
+    <ul class="fa-ul">
+      <li class="p-3 text-left"><span class="fa-li pr-3"><i class="fa-sharp fa-solid fa-scale-balanced"></i></span>Stay motivated: wager against yourself</li>
+      <li class="p-3 text-left"><span class="fa-li pr-3"><i class="fa-brands fa-strava"></i></span>Easy use: simply connect through Strava</li>
+      <li class="p-3 text-left"><span class="fa-li pr-3"><i class="fa-sharp fa-solid fa-people-group"></i></span>Leaderboard: community goal-setting</li>
+    </ul>
+  </div>
+
+  <div class="mb-5 mt-2 text-center">
     <a href="/users/sign_in"><button class="login-button">Start your journey</button></a>
   </div>
 </div>
