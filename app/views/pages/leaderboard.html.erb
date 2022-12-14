@@ -1,29 +1,33 @@
 <div class="d-flex info-card-container justify-content-center mt-5 mb-2">
-  <h2 class="gradient-text">30 DAY LEADERBOARD </h2>
+  <h2 class="gradient-text">30 DAYS LEADERBOARD </h2>
 </div>
 
 <div class="d-flex info-card-container justify-content-center mt-3 mb-2">
   <%# TOP 3 %>
   <div class="top-flex-container mt-3 mb-2">
     <div class="top-flex-items">
-      <div><h6>#2</h6></div>
-      <div><img src= <%= @profiles.sample.profile_url %> class="top3-avatar rounded-circle" style="width: 100%;" alt="Avatar" /></div>
-      <div><p><%= @profiles.sample.first_name.truncate(16) %></p></div>
-      <div><p>127 km</p></div>
+      <% if @users.second.nil? == false %>
+        <div><h6>#2</h6></div>
+        <div><img src= <%= @users.second.profile.profile_url %> class="top3-avatar rounded-circle" style="width: 100%;" alt="Avatar" /></div>
+        <div><p><%= @users.second.profile.first_name.truncate(16) %></p></div>
+        <div><p><%= @users.second.total_km_thirty_days / 1000.0 %>km</p></div>
+      <% end %>
     </div>
 
     <div class="top-flex-items">
       <div><h6>#1</h6></div>
-      <div><img src= <%= @profiles.sample.profile_url %> class="top1-avatar rounded-circle" style="width: 100%;" alt="Avatar" /></div>
-      <div><p><%= @profiles.sample.first_name.truncate(16) %></p></div>
-      <div><p>132 km</p></div>
+      <div><img src= <%= @users.first.profile.profile_url %> class="top3-avatar rounded-circle" style="width: 100%;" alt="Avatar" /></div>
+      <div><p><%= @users.first.profile.first_name.truncate(16) if @users.first.profile.first_name.nil? == false %></p></div>
+      <div><p><%= @users.first.total_km_thirty_days / 1000.0 %>km</p></div>
     </div>
 
     <div class="top-flex-items">
-      <div><h6>#3</h6></div>
-      <div><img src=<%= @profiles.sample.profile_url %> class="top3-avatar rounded-circle" style="width: 100%;" alt="Avatar" /></div>
-      <div><p><%= @profiles.sample.first_name.truncate(16) %></p></div>
-      <div><p>123 km</p></div>
+      <% if @users.third.nil? == false %>
+        <div><h6>#3</h6></div>
+        <div><img src= <%= @users.third.profile.profile_url %> class="top3-avatar rounded-circle" style="width: 100%;" alt="Avatar" /></div>
+        <div><p><%= @users.third.profile.first_name.truncate(16) %></p></div>
+        <div><p><%= @users.third.total_km_thirty_days / 1000.0 %>km</p></div>
+      <% end %>
     </div>
 
   </div>
@@ -37,75 +41,17 @@
         <table class="table border-success">
 
           <tbody>
-            <tr>
-              <td>#4</td>
-              <th scope="row">
-                <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
-              </th>
-              <td>kevin234</td>
-              <td>04:00:42</td>
-              <td>54,1km</td>
-            </tr>
 
-            <tr>
-              <td>#5</td>
-              <th scope="row">
-                <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
-              </th>
-              <td>kevin234</td>
-              <td>04:00:42</td>
-              <td>54,1km</td>
-            </tr>
-
-            <tr>
-              <td>#6</td>
-              <th scope="row">
-                <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
-              </th>
-              <td>kevin234</td>
-              <td>04:00:42</td>
-              <td>54,1km</td>
-            </tr>
-
-            <tr>
-              <td>#7</td>
-              <th scope="row">
-                <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
-              </th>
-              <td>kevin234</td>
-              <td>04:00:42</td>
-              <td>54,1km</td>
-            </tr>
-
-            <tr>
-              <td>#8</td>
-              <th scope="row">
-                <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
-              </th>
-              <td>kevin234</td>
-              <td>04:00:42</td>
-              <td>54,1km</td>
-            </tr>
-
-            <tr>
-              <td>#9</td>
-              <th scope="row">
-                <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
-              </th>
-              <td>kevin234</td>
-              <td>04:00:42</td>
-              <td>54,1km</td>
-            </tr>
-
-            <tr>
-              <td>#10</td>
-              <th scope="row">
-                <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
-              </th>
-              <td>kevin234</td>
-              <td>04:00:42</td>
-              <td>54,1km</td>
-            </tr>
+            <% @users_from_fourth.each do |u| %>
+              <tr>ß
+                <td>#4</td>
+                <th scope="row">
+                  <div><img src="<%= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
+                </th>
+                <td><%= u.profile.username %></td>
+                <td><%= u.total_km_thirty_daßys / 1000.0 %>km</td>
+              </tr>
+            <% end %>
 
           </tbody>
         </table>

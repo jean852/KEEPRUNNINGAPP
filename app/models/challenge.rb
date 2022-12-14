@@ -6,7 +6,8 @@ class Challenge < ApplicationRecord
   CHALLENGE_TYPE = ['KM', 'TIME']
 
   def all_activities
-    return Activity.where('start_date >= ? AND start_date <= ? AND user_id = ?', self.start_date, self.end_date, self.user_id ).sort_by { |a| a.start_date }.reverse
+    activities = Activity.where('start_date >= ? AND start_date <= ? AND user_id = ?', self.start_date, self.end_date, self.user_id ).sort_by { |a| a.start_date }.reverse
+    return activities
   end
 
   def all_activities_km

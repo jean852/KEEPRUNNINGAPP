@@ -32,4 +32,15 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+
+  def total_km_thirty_days
+    now = Date.today
+    thirty_days_ago = (now - 30)
+    lastmonthactivities = Activity.where('user_id = ? AND start_date > ?', id, thirty_days_ago)
+    distance = 0
+    lastmonthactivities.each do |a|
+      distance += a.distance
+    end
+    return distance
+  end
 end
