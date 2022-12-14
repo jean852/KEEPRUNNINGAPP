@@ -44,7 +44,7 @@
 
             <% @users_from_fourth.each_with_index do |u,index| %>
               <tr>
-                <td><%= index + 4 %></td>
+                <td>#<%= index + 4 %></td>
                 <th scope="row">
                   <div><img src="<%= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
                 </th>
