@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def dashboard
     @challenges = Challenge.where('user_id = ?', current_user.id)
     @activities = Activity.where('user_id = ?', current_user.id)
-    @activities.sort_by(&:start_date)
+    @activities.sort_by { |a| a.start_date }
     @top5 = []
     @top5 << @activities.first unless @activities.first.nil?
     @top5 << @activities.second unless @activities.second.nil?
