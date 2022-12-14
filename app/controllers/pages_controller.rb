@@ -28,7 +28,7 @@ class PagesController < ApplicationController
 
   def leaderboard
     @users = User.all
-    @users = @users.sort_by { |u| u.total_km_thirty_days }
+    @users = @users.sort_by { |u| u.total_km_thirty_days }.reverse
     @users_from_fourth = @users.drop(3)
   end
 
