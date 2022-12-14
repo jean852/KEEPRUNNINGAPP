@@ -1,13 +1,25 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>CHALLENGE</strong> <%= "Challenge # #{@order.challenge.id}" %></li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-        </li>
-      </ul>
+
+  <div class="d-flex justify-content-center">
+
+    <div class="row py-4 d-flex-column align-content-center" style="height:80vh;width:80%">
+      <div class="col">
+        <h1 class="supertitle-gradient text-center mt-5">Congratulations! You are all set. 🏃‍♂️</h1>
+        <p class="mt-5">Your deposit is on the way to us. Your challenge will be active on the start date of your challenge
+        and will end at 00:00UTC on the last day you selected. Your locked amount will be automatically refunded to you if
+        you succeed your challenge and meet the criteria you've selected. Keep Runnin!</p>
+        <ul class="list-unstyled mt-5">
+          <li><strong>CHALLENGE: </strong> <%= "Challenge # #{@order.challenge.id}" %></li>
+          <li><strong>TOTAL LOCKED: </strong> <%= humanized_money_with_symbol @order.amount %></li>
+          <li><strong>LOCKED ON: </strong> <%= @order.created_at.to_date %></li>
+          <li><strong>LOCKING ORDER: </strong>Order #<%= @order.id %></li>
+          <li><strong>ORDER STATUS: </strong> <%= @order.state.capitalize %></li>
+          </li>
+        </ul>
+        <%= link_to "See my challenge", challenge_path(@order.challenge.id), class: "btn btn-primary mt-5" %>
+      </div>
     </div>
+
   </div>
+
 </div>
