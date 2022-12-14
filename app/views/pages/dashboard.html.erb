@@ -11,7 +11,7 @@
 </div>
 
 
-<div class="scrolling-wrapper mt-3 mb-2">
+<div class="scrolling-wrapper m-0">
   <% if @challenges.count > 1 %>
   <%# IF MULTIPLE CHALLENGES %>
     <% @challenges.each do |c| %>
@@ -91,8 +91,10 @@
     <div class="_card card shadow h-100">
     <div class="_card-body">
       <h4 class="text-center _card-heading">No active challenge yet? </h4>
-      <span class="mb-4 _card-text text-center">
-      It's time to build a new habit! Create a challenge, deposit a bet and we will make sure you stick to it!</span>
+      <span class="_card-text text-center">
+      It's time to build a new habit!</span>
+      <span class="_card-text text-center mb-3">
+      Create a challenge, lock in a wager and we will make sure you stick to it!</span>
       <%= link_to "Create a new challenge now!",new_challenge_path, class: "btn _card-button btn-outline-light btn-block" %>
     </div>
   </div>
