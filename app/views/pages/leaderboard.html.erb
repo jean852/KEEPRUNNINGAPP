@@ -43,13 +43,13 @@
           <tbody>
 
             <% @users_from_fourth.each do |u| %>
-              <tr>ß
+              <tr>
                 <td>#4</td>
                 <th scope="row">
                   <div><img src="<%= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
                 </th>
                 <td><%= u.profile.username %></td>
-                <td><%= u.total_km_thirty_daßys / 1000.0 %>km</td>
+                <td><%= u.total_km_thirty_days / 1000.0 %>km</td>
               </tr>
             <% end %>
 
