@@ -7,6 +7,9 @@ import { application } from "./application"
 import ActivityController from "./activity_controller"
 application.register("activity", ActivityController)
 
+import ChallengetypeController from "./challengetype_controller"
+application.register("challengetype", ChallengetypeController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 

@@ -13,6 +13,7 @@
   letter-spacing: 2px;
   min-width: 160px;
   text-transform: uppercase;
+  text-decoration: none;
   white-space: normal;
   font-weight: 700;
   text-align: center;
@@ -20,10 +21,13 @@
   color: #fff;
   background-color: $krorange;
   height: 48px;
-  :hover{
-      transform: scale(1.04);
-      background-color: $orange;
-  }
+}
+
+.profile-button:link{
+  // transform: scale(1.04);
+  color: lightgrey;
+  background-color: $orange;
+  text-decoration: none;
 }
 
 button.strava-profile-button {

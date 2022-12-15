@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def dashboard
     @challenges = Challenge.where('user_id = ?', current_user.id)
     @activities = Activity.where('user_id = ?', current_user.id)
-    @activities.sort_by(&:start_date)
+    @activities = @activities.sort_by { |a| a.start_date }.reverse
     @top5 = []
     @top5 << @activities.first unless @activities.first.nil?
     @top5 << @activities.second unless @activities.second.nil?
@@ -27,7 +27,9 @@ class PagesController < ApplicationController
   end
 
   def leaderboard
-    @profiles = Profile.all
+    @users = User.all
+    @users = @users.sort_by { |u| u.total_km_thirty_days }.reverse
+    @users_from_fourth = @users.drop(3)
   end
 
   def webhook

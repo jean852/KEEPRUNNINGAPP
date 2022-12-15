@@ -1,3 +1,18 @@
+.supertitle-gradient {
+  text-transform: uppercase;
+  letter-spacing: -0.1em;
+  font-size: bold !important;
+  line-height: 0.9;
+  font: {
+    size: 32px;
+    text-shadow: $kryellow 1px 0 10px;
+   };
+  // Gradient text CSS
+  background: linear-gradient(to right, $krgreen, $krblack);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .landing-image {
   max-width: 100%;
   height: auto;
