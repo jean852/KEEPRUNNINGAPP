@@ -1,4 +1,4 @@
-<div data-controller="flatpickr" class="container">
+<div data-controller="flatpickr" class="container my-0">
 
     <%= simple_form_for @challenge do|f|%>
       <div data-controller='step' >
@@ -52,7 +52,7 @@
         <%# 3) SELECT CHALLENGE PARAMETERS %>
         <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
             <div class="text-center mt-5">
-                <h2 class="mt-5">What distance do you target?</h2>
+                <h2 class="mt-5">Target Distance (km)?</h2>
                 <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
                 <h2 class="mt-5">Over which period of time?</h2>
                 <%= f.input :start_date, as: :string,  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
@@ -64,16 +64,18 @@
         </div>
 
         <%# 4) SELECT AMOUNT TO BET PARAMETERS %>
-        <div data-step-target="step4" class="d-none d-flex flex-column justify-content-around align-items-center text-center" style="min-height:89vh">
-          <div>
-            <div class="m-3">
+        <div data-step-target="step4" class="d-none d-flex flex-column justify-content-around align-items-center text-center" style="min-height:80vh">
+          <div class="my-5">
+            <div class="my-5">
               <h2>Bet on your success!</h2>
             </div>
-            <div class="m-3">
+            <div class="my-5">
               <p>The amount that you deposit here will be kept safely for the duration of the challenge.
               It will be returned to you as soon as you succeed the challenge. If you fail, we will keep it! You will never skip your runs again.
               </p>
-              <%= f.input :price_cents,  label: false, input_html: {class:"form_input"}, label: "Bet amount"%>
+              <div class="my-5">
+                <%= f.input :price_cents,  label: false, input_html: {class:"form_input"}, label: "Amount (€)"%>
+              </div>
             </div>
           </div>
           <div style="width:100%;margin-bottom:28px;bottom:28px">
