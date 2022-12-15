@@ -1,19 +1,28 @@
 <div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= "Challenge # #{@order.challenge.id}" %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+
+  <div class="d-flex justify-content-center">
+
+    <div class="row py-4 d-flex-column align-content-center" style="height:80vh;width:80%">
+      <div class="col">
+        <h1 class="supertitle-gradient text-center">It's time to commit!</h1>
+        <div class="text-justify"><p class="mb-0 mt-5">You are about to lock <strong><%= @order.amount / 100 %>€</strong> for <strong><%= "Challenge # #{@order.challenge.id}" %></strong>. This amount wil be locked on the platform for the duration of the challenge, and will be sent back to you ONLY if you succeed.</p></div>
+        <button id="pay" class="btn btn-primary mt-5">Lock <%= @order.amount / 100 %>€</button>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
+      </div>
     </div>
+
   </div>
+
+
+
+
 </div>

@@ -22,9 +22,33 @@ class ChallengesController < ApplicationController
 
     if @challenge.save
       if @challenge.price_cents.zero?
+        # USER DIDNT SELECT ANY AMOUNT WE REDICT TO CHALLENGE DETAIL PAGE
         redirect_to challenge_path(@challenge)
       else
-        redirect_to orders_path(challenge_id: @challenge.id)
+        # USER SELECTED AN AMOUNT WE GONNA CREATE THE STRIPE ORDER AND PAYMENT
+        @order = Order.create!(challenge: @challenge, amount: @challenge.price_cents, state: 'pending', user: current_user)
+
+        session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+
+          line_items: [{
+            price_data: {
+              currency: 'eur',
+              product_data: {
+                name: "Challenge #{@challenge.id}"
+              },
+              unit_amount: @challenge.price_cents
+            },
+            quantity: 1
+            }],
+            mode: 'payment',
+            success_url: order_url(@order),
+            cancel_url: order_url(@order)
+          )
+
+        authorize @order
+        @order.update(checkout_session_id: session.id)
+        redirect_to new_order_payment_path(@order)
       end
     else
       render :new # TODO: redirect to correct step
@@ -59,6 +83,6 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :price_cents)
+    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :price)
   end
 end
