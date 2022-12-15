@@ -35,8 +35,21 @@ border-radius: 5px;
 .form_input:focus {
   background-color: black;
   color: white;
-  border-color: #FEFF00;
+  border-color: $krgreen;
   border-radius: 5px;
+}
+
+.border-yellow {
+  border-radius: 5px;
+  border:4px solid #FEFF00;
+  margin:15px 0;
+}
+
+.toggle {
+  // background-color: $info;
+  border-radius: 5px;
+  border:4px solid $krgreen;
+  margin: 15px 0;
 }
 
 .supertitle-gradient {
