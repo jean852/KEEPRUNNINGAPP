@@ -55,8 +55,8 @@
                 <h2 class="mt-5">Target Distance (km)?</h2>
                 <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
                 <h2 class="mt-5">Over which period of time?</h2>
-                <%= f.input :start_date, as: :string,  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
-                <%= f.input :end_date, as: :string, label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
+                <%= f.input :start_date, as: :string, placeholder: "Start date",  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
+                <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
             </div>
             <div style="width:100%;margin-top:160px;top:160px;margin-bottom:20px;bottom:20px">
               <div data-action="click->step#to_step4", class="btn btn-primary" style="width:100%">Continue</div>
