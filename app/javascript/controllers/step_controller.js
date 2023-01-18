@@ -18,12 +18,8 @@ export default class extends Controller {
    }
   to_step3() {
     console.log("next_step3")
-    let type = document.querySelector("#challenge_activity_type")
-    if (type.value == "RUNNING") {
       this.step2RunningTarget.classList.add("d-none");
-     } else {
        this.step2CyclingTarget.classList.add("d-none");
-     }
      let challengeType = document.querySelector("#challenge_challenge_type")
      if (challengeType.value == "KM") {
       this.step3DistanceTarget.classList.remove("d-none");
