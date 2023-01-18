@@ -2,8 +2,13 @@ class Challenge < ApplicationRecord
   belongs_to :user
   monetize :price_cents
   has_one :order, dependent: :destroy
+  validates :name, presence: true
+  validates :activity_type, presence: true
+  validates :challenge_type, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true, comparison: { greater_than: :start_date }
 
-  CHALLENGE_TYPE = ['KM', 'TIME']
+  CHALLENGE_TYPE = ['KM', 'Sessions']
 
   def all_activities
     activities = Activity.where('start_date >= ? AND start_date <= ? AND user_id = ?', self.start_date, self.end_date, self.user_id ).sort_by { |a| a.start_date }.reverse
