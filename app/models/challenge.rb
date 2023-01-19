@@ -2,11 +2,11 @@ class Challenge < ApplicationRecord
   belongs_to :user
   monetize :price_cents
   has_one :order, dependent: :destroy
-  #validates :name, presence: true
-  #validates :activity_type, presence: true
-  #validates :challenge_type, presence: true
-  #validates :start_date, presence: true
-  #validates :end_date, presence: true, comparison: { greater_than: :start_date }
+  validates :name, presence: true
+  validates :activity_type, presence: true
+  validates :challenge_type, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true, comparison: { greater_than: :start_date }
 
   CHALLENGE_TYPE = ['KM', 'Sessions']
 
