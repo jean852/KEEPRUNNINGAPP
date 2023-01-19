@@ -25,7 +25,7 @@
         </div>
         <%# 2) SELECT CHALLENGE TYPE %>
         <%# Running  %>
-        <div data-step-target="step2Running" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
+        <div data-step-target="step2" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
           <div>
             <p class="supertitle-gradient text-center my-5">Select your <br> challenge type:</p>
           </div>
@@ -35,42 +35,14 @@
                 <h6><strong>How <u>far</u> are you willing to go?</strong></h6>
                 <%# <p style="font-size: 14px;">KM: total distance</p> %>
                 <%# <p>Push yourself in terms of distance...</p> %>
-                <p style="font-size: 14px;">E.g. if you are new to running, we suggest to create one new weekly challenge for 10k and try to run two 5k's in a week.</p>
+                <p style="font-size: 14px;">E.g. if you are new to this activity, we suggest to create one new weekly challenge for 10k and try to complete two 5k's in a week.</p>
               </div>
               <div class="text-center p-3 my-3 border-yellow" data-action="click->challengetype#sessions" data-challengetype-target="quantity">
               <%# <h4><u>Challenge per amount:</u></h4> %>
               <h6><strong>How <u>often</u> are you willing to go?</strong></h6>
               <%# <p style="font-size: 14px;">Quantity: total amount</p> %>
               <%# <p class="m-0 p-2">Push yourself in terms of total activities...</p> %>
-              <p style="font-size: 14px;">E.g. if you are new to running, we suggest a new monthly challenge with a total of 12 sessions: that's 3 sessions per week at whatever distance you choose.</p>
-              </div>
-            <%= f.input :challenge_type, required: true, input_html: { data: { challengetype_target: "challengetype" }}%>
-          </div>
-
-          <div style="width:100%;">
-            <div data-action="click->step#to_step3", class="btn btn-primary my-3" style="width:100%">Continue</div>
-          </div>
-        </div>
-
-        <%# Cycling  %>
-        <div data-step-target="step2Cycling" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
-          <div>
-            <p class="supertitle-gradient text-center my-5">Select your <br> challenge type:</p>
-          </div>
-          <div data-controller='challengetype' style="min-height:100%">
-              <div class="text-center p-3 my-3 border-yellow" data-action="click->challengetype#km" data-challengetype-target="length">
-                <%# <h4><u>Challenge per distance:</u></h4> %>
-                <h6><strong>How <u>far</u> are you willing to go?</strong></h6>
-                <%# <p style="font-size: 14px;">KM: total distance</p> %>
-                <%# <p>Push yourself in terms of distance...</p> %>
-                <p style="font-size: 14px;">E.g. if you are new to cycling, we suggest to create one new weekly challenge for 30k and try to cycle two 15k's in a week.</p>
-              </div>
-              <div class="text-center p-3 my-3 border-yellow" data-action="click->challengetype#sessions" data-challengetype-target="quantity">
-              <%# <h4><u>Challenge per amount:</u></h4> %>
-              <h6><strong>How <u>often</u> are you willing to go?</strong></h6>
-              <%# <p style="font-size: 14px;">Quantity: total amount</p> %>
-              <%# <p class="m-0 p-2">Push yourself in terms of total activities...</p> %>
-              <p style="font-size: 14px;">E.g. if you are new to cycling, we suggest a new monthly challenge with a total of 12 sessions: that's 3 sessions per week at whatever distance you choose.</p>
+              <p style="font-size: 14px;">E.g. if you are new to this activity, we suggest a new monthly challenge with a total of 12 sessions: that's 3 sessions per week at whatever distance you choose.</p>
               </div>
             <%= f.input :challenge_type, as: :hidden, required: true, input_html: { data: { challengetype_target: "challengetype" }}%>
           </div>
@@ -80,32 +52,25 @@
           </div>
         </div>
         <%# 3) SELECT CHALLENGE PARAMETERS %>
-        <%# Distance  %>
-        <div data-step-target="step3Distance" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
-            <div class="text-center mt-5">
-                <h2 class="mt-5">Target Distance (km)?</h2>
-                <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
-                <h2 class="mt-5">Over which period of time?</h2>
-                <%= f.input :start_date, as: :string, placeholder: "Start date",  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
-                <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
+        <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
+          <div class="text-center mt-5">
+            <%# Distance  %>
+            <div data-step-target="step3Distance" class="d-none">
+              <h2 class="mt-5">Target Distance (km)?</h2>
+              <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
             </div>
-            <div style="width:100%;margin-top:160px;top:160px;margin-bottom:20px;bottom:20px">
-              <div data-action="click->step#to_step4", class="btn btn-primary" style="width:100%">Continue</div>
+            <%# Sessions  %>
+            <div data-step-target="step3Sessions" class="d-none">
+              <h2 class="mt-5">Target number of sessions?</h2>
+              <%= f.input :target_sessions, label: false, input_html: {class:"form_input"} %>
             </div>
-        </div>
-
-        <%# Number of sessions  %>
-        <div data-step-target="step3Sessions" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
-            <div class="text-center mt-5">
-                <h2 class="mt-5">Target number of sessions?</h2>
-                <%= f.input :target_sessions, label: false, input_html: {class:"form_input"} %>
-                <h2 class="mt-5">Over which period of time?</h2>
-                <%= f.input :start_date, as: :string, placeholder: "Start date",  label: false, input_html: { data: { flatpickr_target: "startTime2" },class:"form_input" }%>
-                <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime2" },class:"form_input"} %>
-            </div>
-            <div style="width:100%;margin-top:160px;top:160px;margin-bottom:20px;bottom:20px">
-              <div data-action="click->step#to_step4", class="btn btn-primary" style="width:100%">Continue</div>
-            </div>
+            <h2 class="mt-5">Over which period of time?</h2>
+            <%= f.input :start_date, as: :string, placeholder: "Start date",  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
+            <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
+          </div>
+          <div style="width:100%;margin-top:160px;top:160px;margin-bottom:20px;bottom:20px">
+            <div data-action="click->step#to_step4", class="btn btn-primary" style="width:100%">Continue</div>
+          </div>
         </div>
 
         <%# 4) SELECT AMOUNT TO BET PARAMETERS %>
