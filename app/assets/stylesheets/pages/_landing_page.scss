@@ -3,6 +3,15 @@ html, body {
   overflow-x: hidden;
 }
 
+// ul {
+//   text-align: center;
+//   list-style-position: inside;
+// }
+
+// li {
+//   margin-left: 1em
+// }
+
 .supertitle-gradient {
   text-transform: uppercase;
   letter-spacing: -0.1em;
@@ -19,12 +28,12 @@ html, body {
 }
 
 .landing-image {
-  max-width: 50%;
+  max-width: 40%;
   height: auto;
 }
 
 .motivation-image {
-  max-width: 35%;
+  max-width: 30%;
   height: auto;
 }
 
@@ -50,10 +59,6 @@ html, body {
 // h3.techcrunch-quote {
 //   font-family: 'Manrope', sans-serif;
 //   font-weight: 700;
-// }
-
-// svg.techcrunch-quote {
-//   padding: 2rem;
 // }
 
 .red-border {
@@ -83,6 +88,10 @@ html, body {
     background-clip: border-box;
     -webkit-text-fill-color: inherit;
   }
+
+  // #techcrunch-logo {
+  //   padding: 1rem;
+  // }
 
   .landing-image {
     max-width: 100%;
