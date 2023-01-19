@@ -1,3 +1,8 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .supertitle-gradient {
   text-transform: uppercase;
   letter-spacing: -0.1em;
@@ -62,7 +67,7 @@
 @media screen and (max-width: 991px) {
   .techcrunch-quote {
     // display: -ms-flexbox;
-    display: inline;
+    display: inline-block;
     max-width: 100%;
     // height: 330px;
     // -webkit-box-pack: start;
@@ -89,4 +94,3 @@
     height: auto;
   }
 }
-
