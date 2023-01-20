@@ -43,9 +43,9 @@
                   <% a = 0 %>
                   <% a = number_to_percentage((Date.today - c.start_date).fdiv(c.end_date - c.start_date)*100,precision: 2) if Date.today >= c.start_date %>
                   <% a %>
-                  <%= a.class %>
-                  <% b = 1 %>
-                  <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= a %></div>
+                  <% b = a.to_i %>
+                  <% d = 100 %>
+                  <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= [b, d].min %>%</div>
                 </div>
                 <% if c.challenge_type == "KM" %>
                 <p style="text-align: left;">Distance achieved</p>
