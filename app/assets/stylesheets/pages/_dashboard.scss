@@ -106,24 +106,6 @@
 
 
 
-.latest-activities-card {
-  background-color: $krblack;
-  border-radius: 10px;
-  flex-grow: 1;
-  padding: 20px;
-  margin: 0 20px;
-  th, td {
-    color:white;
-    font-size: 12px;
-    font-weight: 300;
-  }
-
-  h6 {
-    color: $kryellow;
-  }
-
-}
-
 .progress-bar, .progress {
   border-radius: 10px;
   p {

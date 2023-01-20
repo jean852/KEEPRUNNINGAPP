@@ -10,6 +10,7 @@
   h6, p {
     text-align: center;
     margin: 0;
+    font-weight: bold;
   }
   p {
     font-size: 12px;
@@ -70,11 +71,12 @@
   background-color: $krblack;
   border-radius: 10px;
   flex-grow: 1;
-  padding: 20px;
-  margin: 0 20px;
+  padding: 1.25em;
+  margin: 0 1.25em;
+  box-sizing: border-box;
   th, td {
     color:white;
-    font-size: 12px;
+    font-size: .75rem;
     font-weight: 300;
     text-align: left;
     vertical-align: middle;
@@ -96,72 +98,131 @@
   display: none;  /* Safari and Chrome */
 }
 
-// TEXT GRADIENT PART
+// OLD HEADING
 
 
-.gradient-text {
-  /* Fallback: Set a background color. */
-  background-color: $krorange;
+// .gradient-text {
+//   /* Fallback: Set a background color. */
+//   background-color: $krorange;
+//   font-weight: 900;
+
+//   /* Create the gradient. */
+//    background-image: linear-gradient(
+//         45deg,
+//         #c64b16ae 16.666%,
+//         #db571fea 16.666%,
+//         #FC4C02 33.333%,
+//         #bcb901 33.333%,
+//         #d8d81d 50%,
+//         #00c785d0 50%,
+//         #00C784 66.666%,
+//         #476098 66.666%,
+//         #476098 83.333%,
+//         #000000 83.333%);
+
+//   /* Set the background size and repeat properties. */
+//   background-size: 100%;
+//   background-repeat: repeat;
+
+//   /* Use the text as a mask for the background. */
+//   /* This will show the gradient as a text color rather than element bg. */
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+
+//   /* Animate the text when loading the element. */
+//     /* This animates it on page load and when hovering out. */
+//     animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+
+// }
+
+// .gradient-text:hover{
+//     animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+// }
+
+
+// /* Move the background and make it smaller. */
+// /* Animation shown when entering the page and after the hover animation. */
+// @keyframes rainbow-text-simple-animation-rev {
+//     0% {
+//         background-size: 650%;
+//     }
+//     40% {
+//         background-size: 650%;
+//     }
+//     100% {
+//         background-size: 100%;
+//     }
+// }
+
+// /* Move the background and make it larger. */
+// /* Animation shown when hovering over the text. */
+// @keyframes rainbow-text-simple-animation {
+//     0% {
+//         background-size: 100%;
+//     }
+//     80% {
+//         background-size: 650%;
+//     }
+//     100% {
+//         background-size: 650%;
+//     }
+// }
+
+// NEW HEADING
+* {
+  box-sizing: border-box
+}
+
+:root {
+  --color-1: #FDFF00;
+  --color-2: black;
+  --color-3: #59B886;
+  --color-4: black;
+  --color-5: #FDFF00;
+}
+
+
+.heading-wrapper {
+  margin-top: 2em;
+  line-height: 1;
+  place-items: center;
+}
+
+.heading-container h1 {
+  font-family: "Exo", sans-serif;
+  font-size: 2rem;
   font-weight: 900;
-
-  /* Create the gradient. */
-   background-image: linear-gradient(
-        45deg,
-        #c64b16ae 16.666%,
-        #db571fea 16.666%,
-        #FC4C02 33.333%,
-        #bcb901 33.333%,
-        #d8d81d 50%,
-        #00c785d0 50%,
-        #00C784 66.666%,
-        #476098 66.666%,
-        #476098 83.333%,
-        #000000 83.333%);
-
-  /* Set the background size and repeat properties. */
-  background-size: 100%;
-  background-repeat: repeat;
-
-  /* Use the text as a mask for the background. */
-  /* This will show the gradient as a text color rather than element bg. */
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: auto;
+  text-transform: uppercase;
+  background: linear-gradient(219deg,
+    var(--color-1) 19%,
+    transparent 19%,transparent 20%,
+    var(--color-2) 20%, var(--color-2)  39%,
+    transparent 39%,transparent 40%,
+    var(--color-3) 40%,var(--color-3) 59% ,
+    transparent 59%,transparent 60%,
+    var(--color-4) 60%, var(--color-4) 79%,
+    transparent 79%, transparent 80%,
+    var(--color-5) 80%);
+  background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Animate the text when loading the element. */
-    /* This animates it on page load and when hovering out. */
-    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
-
-}
-
-.gradient-text:hover{
-    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+  color: transparent;
 }
 
 
-/* Move the background and make it smaller. */
-/* Animation shown when entering the page and after the hover animation. */
-@keyframes rainbow-text-simple-animation-rev {
-    0% {
-        background-size: 650%;
-    }
-    40% {
-        background-size: 650%;
-    }
-    100% {
-        background-size: 100%;
-    }
-}
 
-/* Move the background and make it larger. */
-/* Animation shown when hovering over the text. */
-@keyframes rainbow-text-simple-animation {
-    0% {
-        background-size: 100%;
-    }
-    80% {
-        background-size: 650%;
-    }
-    100% {
-        background-size: 650%;
-    }
+
+@media (min-width:916px){
+  .leaderboard-card-show{
+    min-width: 61vw;
+  }
+  .leaderboard-card-show td{
+    font-size: 1rem;
+  }
+   .heading-container h1 {
+    font-size: 4rem;
+  }
 }

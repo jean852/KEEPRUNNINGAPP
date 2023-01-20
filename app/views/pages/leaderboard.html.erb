@@ -1,7 +1,8 @@
-<div class="d-flex info-card-container justify-content-center mt-5 mb-2">
-  <h2 class="gradient-text">30 DAYS LEADERBOARD </h2>
+<div class="heading-wrapper">
+  <div class="heading-container">
+    <h1>LEADERBOARD</h1>
+  </div>
 </div>
-
 <div class="d-flex info-card-container justify-content-center mt-3 mb-2">
   <%# TOP 3 %>
   <div class="top-flex-container mt-3 mb-2">
@@ -38,23 +39,52 @@
   <div class="d-flex justify-content-between mt-3 mb-2">
     <div class="leaderboard-card-show">
       <div class="leaderboard-scrolling">
+        <div style="overflow-x:auto;">
         <table class="table border-success">
 
           <tbody>
 
-            <% @users_from_fourth.each_with_index do |u,index| %>
+            <%# @users_from_fourth.each_with_index do |u,index| %>
               <tr>
-                <td>#<%= index + 4 %></td>
+                <td>#<%#= index + 4 %> jdfds</td>
                 <th scope="row">
-                  <div><img src="<%= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
+                  <div><img src="<%#= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
                 </th>
-                <td><%= u.profile.first_name.truncate(16) %></td>
-                <td><%= u.total_km_thirty_days / 1000.0 %>km</td>
+                <td><%#= u.profile.first_name.truncate(16) %> jdfdsfsfdsa</td>
+                <td><%#= u.total_km_thirty_days / 1000.0 %>jdfdsfsfdsakm</td>
               </tr>
-            <% end %>
+            <%# end %>
+            <%# DELETE FROM HERE %>
+             <tr>
+                <td>#<%#= index + 4 %> jdfdsfsfdsaj/td>
+                <th scope="row">
+                  <div><img src="<%#= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
+                </th>
+                <td><%#= u.profile.first_name.truncate(16) %> jdfdsfsfdsa</td>
+                <td><%#= u.total_km_thirty_days / 1000.0 %>jdfdsfsfdsakm</td>
+              </tr>
+               <tr>
+                <td>#<%#= index + 4 %> jdfdsfsfdsajd</td>
+                <th scope="row">
+                  <div><img src="<%#= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
+                </th>
+                <td><%#= u.profile.first_name.truncate(16) %> jdfdsfsfdsa</td>
+                <td><%#= u.total_km_thirty_days / 1000.0 %>jdfdsfsfdsakm</td>
+              </tr>
+               <tr>
+                <td>#<%#= index + 4 %> jdfdsfsfdsaj</td>
+                <th scope="row">
+                  <div><img src="<%#= u.profile.profile_url %>" class="leaderboard-avatar-mini rounded-circle" alt="Avatar" /></div>
+                </th>
+                <td><%#= u.profile.first_name.truncate(16) %> jdfdsfsfdsa</td>
+                <td><%#= u.total_km_thirty_days / 1000.0 %>jdfdsfsfdsakm</td>
+              </tr>
+              <%# TO HERE %>
+
 
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </div>
