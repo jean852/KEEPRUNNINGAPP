@@ -11,15 +11,11 @@ export default class extends Controller {
      this.activityTarget.value="RUNNING"
      this.cyclingTarget.classList.remove("toggle")
      this.runningTarget.classList.add("toggle")
-     let type = document.querySelector("#challenge_activity_type")
-     console.log(type.value)
    }
   cycling() {
      console.log("cycling")
      this.activityTarget.value="CYCLING"
      this.cyclingTarget.classList.add("toggle")
      this.runningTarget.classList.remove("toggle")
-     let type = document.querySelector("#challenge_activity_type")
-     console.log(type.value)
      }
   }
