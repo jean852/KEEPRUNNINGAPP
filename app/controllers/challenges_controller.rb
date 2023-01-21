@@ -83,6 +83,6 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :price)
+    params.require(:challenge).permit(:activity_type, :challenge_type, :start_date, :end_date, :target_distance, :price, :name, :target_sessions)
   end
 end
