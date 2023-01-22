@@ -1,10 +1,24 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+// ul {
+//   text-align: center;
+//   list-style-position: inside;
+// }
+
+// li {
+//   margin-left: 1em
+// }
+
 .supertitle-gradient {
   text-transform: uppercase;
   letter-spacing: -0.1em;
   font-size: bold !important;
   line-height: 0.9;
   font: {
-    size: 32px;
+    size: 3rem;
     text-shadow: $kryellow 1px 0 10px;
    };
   // Gradient text CSS
@@ -14,41 +28,74 @@
 }
 
 .landing-image {
-  max-width: 100%;
+  max-width: 40%;
   height: auto;
-  aspect-ratio: 1 / 1 ;
+}
+
+.motivation-image {
+  max-width: 30%;
+  height: auto;
 }
 
 .techcrunch-quote {
-  // display: -ms-flexbox;
-  // display: flex;
-  width: 100%;
-  // height: 330px;
-  // -webkit-box-pack: start;
-  // -webkit-justify-content: flex-start;
-  // -ms-flex-pack: start;
-  // justify-content: flex;
-  // -webkit-box-align: center;
-  // -webkit-align-items: center;
-  // -ms-flex-align: center;
-  // align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  height: 10rem;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #00C784;
   background-image: linear-gradient(52deg,#1ed603,rgba(11,220,70,.1));
   background-clip: border-box;
   -webkit-text-fill-color: inherit;
 }
 
-h3.techcrunch-quote {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-}
-
-// svg.techcrunch-quote {
-//   padding: 2rem;
+// h3.techcrunch-quote {
+//   font-family: 'Manrope', sans-serif;
+//   font-weight: 700;
 // }
 
-@media only screen and (min-width: 400px) {
-  .running-image {
-    width: 25%;
+.red-border {
+  border: 1px solid red;
+}
+
+.yellow-background {
+  background-color: $kryellow;
+}
+
+@media screen and (max-width: 991px) {
+  .techcrunch-quote {
+    // display: -ms-flexbox;
+    display: inline-block;
+    max-width: 100%;
+    // height: 330px;
+    // -webkit-box-pack: start;
+    // -webkit-justify-content: flex-start;
+    // -ms-flex-pack: start;
+    // justify-content: center;
+    // -webkit-box-align: center;
+    // -webkit-align-items: center;
+    // -ms-flex-align: center;
+    // align-items: center;
+    background-color: #00C784;
+    background-image: linear-gradient(52deg,#1ed603,rgba(11,220,70,.1));
+    background-clip: border-box;
+    -webkit-text-fill-color: inherit;
+  }
+
+  .landing-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .motivation-image {
+    max-width: 90%;
+    height: auto;
   }
 }
