@@ -22,11 +22,11 @@
           </div>
           <div class="scroll-card-info">
           <% if c.challenge_type == "KM" %>
-          <% header = "#{c.target_distance} km between" %>
+          <% header = "#{c.target_distance} km from" %>
           <% else %>
-          <% header = "#{c.target_sessions} sessions between" %>
+          <% header = "#{c.target_sessions} sessions from" %>
           <% end %>
-            <p><%= c.activity_type.capitalize %> <%= header %> <%= c.start_date.strftime("%b %d, %Y") %> and <%= c.end_date.strftime("%b %d, %Y") %></p>
+            <p><%= c.activity_type.capitalize %> <%= header %> <%= c.start_date.strftime("%d %b") %> to <%= c.end_date.strftime("%d %b %Y") %></p>
             <div class="challenge-details mt-3">
               <div class="challenge-detail-block pl-2 text-left">
                 <p class="mb-2">Status: <span class="badge"><%= c.status.capitalize %></span></p>
@@ -73,11 +73,11 @@
           </div>
           <div class="scroll-card-info">
             <% if c.challenge_type == "KM" %>
-          <% header = "#{c.target_distance} km between" %>
+          <% header = "#{c.target_distance} km from" %>
           <% else %>
-          <% header = "#{c.target_sessions} sessions between" %>
+          <% header = "#{c.target_sessions} sessions from" %>
           <% end %>
-            <p><%= c.activity_type.capitalize %> <%= header %> <%= c.start_date.strftime("%b %d, %Y") %> and <%= c.end_date.strftime("%b %d, %Y") %></p>
+            <p><%= c.activity_type.capitalize %> <%= header %> <%= c.start_date.strftime("%d %b") %> to <%= c.end_date.strftime("%d %b %Y") %></p>
             <div class="challenge-details mt-3">
               <div class="challenge-detail-block pl-2 text-left">
                 <p class="mb-2">Status: <span class="badge"><%= c.status.capitalize %></span></p>
