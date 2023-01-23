@@ -22,7 +22,6 @@ class PagesController < ApplicationController
       @last_month_distance_m += a.distance
     end
 
-
     # @challenge.all_activities_km
   end
 
@@ -34,7 +33,7 @@ class PagesController < ApplicationController
 
   def webhook
     puts "Finished def Webhook"
-    render json: {"hub.mode": 'subscribe', "hub.challenge": params['hub.challenge'], "hub.verify_token": 'STRAVA' }
+    render json: { 'hub.mode': 'subscribe', 'hub.challenge': params['hub.challenge'], 'hub.verify_token': 'STRAVA' }
   end
 
   def handle_activities
@@ -70,8 +69,6 @@ class PagesController < ApplicationController
       activity_to_delete = Activity.find_by strava_id: params["object_id"]
       activity_to_delete.destroy
       puts "Activity #{params['object_id']} has been destroyed"
-    else
     end
   end
-
 end
