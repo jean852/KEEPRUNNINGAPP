@@ -2,11 +2,16 @@
 
   <div class="scroll-card bg-white shadow">
     <div class="scroll-card-title p-1">
-      <h6><span style="color:#FEFF00;">/ </span>Challenge #<%= @challenge.id  %></h6>
+      <h6><span style="color:#FEFF00;">/ </span>Challenge <%= @challenge.name  %></h6>
     </div>
 
     <div class="scroll-card-info ">
-      <p><%= @challenge.activity_type.capitalize %> <%= @challenge.target_distance %>km from <%= @challenge.start_date.strftime("%b %d, %Y") %> to <%= @challenge.end_date.strftime("%b %d, %Y") %></p>
+      <% if @challenge.challenge_type == "KM" %>
+          <% header = "#{@challenge.target_distance} km from" %>
+      <% else %>
+        <% header = "#{@challenge.target_sessions} sessions from" %>
+      <% end %>
+      <p><%= @challenge.activity_type.capitalize %> <%= header %> from <%= @challenge.start_date.strftime("%d %b") %> to <%= @challenge.end_date.strftime("%d %b, %Y") %></p>
 
       <div class="challenge-details mt-3">
 
@@ -14,21 +19,30 @@
           <p class="mb-2">Challenge Type: <span class="badge"><%= @challenge.challenge_type.capitalize %></span></p>
           <p class="mb-2">Activity Type: <span class="badge"><%= @challenge.activity_type.capitalize %></span></p>
           <p class="mb-2">Status: <span class="badge"><%= @challenge.status.capitalize %></span></p>
-
-          <p class="mb-2">Distance left: <%= @challenge.target_distance - @challenge.all_activities_km %>km</p>
+          <% if @challenge.challenge_type == "KM"  %>
+            <p class="mb-2">Distance left: <%= @challenge.target_distance - @challenge.all_activities_km %></p>
+          <% else %>
+            <p class="mb-2">Sessions left: <%= @challenge.target_sessions - @challenge.all_activities_sessions %></p>
+          <% end %>
           <p>Amount : <%= @challenge.price %>€</p>
-
         </div>
 
         <div class="progress-block challenge-detail-block">
           <% a = 0 %>
           <% a = number_to_percentage((Date.today - @challenge.start_date).fdiv(@challenge.end_date - @challenge.start_date)*100,precision: 2) if Date.today >= @challenge.start_date%>
+          <% b = a.to_i %>
+          <% d = 100 %>
           <p style="text-align: left;">Elapsed time</p>
           <div class="progress mb-2">
-            <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= a %></div>
+            <div class="progress-bar bg-green" role="progressbar" style="width: <%= a %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= [b, d].min %>%</div>
           </div>
-          <p style="text-align: left;">Distance achieved</p>
-          <% distance_progress = number_to_percentage((@challenge.all_activities_km / @challenge.target_distance)*100, precision: 2) %>
+          <% if @challenge.challenge_type == "KM" %>
+            <p style="text-align: left;">Distance achieved</p>
+            <% distance_progress = number_to_percentage((@challenge.all_activities_km / @challenge.target_distance)*100, precision: 2) %>
+          <% else %>
+            <p style="text-align: left;">Sessions achieved</p>
+            <% distance_progress = number_to_percentage((@challenge.all_activities_sessions / @challenge.target_sessions)*100, precision: 2) %>
+          <% end %>
           <div class="progress ">
             <div class="progress-bar bg-danger" role="progressbar" style="width: <%= distance_progress %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= distance_progress %></div>
           </div>

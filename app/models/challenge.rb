@@ -31,8 +31,11 @@ class Challenge < ApplicationRecord
   end
 
   def progress_text
-
-    progress_distance = self.all_activities_km / target_distance
+    if challenge_type == "KM"
+      progress_distance = self.all_activities_km / target_distance
+    else
+      progress_distance = self.all_activities_sessions / target_sessions
+    end
     progress_time = (Date.today - start_date).fdiv(end_date - start_date)
 
     delta = progress_distance - progress_time

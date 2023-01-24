@@ -21,9 +21,9 @@
           </div>
           <div class="scroll-card-info">
           <% if c.challenge_type == "KM" %>
-          <% header = "#{c.target_distance} km from" %>
+            <% header = "#{c.target_distance} km from" %>
           <% else %>
-          <% header = "#{c.target_sessions} sessions from" %>
+            <% header = "#{c.target_sessions} sessions from" %>
           <% end %>
             <p><%= c.activity_type.capitalize %> <%= header %> <%= c.start_date.strftime("%d %b") %> to <%= c.end_date.strftime("%d %b %Y") %></p>
             <div class="challenge-details mt-3">
@@ -63,7 +63,7 @@
       <% end %>
     <% end %>
   <% elsif @challenges.count == 1%>
-  <%# IF ONLY ONE CHALLENGE %>
+    <%# IF ONLY ONE CHALLENGE %>
     <% @challenges.each do |c| %>
         <div class="scroll-card-full shadow">
           <%= link_to challenge_path(c.id), class: "link" do %>
@@ -112,58 +112,45 @@
         <% end %>
       </div>
     <% end %>
-
   <% else %>
     <%# IF NO CHALLENGES CREATED YET %>
-    <%# <div class="new-challenge-card">
-      <h6>Hey create a new challenge</h6>
-    </div> %>
     <div class="_card card shadow h-100">
-    <div class="_card-body">
-      <h4 class="text-center _card-heading">No active challenge yet? </h4>
-      <span class="_card-text text-center">
-      It's time to build a new habit!</span>
-      <span class="_card-text text-center mb-3">
-      Create a challenge, lock in a wager and we will make sure you stick to it!</span>
-      <%= link_to "Create a new challenge now!",new_challenge_path, class: "btn _card-button btn-outline-light btn-block" %>
+      <div class="_card-body">
+        <h4 class="text-center _card-heading">No active challenge yet </h4>
+        <span class="_card-text text-center">
+        It's time to build a new habit!</span>
+        <span class="_card-text text-center mb-3">
+        Create a challenge, lock in a wager and we will make sure you stick to it!</span>
+        <%= link_to "Create a new challenge now!",new_challenge_path, class: "btn _card-button btn-outline-light btn-block" %>
+      </div>
     </div>
-  </div>
-
   <% end %>
-
-
-
-
 </div>
 
 <div class="flex-container mt-3 mb-2">
   <div class="latest-activities-card p-3">
     <h6>Your 5 latest activities:</h6>
-
     <div class="dashboard-scrolling">
-
       <table class="table border-success">
-            <thead>
-              <tr>
-                <th scope="col">Type</th>
-                <th scope="col">Date</th>
-                <th scope="col">Duration</th>
-                <th scope="col">Distance</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @top5.each do |a|%>
-                <tr>
-                  <th scope="row"><%= a.activity_type %></th>
-                  <td><%= a.start_date.strftime("%b %d, %Y") %></td>
-                  <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
-                  <td><%= a.distance / 1000.0 %>km</td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Date</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Distance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @top5.each do |a|%>
+            <tr>
+              <th scope="row"><%= a.activity_type %></th>
+              <td><%= a.start_date.strftime("%b %d, %Y") %></td>
+              <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
+              <td><%= a.distance / 1000.0 %>km</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-
-
   </div>
 </div>
