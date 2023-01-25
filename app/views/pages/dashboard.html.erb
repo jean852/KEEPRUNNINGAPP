@@ -30,11 +30,11 @@
               <div class="challenge-detail-block pl-2 text-left">
                 <p class="mb-2">Status: <span class="badge"><%= c.status.capitalize %></span></p>
                 <p class="mb-2">Progress: <span class="badge">Late</span></p>
-                <%# if c.challenge_type == "KM"  %>
-                <%# <p class="mb-2">Distance left: <%# c.target_distance - c.all_activities_km %><%# </p>%>
-                <%# else %>
-                <%#  <p class="mb-2">Sessions left: <%= c.target_sessions - c.all_activities_sessions %><%#</p>%>
-                <%# end %>
+                <% if c.challenge_type == "KM"  %>
+                <p class="mb-2">Distance left: <%= c.target_distance - c.all_activities_km if c.target_distance.present? && c.all_activities_km.present? %> </p>
+                <% else %>
+                <p class="mb-2">Sessions left: <%= c.target_sessions - c.all_activities_sessions if c.target_sessions.present? && c.all_activities_sessions.present? %></p>
+                <% end %>
               </div>
               <div class="progress-block challenge-detail-block">
                 <p style="text-align: left;">Elapsed time</p>
