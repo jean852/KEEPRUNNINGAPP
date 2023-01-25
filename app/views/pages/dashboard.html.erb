@@ -48,10 +48,10 @@
                 </div>
                 <% if c.challenge_type == "KM" %>
                 <p style="text-align: left;">Distance achieved</p>
-                <% distance_progress = number_to_percentage((c.all_activities_km / c.target_distance)*100, precision: 2) %>
+                <% distance_progress = number_to_percentage((c.all_activities_km / c.target_distance)*100 if c.target_distance.present? && c.all_activities_km.present?, precision: 2) %>
                 <% else %>
                 <p style="text-align: left;">Sessions achieved</p>
-                <% distance_progress = number_to_percentage((c.all_activities_sessions / c.target_sessions)*100, precision: 2) %>
+                <% distance_progress = number_to_percentage((c.all_activities_sessions / c.target_sessions)*100 if c.target_sessions.present? && c.all_activities_sessions.present?, precision: 2) %>
                 <% end %>
                 <div class="progress ">
                   <div class="progress-bar bg-green" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= distance_progress %></div>
