@@ -2,6 +2,8 @@ require_relative "boot"
 
 require "rails/all"
 require "money-rails"
+#require "sidekiq/scheduler"
+#require "sidekiq"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,5 +27,12 @@ module KEEPRUNNINGAPP
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+  end
+end
+
+Sidekiq.configure_server do |config|
+  schedule_file = "config/schedule.yml"
+  if File.exist?(schedule_file)
+    Sidekiq::Cron::Job.load_from_hash YAML.load_file(schedule_file)
   end
 end

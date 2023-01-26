@@ -65,6 +65,8 @@ gem 'strava-ruby-client'
 # for Sidekiq and run background jobs
 gem "sidekiq", "~> 6.5.8"
 gem "sidekiq-failures", "~> 1.0"
+gem "sidekiq-scheduler"
+gem "sidekiq-cron"
 
 # Pundit Authorization Gem
 gem "pundit"
