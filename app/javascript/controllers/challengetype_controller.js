@@ -12,9 +12,9 @@ export default class extends Controller {
      this.quantityTarget.classList.remove("toggle")
      this.lengthTarget.classList.add("toggle")
    }
-  distance() {
-     console.log("Distance")
-     this.challengetypeTarget.value="Distance"
+  sessions() {
+     console.log("Sessions")
+     this.challengetypeTarget.value="Sessions"
      this.quantityTarget.classList.add("toggle")
      this.lengthTarget.classList.remove("toggle")
      }

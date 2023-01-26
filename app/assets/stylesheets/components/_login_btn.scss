@@ -9,7 +9,7 @@
   transition-duration: .3s;
   border: 1px solid transparent;
   letter-spacing: 2px;
-  min-width: 160px;
+  min-width: 28rem;
   text-transform: uppercase;
   white-space: normal;
   font-weight: 700;
@@ -26,4 +26,10 @@
 
 button.login-button {
   font-family: 'Manrope', sans-serif;
+}
+
+@media screen and (max-width: 991px) {
+  .login-button {
+    min-width: 160px;
+  }
 }

@@ -9,8 +9,8 @@
 
 
 .tiger-image {
-  width: 100%;
-  aspect-ratio: 1 / 1 ;
+  max-width: 40%;
+  height: auto;
 }
 
 .navbar-toggler-icon {
@@ -23,4 +23,11 @@
 
 .nav-link:hover {
   color: $krgreen !important;
+}
+
+@media screen and (max-width: 991px) {
+  .tiger-image {
+    max-width: 100%;
+    height: auto;
+  }
 }

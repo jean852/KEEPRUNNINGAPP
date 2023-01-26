@@ -2,8 +2,13 @@ class Challenge < ApplicationRecord
   belongs_to :user
   monetize :price_cents
   has_one :order, dependent: :destroy
+  validates :name, presence: true
+  validates :activity_type, presence: true
+  validates :challenge_type, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true, comparison: { greater_than: :start_date }
 
-  CHALLENGE_TYPE = ['KM', 'TIME']
+  CHALLENGE_TYPE = ['KM', 'Sessions']
 
   def all_activities
     activities = Activity.where('start_date >= ? AND start_date <= ? AND user_id = ?', self.start_date, self.end_date, self.user_id ).sort_by { |a| a.start_date }.reverse
@@ -12,7 +17,7 @@ class Challenge < ApplicationRecord
 
   def all_activities_km
     distance = 0
-    activities = Activity.where('start_date >= ? AND start_date <= ? AND user_id = ?', self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'KM'", self.start_date, self.end_date, self.user_id )
     activities.each do |a|
       distance += a.distance
     end
@@ -20,9 +25,17 @@ class Challenge < ApplicationRecord
     return distance
   end
 
-  def progress_text
+  def all_activities_sessions
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Sessions'", self.start_date, self.end_date, self.user_id )
+    return activities.count
+  end
 
-    progress_distance = self.all_activities_km / target_distance
+  def progress_text
+    if challenge_type == "KM"
+      progress_distance = self.all_activities_km / target_distance
+    else
+      progress_distance = self.all_activities_sessions / target_sessions
+    end
     progress_time = (Date.today - start_date).fdiv(end_date - start_date)
 
     delta = progress_distance - progress_time
