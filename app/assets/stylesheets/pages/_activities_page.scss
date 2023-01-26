@@ -10,6 +10,25 @@
 //   color: $krorange !important;
 // }
 
+
+.latest-activities-card {
+  background-color: $krblack;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 1.16em;
+  margin: 0 20px;
+  th, td {
+    color:white;
+    font-size: .75rem;
+    font-weight: 300;
+  }
+
+  h6 {
+    color: $kryellow;
+  }
+
+}
+
 .activities-scrolling {
   overflow:scroll;
   height:500px;
@@ -20,4 +39,31 @@
 
 .activities-scrolling::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
+}
+
+@media (min-width:916px){
+  .latest-activities-card th{
+    font-size: 1rem;
+    padding: 0.75em;
+  }
+  .latest-activities-card td{
+    font-size: 0.95rem;
+    padding: 0.75em;
+    vertical-align: middle;
+    border-right: 1px solid #6CDD8A;
+  }
+  .latest-activities-card td:last-child{
+    border-right: none;
+  }
+  .act-link button{
+    font-size: 1.1rem;
+  }
+  .nav-item{
+    font-size: 1rem;
+  }
+  .avatar{
+    width: 70px;
+    box-shadow: 0px 1px 5px 0px #797B7C
+
+  }
 }
