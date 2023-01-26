@@ -55,14 +55,14 @@
               </tr>
             </thead>
             <tbody>
-              <%# @runningactivities.each do |a|%>
+              <%@runningactivities.each do |a|%>
                 <tr>
-                  <td><%#= a.start_date.strftime("%b %d, %Y") %> sadsdsadsadsdsa</td>
-                  <td><%#= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %>asdsadsadsadasd</td>
-                  <td><%#= a.distance / 1000.0 %>sadasdsadsadsakm</td>
-                  <td><%#= link_to "🔗", "https://www.strava.com/activities/#{a.strava_id}", class:"navlink" %></td>
+                  <td><%= a.start_date.strftime("%b %d, %Y") %></td>
+                  <td><%= Time.at(a.elapsed_time).utc.strftime("%H:%M:%S") %></td>
+                  <td><%= a.distance / 1000.0 %></td>
+                  <td><%= link_to "🔗", "https://www.strava.com/activities/#{a.strava_id}", class:"navlink" %></td>
                 </tr>
-              <%# end %>
+              <% end %>
             </tbody>
           </table>
         </div>
