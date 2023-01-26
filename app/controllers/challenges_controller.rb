@@ -18,7 +18,7 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
-    @challenge.status = "PENDING"
+    @challenge.status = "Not started"
 
     if @challenge.save
       if @challenge.price_cents.zero?
