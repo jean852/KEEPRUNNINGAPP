@@ -1,14 +1,18 @@
 .challenge-showpage {
   // background-color: $krblack;
-  margin: 0 20px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
 }
 
 .challenge-card {
   background-color: $krblack;
   // border: 2px solid $kryellow;
   border-radius: 10px;
-  flex-grow: 1;
-  padding: 0px 20px;
+  // flex-grow: 1;
+  padding: 0 1.25rem;
   align-content: center;
   vertical-align: middle;
 
@@ -24,8 +28,8 @@
 .latest-activities-card-show {
   background-color: $krblack;
   border-radius: 10px;
-  flex-grow: 1;
-  padding: 1em;
+  // flex-grow: 1;
+  padding: 1.25rem;
   margin: 0 0px;
   th, td {
     color:white;
