@@ -1,0 +1,32 @@
+#orders-page {
+  height:80vh;
+  width:80%;
+}
+
+@media screen and (max-width: 991px) {
+
+  #orders-page {
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+    width: auto;
+    height: auto;
+    overflow: hidden;
+  }
+
+  // .mobile-margin {
+  //   margin-top: 0!important;
+  // }
+
+  // .challenge-btn {
+  //   margin-top: 5%!important;
+  // }
+
+  // h1, h2, h3, h4, h5, h6 {
+  //   margin-top: 0!important;
+  // }
+
+  // p {
+  //   margin-top: 0!important;
+  // }
+
+}
