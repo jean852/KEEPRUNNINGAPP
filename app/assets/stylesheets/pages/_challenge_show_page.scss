@@ -10,12 +10,11 @@
 .challenge-card {
   background-color: $krblack;
   // border: 2px solid $kryellow;
-  border-radius: 10px;
-  // flex-grow: 1;
-  padding: 0 1.25rem;
   align-content: center;
   vertical-align: middle;
-
+  width: 100%;
+  max-width: 63.5rem;
+  margin: auto;
   h1, h6 {
     color:white;
   }
@@ -28,7 +27,6 @@
 .latest-activities-card-show {
   background-color: $krblack;
   border-radius: 10px;
-  // flex-grow: 1;
   padding: 1.25rem;
   margin: 0 0px;
   th, td {
@@ -41,4 +39,12 @@
     color: $kryellow;
   }
 
+}
+
+.table-footer {
+  display: inline;
+  font-size:10px;
+  color: #888888;
+  margin-top: 2em;
+  margin-bottom: 0;
 }
