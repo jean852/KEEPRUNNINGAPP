@@ -1,25 +1,19 @@
-<div class="container">
-
-  <div class="d-flex justify-content-center">
-
-    <div class="row py-4 d-flex-column align-content-center" style="height:80vh;width:80%">
-      <div class="col">
-        <h1 class="supertitle-gradient text-center mt-5">Congratulations! You are all set. 🏃‍♂️</h1>
-        <p class="mt-5">Your deposit is on the way to us. Your challenge will be active on the start date of your challenge
-        and will end at 00:00UTC on the last day you selected. Your locked amount will be automatically refunded to you if
-        you succeed your challenge and meet the criteria you've selected. Keep Runnin!</p>
-        <ul class="list-unstyled mt-5">
-          <li><strong>CHALLENGE: </strong> <%= "Challenge # #{@order.challenge.id}" %></li>
-          <li><strong>TOTAL LOCKED: </strong> <%= humanized_money_with_symbol @order.amount %></li>
-          <li><strong>LOCKED ON: </strong> <%= @order.created_at.to_date %></li>
-          <li><strong>LOCKING ORDER: </strong>Order #<%= @order.id %></li>
-          <li><strong>ORDER STATUS: </strong> <%= @order.state.capitalize %></li>
-          </li>
-        </ul>
-        <%= link_to "See my challenge", challenge_path(@order.challenge.id), class: "btn btn-primary mt-5" %>
-      </div>
+<div id="orders-page" class="container d-flex justify-content-center ">
+  <div class="row d-flex-column align-content-center">
+    <div class="col text-center">
+      <p class="supertitle-gradient m-5 mobile-margin">Congratulations! You are all set 🏃‍♂️</p>
+      <h4 class="my-5">Your deposit is on the way to us.</h4>
+      <p class="my-5"> Your challenge will be active on the start date of your challenge and will end at 00:00UTC on the last day you selected.</p>
+      <p class="my-5">Your locked amount will be automatically refunded to you if you succeed your challenge</p>
+      <h5 class="my-5">Keep Running!</h5>
+      <ul class="p-0 d-flex-column justify-content-around list-unstyled mt-4">
+        <li><strong>CHALLENGE: </strong> <%= "Challenge # #{@order.challenge.id}" %></li>
+        <li><strong>TOTAL LOCKED: </strong> <%= humanized_money_with_symbol @order.amount %></li>
+        <li><strong>LOCKED ON: </strong> <%= @order.created_at.to_date %></li>
+        <li><strong>LOCKING ORDER: </strong>Order #<%= @order.id %></li>
+        <li><strong>ORDER STATUS: </strong> <%= @order.state.capitalize %></li>
+      </ul>
+      <%= link_to "See my challenge", challenge_path(@order.challenge.id), class: "btn challenge-btn mt-5" %>
     </div>
-
   </div>
-
 </div>
