@@ -45,10 +45,7 @@
               </div>
             <%= f.input :challenge_type, as: :hidden, required: true, input_html: { data: { challengetype_target: "challengetype" }}%>
           </div>
-
-          <div style="width:100%;">
-            <div data-action="click->step#to_step3", class="btn challenge-btn my-3" style="width:100%">Continue</div>
-          </div>
+          <div data-action="click->step#to_step3", class="btn challenge-btn my-3">Continue</div>
         </div>
 
         <%# 3) SELECT CHALLENGE PARAMETERS %>
