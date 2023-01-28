@@ -4,8 +4,8 @@
       <div data-controller='step' >
 
         <%# 1) SELECT ACTIVITY TYPE %>
-        <div data-step-target="step1" class="d-flex flex-column justify-content-between align-items-center">
-          <div >
+        <div data-step-target="step1" class="container-fluid d-flex flex-column justify-content-around align-items-center">
+          <div>
             <div data-controller='activity'>
               <%= f.input :name, placeholder: "Your challenge name", required: true %>
               <div class="text-center mb-2 border-yellow" data-activity-target="running">
@@ -19,10 +19,9 @@
               <%= f.input :activity_type, as: :hidden, required: true, input_html: { data: { activity_target: "activity" }} %>
             </div>
           </div>
-          <div style="width:100%;margin-bottom:16px;bottom:16px">
-            <div data-action="click->step#to_step2", class="btn challenge-btn m-0" style="width:100%">Continue</div>
-          </div>
+          <div data-action="click->step#to_step2", class="btn challenge-btn">Continue</div>
         </div>
+
         <%# 2) SELECT CHALLENGE TYPE %>
         <%# Running  %>
         <div data-step-target="step2" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
@@ -51,6 +50,7 @@
             <div data-action="click->step#to_step3", class="btn challenge-btn my-3" style="width:100%">Continue</div>
           </div>
         </div>
+
         <%# 3) SELECT CHALLENGE PARAMETERS %>
         <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
           <div class="text-center mt-5">
