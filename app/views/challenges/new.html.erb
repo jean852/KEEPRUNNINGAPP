@@ -20,7 +20,7 @@
             </div>
           </div>
           <div style="width:100%;margin-bottom:16px;bottom:16px">
-            <div data-action="click->step#to_step2", class="btn btn-primary m-0" style="width:100%">Continue</div>
+            <div data-action="click->step#to_step2", class="btn challenge-btn m-0" style="width:100%">Continue</div>
           </div>
         </div>
         <%# 2) SELECT CHALLENGE TYPE %>
@@ -48,7 +48,7 @@
           </div>
 
           <div style="width:100%;">
-            <div data-action="click->step#to_step3", class="btn btn-primary my-3" style="width:100%">Continue</div>
+            <div data-action="click->step#to_step3", class="btn challenge-btn my-3" style="width:100%">Continue</div>
           </div>
         </div>
         <%# 3) SELECT CHALLENGE PARAMETERS %>
@@ -69,7 +69,7 @@
             <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
           </div>
           <div style="width:100%;margin-top:160px;top:160px;margin-bottom:20px;bottom:20px">
-            <div data-action="click->step#to_step4", class="btn btn-primary" style="width:100%">Continue</div>
+            <div data-action="click->step#to_step4", class="btn challenge-btn" style="width:100%">Continue</div>
           </div>
         </div>
 
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div style="width:100%;margin-bottom:28px;bottom:28px">
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class: "btn challenge-btn" %>
           </div>
         </div>
       </div>
