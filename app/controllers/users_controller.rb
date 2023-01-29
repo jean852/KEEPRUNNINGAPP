@@ -2,44 +2,29 @@ class UsersController < ApplicationController
   include Pundit
   before_action :authorize_user, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:edit, :update]
-  authorize_resource
 
   def index
     @users = policy_scope(User)
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to @user
-    else
-      render 'new'
-    end
-  end
-
   def show
-    @user = current_user
-    authorize @user
+    set_user
+    authorize_user
   end
 
   def edit
-    @user = current_user
-    authorize @user
+    set_user
+    authorize_user
   end
 
   def update
-    @user = current_user
-    authorize @user
-    @user.update(user_params)
-    if @user.valid?
-      flash[:success] = "Your details have been updated."
+    set_user
+    authorize_user
+    if @user.update(user_params)
+      flash[:success] = "Your email address has been successfully updated."
       redirect_to user_root_path
     else
-      flash[:error] = "There was an error updating your details: #{@user.errors.full_messages.join(', ')}"
+      flash[:error] = "There was an error updating your email address: #{@user.errors.full_messages.join(', ')}"
       render :edit
     end
   end
@@ -55,6 +40,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 end
