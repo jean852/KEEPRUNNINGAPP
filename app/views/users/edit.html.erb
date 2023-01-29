@@ -1,0 +1,13 @@
+<%= simple_form_for @user, url: edit_my_account_path, method: :patch do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                hint: "Please update with your personal email address" %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update" %>
+  </div>
+<% end %>
