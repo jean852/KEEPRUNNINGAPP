@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth' }
   root to: "pages#home"
 
+  resources :users, only: [:show, :edit, :update]
   resources :challenges, only: [:create, :index, :new, :update, :edit, :show, :destroy]
   resources :activities, only: [:index]
   resources :orders, only: [:show, :create] do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   get "leaderboard", to: "pages#leaderboard"
   get "webhook", to: "pages#webhook"
   post "webhook", to: "pages#handle_activities"
+  patch "/users/my_account/edit", to: "users#edit", as: "edit_my_account"
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
