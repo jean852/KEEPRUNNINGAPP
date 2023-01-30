@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   include Pundit
   before_action :authorize_user, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:edit, :update]
+  after_update :send_welcome_email
 
   def index
     @users = policy_scope(User)
@@ -21,10 +22,10 @@ class UsersController < ApplicationController
     set_user
     authorize_user
     if @user.update(user_params)
-      flash[:success] = "Your email address has been successfully updated."
+      flash[:notice] = "Your email address has been successfully updated."
       redirect_to user_root_path
     else
-      flash[:error] = "There was an error updating your email address: #{@user.errors.full_messages.join(', ')}"
+      flash[:notice] = "There was an error updating your email address: #{@user.errors.full_messages.join(', ')}"
       render :edit
     end
   end
@@ -41,5 +42,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  # once the user updated his email address after signing in, method to send him a welcome message
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_later
   end
 end
