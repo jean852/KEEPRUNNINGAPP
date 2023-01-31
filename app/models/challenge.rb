@@ -38,7 +38,7 @@ class Challenge < ApplicationRecord
 
   def bike_activities_km
     distance = 0
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Cycling'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Ride'", self.start_date, self.end_date, self.user_id )
     activities.each do |a|
       distance += a.distance
     end
@@ -56,7 +56,7 @@ class Challenge < ApplicationRecord
 
   ## Sessions
   def all_activities_sessions
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Sessions'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ?", self.start_date, self.end_date, self.user_id )
     return activities.count
   end
 
@@ -66,7 +66,7 @@ class Challenge < ApplicationRecord
   end
 
   def bike_activities_sessions
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Bike'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Ride'", self.start_date, self.end_date, self.user_id )
     return activities.count
   end
 
@@ -88,7 +88,19 @@ class Challenge < ApplicationRecord
 
     delta = progress_distance - progress_time
 
-    if delta >= 0
+    if challenge_type == "KM"
+      if target_distance <= self.type_dependant_km
+        status = "Completed"
+      end
+    elsif challenge_type == "Sessions"
+      if target_sessions <= self.type_dependant_sessions
+        status = "Completed"
+      end
+    end
+
+    if status == "Completed"
+      return "Congrats!"
+    elsif delta >= 0
       return "On track"
     else
       return "You are late"
