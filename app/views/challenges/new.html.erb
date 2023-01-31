@@ -4,8 +4,8 @@
       <div data-controller='step' >
 
         <%# 1) SELECT ACTIVITY TYPE %>
-        <div data-step-target="step1" class="d-flex flex-column justify-content-between align-items-center">
-          <div >
+        <div data-step-target="step1" class="container-fluid d-flex flex-column justify-content-around align-items-center">
+          <div>
             <div data-controller='activity'>
               <%= f.input :name, placeholder: "Your challenge name", required: true %>
               <div class="text-center mb-2 border-yellow" data-activity-target="running">
@@ -19,10 +19,9 @@
               <%= f.input :activity_type, as: :hidden, required: true, input_html: { data: { activity_target: "activity" }} %>
             </div>
           </div>
-          <div style="width:100%;margin-bottom:16px;bottom:16px">
-            <div data-action="click->step#to_step2", class="btn btn-primary m-0" style="width:100%">Continue</div>
-          </div>
+          <div data-action="click->step#to_step2", class="btn challenge-btn">Continue</div>
         </div>
+
         <%# 2) SELECT CHALLENGE TYPE %>
         <%# Running  %>
         <div data-step-target="step2" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
@@ -46,35 +45,31 @@
               </div>
             <%= f.input :challenge_type, as: :hidden, required: true, input_html: { data: { challengetype_target: "challengetype" }}%>
           </div>
-
-          <div style="width:100%;">
-            <div data-action="click->step#to_step3", class="btn btn-primary my-3" style="width:100%">Continue</div>
-          </div>
+          <div data-action="click->step#to_step3", class="btn challenge-btn my-3">Continue</div>
         </div>
+
         <%# 3) SELECT CHALLENGE PARAMETERS %>
-        <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
-          <div class="text-center mt-5">
+        <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh">
+          <div class="text-center my-5">
             <%# Distance  %>
             <div data-step-target="step3Distance" class="d-none">
-              <h2 class="mt-5">Target Distance (km)?</h2>
+              <h2 class="my-5">Target Distance (km)?</h2>
               <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
             </div>
             <%# Sessions  %>
             <div data-step-target="step3Sessions" class="d-none">
-              <h2 class="mt-5">Target number of sessions?</h2>
+              <h2 class="my-5">Target number of sessions?</h2>
               <%= f.input :target_sessions, label: false, input_html: {class:"form_input"} %>
             </div>
-            <h2 class="mt-5">Over which period of time?</h2>
+            <h2 class="my-5">Over which period of time?</h2>
             <%= f.input :start_date, as: :string, placeholder: "Start date",  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
             <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
           </div>
-          <div style="width:100%;margin-top:160px;top:160px;margin-bottom:20px;bottom:20px">
-            <div data-action="click->step#to_step4", class="btn btn-primary" style="width:100%">Continue</div>
-          </div>
+          <div data-action="click->step#to_step4", class="btn challenge-btn w-100 my-5">Continue</div>
         </div>
 
         <%# 4) SELECT AMOUNT TO BET PARAMETERS %>
-        <div data-step-target="step4" class="d-none d-flex flex-column justify-content-around align-items-center text-center" style="min-height:80vh">
+        <div data-step-target="step4" class="d-none d-flex flex-column justify-content-center align-items-center text-center" style="min-height:80vh">
           <div class="my-5">
             <div class="my-5">
               <h2>Bet on your success!</h2>
@@ -88,9 +83,7 @@
               </div>
             </div>
           </div>
-          <div style="width:100%;margin-bottom:28px;bottom:28px">
-          <%= f.button :submit, class: "btn btn-primary" %>
-          </div>
+          <div class="w-100 my-5"><%= f.button :submit, class: "btn challenge-btn" %></div>
         </div>
       </div>
     <% end %>

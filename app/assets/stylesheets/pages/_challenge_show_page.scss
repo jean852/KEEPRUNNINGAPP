@@ -1,17 +1,11 @@
-.challenge-showpage {
-  // background-color: $krblack;
-  margin: 0 20px;
-}
-
 .challenge-card {
   background-color: $krblack;
   // border: 2px solid $kryellow;
-  border-radius: 10px;
-  flex-grow: 1;
-  padding: 0px 20px;
   align-content: center;
   vertical-align: middle;
-
+  width: 100%;
+  max-width: 62.5rem;
+  margin: auto;
   h1, h6 {
     color:white;
   }
@@ -20,21 +14,40 @@
   }
 }
 
-
 .latest-activities-card-show {
   background-color: $krblack;
   border-radius: 10px;
-  flex-grow: 1;
-  padding: 20px;
-  margin: 0 0px;
+  padding: 1.25rem;
+  margin: 0 1.25rem;;
+  width: 100%;
+  max-width: 62.5rem;
   th, td {
     color:white;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 300;
   }
 
   h6 {
     color: $kryellow;
+  }
+
+}
+
+.table-footer {
+  display: inline;
+  font-size:10px;
+  color: #888888;
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+
+  .challenge-card, .latest-activities-card-show {
+    margin: auto;
+    width: 100%;
+    max-width: 30em;
+    height: auto;
   }
 
 }

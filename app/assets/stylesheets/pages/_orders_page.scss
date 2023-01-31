@@ -1,0 +1,15 @@
+#orders-page {
+  height:80vh;
+  width:80%;
+}
+
+@media screen and (max-width: 991px) {
+
+  #orders-page {
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+    width: auto;
+    height: auto;
+    overflow: hidden;
+  }
+}

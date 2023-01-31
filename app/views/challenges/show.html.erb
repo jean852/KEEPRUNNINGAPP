@@ -1,11 +1,11 @@
-<div class="challenge-showpage mt-5">
+<div class="container-fluid d-flex flex-column my-5">
 
-  <div class="scroll-card bg-white shadow">
+  <div class="challenge-card bg-white shadow my-5">
     <div class="scroll-card-title p-1">
       <h6><span style="color:#FEFF00;">/ </span>Challenge <%= @challenge.name  %></h6>
     </div>
 
-    <div class="scroll-card-info ">
+    <div class="scroll-card-info justify-content-between">
       <% if @challenge.challenge_type == "KM" %>
           <% header = "#{@challenge.target_distance} km from" %>
       <% else %>
@@ -54,10 +54,10 @@
     </div>
   </div>
 
-  <div class="d-flex justify-content-between mt-5">
+  <div class="d-flex justify-content-around mt-5">
     <div class="latest-activities-card-show">
       <h6>Activities counted for this challenge:</h6>
-      <div style="overflow:scroll; height:200px;">
+      <div style="overflow:scroll;">
         <table class="table border-success">
           <thead>
             <tr>
@@ -79,7 +79,7 @@
           </tbody>
         </table>
       </div>
-      <p style="font-size:10px; color: #888888; margin-bottom: 0; margin-top: 2em;">You dont see your latest activity? Refresh here | Or contact support</p>
+      <p class="table-footer">Don't see your latest activity? Contact </p><a class="table-footer" href="mailto:support@keeprunning.app?subject=Latest Activity Error">support</a>
     </div>
   </div>
 </div>

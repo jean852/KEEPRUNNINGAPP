@@ -8,19 +8,6 @@
         <span class="navbar-toggler-icon custom-toggler"></span>
       </button>
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <%= image_tag current_user.profile.profile_url.to_s, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "My account", "#", class: "dropdown-item" %>
-            <%= link_to "Billing", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% end %>
-
-    </div>
-
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto list-group-horizontal justify-content-between">
         <% if user_signed_in? %>
@@ -39,6 +26,17 @@
           </li>
         <% end %>
       </ul>
+    </div>
+        <li class="nav-item dropdown">
+          <%= image_tag current_user.profile.profile_url.to_s, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "My Strava Profile", "https://www.strava.com/settings/profile", target: :_blank, class: "dropdown-item" %>
+            <%= link_to "My Account", edit_my_account_path, class: "dropdown-item" %>
+            <%= link_to "Billing", "https://billing.stripe.com/p/login/test_9AQ03W9CFaJsaU87ss", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% end %>
     </div>
   </div>
 </div>

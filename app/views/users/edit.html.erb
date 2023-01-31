@@ -1,0 +1,7 @@
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <%= f.submit "Update Email Address", class: "btn btn-primary" %>
+<% end %>
