@@ -15,9 +15,10 @@ class Challenge < ApplicationRecord
     return activities
   end
 
+  ## Distance
   def all_activities_km
     distance = 0
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'KM'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ?", self.start_date, self.end_date, self.user_id )
     activities.each do |a|
       distance += a.distance
     end
@@ -25,16 +26,63 @@ class Challenge < ApplicationRecord
     return distance
   end
 
+  def run_activities_km
+    distance = 0
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Run'", self.start_date, self.end_date, self.user_id )
+    activities.each do |a|
+      distance += a.distance
+    end
+    distance = distance / 1000.00
+    return distance
+  end
+
+  def bike_activities_km
+    distance = 0
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Cycling'", self.start_date, self.end_date, self.user_id )
+    activities.each do |a|
+      distance += a.distance
+    end
+    distance = distance / 1000.00
+    return distance
+  end
+
+  def type_dependant_km
+    if activity_type == "RUNNING"
+      run_activities_km
+    else
+      bike_activities_km
+    end
+  end
+
+  ## Sessions
   def all_activities_sessions
     activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Sessions'", self.start_date, self.end_date, self.user_id )
     return activities.count
   end
 
+  def run_activities_sessions
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Run'", self.start_date, self.end_date, self.user_id )
+    return activities.count
+  end
+
+  def bike_activities_sessions
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Bike'", self.start_date, self.end_date, self.user_id )
+    return activities.count
+  end
+
+  def type_dependant_sessions
+    if activity_type == "RUNNING"
+      run_activities_sessions
+    else
+      bike_activities_sessions
+    end
+  end
+
   def progress_text
     if challenge_type == "KM"
-      progress_distance = self.all_activities_km / target_distance
+      progress_distance = self.type_dependant_km / target_distance
     else
-      progress_distance = self.all_activities_sessions / target_sessions
+      progress_distance = self.type_dependant_sessions / target_sessions
     end
     progress_time = (Date.today - start_date).fdiv(end_date - start_date)
 
