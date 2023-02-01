@@ -29,11 +29,11 @@
             <div class="challenge-details mt-3">
               <div class="challenge-detail-block pl-2 text-left">
                 <p class="mb-2">Status: <span class="badge"><%= c.status.capitalize %></span></p>
-                <p class="mb-2">Progress: <span class="badge">Late</span></p>
+                <p class="mb-2">Progress: <span class="badge"> <%= c.progress_text %></span></p>
                 <% if c.challenge_type == "KM"  %>
-                  <p class="mb-2">Distance left: <%= c.target_distance - c.all_activities_km if c.target_distance.present? && c.all_activities_km.present? %> </p>
-                  <% else %>
-                  <p class="mb-2">Sessions left: <%= c.target_sessions - c.all_activities_sessions if c.target_sessions.present? && c.all_activities_sessions.present? %></p>
+                    <p class="mb-2">Distance left: <%= [c.target_distance - c.type_dependant_km,0].max if c.target_distance.present? && c.type_dependant_km.present? %> </p>
+                <% else %>
+                    <p class="mb-2">Sessions left: <%= [c.target_sessions - c.type_dependant_sessions,0].max if c.target_sessions.present? && c.type_dependant_sessions.present? %></p>
                 <% end %>
               </div>
               <div class="progress-block challenge-detail-block">
@@ -48,17 +48,19 @@
                 </div>
                 <% if c.challenge_type == "KM" %>
                   <p style="text-align: left;">Distance achieved</p>
-                  <% if c.target_distance.present? && c.all_activities_km.present? %>
-                    <% distance_progress = number_to_percentage((c.all_activities_km / c.target_distance)*100, precision: 2) %>
+                  <% if c.target_distance.present? && c.type_dependant_km.present? %>
+                    <% progression = number_to_percentage((c.type_dependant_km / c.target_distance)*100, precision: 0) %>
+                    <% distance_progress = progression.to_i %>
                   <% end %>
                   <% else %>
                   <p style="text-align: left;">Sessions achieved</p>
-                  <% if c.target_sessions.present? && c.all_activities_sessions.present? %>
-                    <% distance_progress = number_to_percentage((c.all_activities_sessions / c.target_sessions)*100, precision: 2) %>
+                  <% if c.target_sessions.present? && c.type_dependant_sessions.present? %>
+                    <% progression = number_to_percentage((c.type_dependant_sessions / c.target_sessions)*100, precision: 0) %>
+                    <% distance_progress = progression.to_i %>
                   <% end %>
                 <% end %>
                 <div class="progress ">
-                  <div class="progress-bar bg-green" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= distance_progress %></div>
+                  <div class="progress-bar bg-green" role="progressbar" style="width: <%= progression %>;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= [distance_progress, 100].min %>%</div>
                 </div>
               </div>
             </div>
