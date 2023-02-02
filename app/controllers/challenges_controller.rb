@@ -23,10 +23,13 @@ class ChallengesController < ApplicationController
     if @challenge.save
       if @challenge.price_cents.zero?
         # USER DIDNT SELECT ANY AMOUNT WE REDICT TO CHALLENGE DETAIL PAGE
-        redirect_to challenge_path(@challenge)
+                redirect_to challenge_path(@challenge)
       else
         # USER SELECTED AN AMOUNT WE GONNA CREATE THE STRIPE ORDER AND PAYMENT
         @order = Order.create!(challenge: @challenge, amount: @challenge.price_cents, state: 'pending', user: current_user)
+
+        # Aurélie: Send email to user
+        UserMailer.new_challenge_created(@challenge).deliver_now
 
         session = Stripe::Checkout::Session.create(
           payment_method_types: ['card'],

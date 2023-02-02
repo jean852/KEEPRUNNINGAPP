@@ -102,3 +102,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Aurélie : gem to preview email sent to user in dev environment
+gem 'letter_opener'
+gem "letter_opener_web"
