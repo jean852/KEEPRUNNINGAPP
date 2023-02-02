@@ -1,7 +1,17 @@
-<%= form_for @user do |f| %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control" %>
-  </div>
-  <%= f.submit "Update Email Address", class: "btn btn-primary" %>
-<% end %>
+<div class="container-fluid mb-4 d-flex flex-column justify-content-around align-items-center">
+  <h1 class="mb-4">My Account</h1>
+
+  <p><strong>Please kindly check if your email address is correct or update it!</strong></p>
+
+  <%= form_for @user do |f| %>
+
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "text-center mb-2 border-yellow" %>
+    </div>
+
+    <div>
+    <%= f.submit "Update Email Address", class: "login-button" %>
+    </div>
+  <% end %>
+</div>
