@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   post "webhook", to: "pages#handle_activities"
   patch "/users/my_account/edit", to: "users#edit", as: "edit_my_account"
 
+  # access the email preview at http://localhost:3000/letter_opener
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'

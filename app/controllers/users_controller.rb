@@ -21,13 +21,16 @@ class UsersController < ApplicationController
     set_user
     authorize_user
     if @user.update(user_params)
-      flash[:success] = "Your email address has been successfully updated."
+      flash[:notice] = "Your email address has been successfully updated."
+      # Send email to user
+      UserMailer.welcome_email(@user).deliver_now
       redirect_to user_root_path
     else
-      flash[:error] = "There was an error updating your email address: #{@user.errors.full_messages.join(', ')}"
+      flash[:notice] = "There was an error updating your email address: #{@user.errors.full_messages.join(', ')}"
       render :edit
     end
   end
+
 
   private
 
@@ -42,4 +45,5 @@ class UsersController < ApplicationController
   def set_user
     @user = current_user
   end
+
 end

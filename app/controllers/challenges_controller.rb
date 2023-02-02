@@ -18,7 +18,7 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
-    @challenge.status = "PENDING"
+    @challenge.status = "Not started"
 
     if @challenge.save
       if @challenge.price_cents.zero?
@@ -27,6 +27,9 @@ class ChallengesController < ApplicationController
       else
         # USER SELECTED AN AMOUNT WE GONNA CREATE THE STRIPE ORDER AND PAYMENT
         @order = Order.create!(challenge: @challenge, amount: @challenge.price_cents, state: 'pending', user: current_user)
+
+        # Aurélie: Send email to user
+        UserMailer.new_challenge_created(@challenge).deliver_now
 
         session = Stripe::Checkout::Session.create(
           payment_method_types: ['card'],

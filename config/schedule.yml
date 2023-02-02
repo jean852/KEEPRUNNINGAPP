@@ -1,0 +1,4 @@
+update_challenge_status:
+  cron: "*/5 * * * *"
+  class: "UpdateChallengeStatus"
+  queue: default
