@@ -55,7 +55,7 @@
                   <% else %>
                   <p style="text-align: left;">Sessions achieved</p>
                   <% if c.target_sessions.present? && c.type_dependant_sessions.present? %>
-                    <% progression = number_to_percentage((c.type_dependant_sessions / c.target_sessions)*100, precision: 0) %>
+                    <% progression = number_to_percentage(((c.type_dependant_sessions * 1.0)/ (c.target_sessions * 1.0) )*100, precision: 0) %>
                     <% distance_progress = progression.to_i %>
                   <% end %>
                 <% end %>

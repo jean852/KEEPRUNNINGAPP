@@ -2,8 +2,8 @@ require_relative "boot"
 
 require "rails/all"
 require "money-rails"
-#require "sidekiq/scheduler"
-#require "sidekiq"
+# require "sidekiq/scheduler"
+# require "sidekiq"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
