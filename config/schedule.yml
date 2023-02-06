@@ -2,4 +2,4 @@ update_challenge_status:
   cron: "*/5 * * * *"
   class: "UpdateChallengeStatus"
   queue: default
-  first_in: '120s'
+  first_in: '10s'

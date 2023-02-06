@@ -18,7 +18,7 @@
         <div class="challenge-detail-block pl-2 text-left">
           <p class="mb-2">Challenge Type: <span class="badge"><%= @challenge.challenge_type.capitalize %></span></p>
           <p class="mb-2">Activity Type: <span class="badge"><%= @challenge.activity_type.capitalize %></span></p>
-          <p class="mb-2">Status: <span class="badge"><%= @challenge.status.capitalize %></span></p>
+          <p class="mb-2">Status: <span class="badge"><%= @challenge.live_status.capitalize %></span></p>
           <% if @challenge.challenge_type == "KM"  %>
             <p class="mb-2">Distance left: <%= [@challenge.target_distance - @challenge.type_dependant_km,0].max %></p>
           <% else %>
@@ -38,11 +38,11 @@
           </div>
           <% if @challenge.challenge_type == "KM" %>
             <p style="text-align: left;">Distance achieved</p>
-            <% progression = number_to_percentage((@challenge.type_dependant_km / @challenge.target_distance)*100, precision: 0) %>
+            <% progression = number_to_percentage(((@challenge.type_dependant_km * 1.0) / @challenge.target_distance)*100, precision: 0) %>
             <% distance_progress = progression.to_i %>
           <% else %>
             <p style="text-align: left;">Sessions achieved</p>
-            <% progression = number_to_percentage((@challenge.type_dependant_sessions / @challenge.target_sessions)*100, precision: 2) %>
+            <% progression = number_to_percentage(((@challenge.type_dependant_sessions * 1.0) / (@challenge.target_sessions))*100, precision: 2) %>
             <% distance_progress = progression.to_i %>
           <% end %>
           <div class="progress ">

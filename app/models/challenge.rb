@@ -106,4 +106,17 @@ class Challenge < ApplicationRecord
       return "You are late"
     end
   end
+
+  def live_status
+    if (challenge_type == "KM" && target_distance <= type_dependant_km) || (challenge_type == "Sessions" && target_sessions <= type_dependant_sessions)
+      live_status = 'Completed'
+    elsif Date.today >= start_date && Date.today <= end_date
+      live_status = 'Started'
+    elsif Date.today > end_date
+      live_status = 'Failed'
+    else
+      live_status = "Not started"
+    end
+    return live_status
+  end
 end
