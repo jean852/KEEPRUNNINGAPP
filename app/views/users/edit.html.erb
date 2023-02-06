@@ -1,17 +1,21 @@
 <div class="container-fluid mb-4 d-flex flex-column justify-content-around align-items-center">
-  <h1 class="mb-4">My Account</h1>
-
-  <p><strong>Please kindly check if your email address is correct or update it!</strong></p>
-
-  <%= form_for @user do |f| %>
-
-    <div>
-      <%= f.label :email %>
-      <%= f.text_field :email, class: "text-center mb-2 border-yellow" %>
+  <div class="heading-wrapper">
+    <div class="heading-container">
+      <h1><%= @user.profile.first_name %></h1>
     </div>
+  </div>
 
-    <div>
-    <%= f.submit "Update Email Address", class: "login-button" %>
-    </div>
-  <% end %>
+  <div class="container-fluid mb-4 d-flex flex-column justify-content-around align-items-center">
+    <p class = "mt-4">Please kindly check if your email address is correct or update it!</p>
+
+    <%= form_for @user do |f| %>
+      <div>
+        <%= f.text_field :email, class: "email-input" %>
+      </div>
+      <div>
+      <%= f.submit "Update!", class: "email-button" %>
+      </div>
+    <% end %>
+  </div>
+
 </div>
