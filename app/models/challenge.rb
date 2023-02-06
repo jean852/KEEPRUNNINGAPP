@@ -108,9 +108,7 @@ class Challenge < ApplicationRecord
   end
 
   def live_status
-    if challenge_type == "KM" && target_distance <= type_dependant_km
-      live_status = 'Completed'
-    elsif challenge_type == "Sessions" && target_sessions <= type_dependant_sessions
+    if (challenge_type == "KM" && target_distance <= type_dependant_km) || (challenge_type == "Sessions" && target_sessions <= type_dependant_sessions)
       live_status = 'Completed'
     elsif Date.today >= start_date && Date.today <= end_date
       live_status = 'Started'
