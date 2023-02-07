@@ -19,7 +19,7 @@ class UpdateChallengeStatus
  #   end
  # end
 
-  def perform_bis
+  def perform
     challenges = Challenge.all
     if challenge.status == 'Not started' || challenge.status == "Started"
       challenges.each do |challenge|
