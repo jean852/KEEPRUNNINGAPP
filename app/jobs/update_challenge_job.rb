@@ -3,13 +3,14 @@ class UpdateChallengeJob < ApplicationJob
 
   def perform(challenge)
     if (challenge.challenge_type == "KM" && challenge.target_distance <= challenge.type_dependant_km) || (challenge.challenge_type == "Sessions" && challenge.target_sessions <= challenge.type_dependant_sessions)
-      return 'Completed'
+      challenge.status = 'Completed'
     elsif Date.today >= challenge.start_date && Date.today <= challenge.end_date
-      return 'Started'
+      challenge.status = 'Started'
     elsif Date.today > challenge.end_date
-      return 'Failed'
+      challenge.status = 'Failed'
     else
-      return "Not started"
+      challenge.status = "Not started"
     end
+    challenge.save!
   end
 end
