@@ -5,6 +5,7 @@ namespace :challenge_status do
     puts "Updating #{challenges.size} challenges"
     challenges.each do |challenge|
       UpdateChallengeJob.perform_later(challenge)
+      puts "Chellenge updated. New status #{challenge.status}"
     end
   end
 end
