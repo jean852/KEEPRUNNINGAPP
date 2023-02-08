@@ -1,4 +1,5 @@
 class UpdateChallengeJob < ApplicationJob
+  require 'date'
   queue_as :default
 
   def perform(challenge)
