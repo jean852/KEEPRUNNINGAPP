@@ -13,6 +13,5 @@ class UpdateChallengeJob < ApplicationJob
       challenge.status = "Not started"
     end
     challenge.save!
-    puts "The job is performing"
   end
 end
