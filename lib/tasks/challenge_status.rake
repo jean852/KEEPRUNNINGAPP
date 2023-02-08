@@ -4,7 +4,7 @@ namespace :challenge_status do
     challenges = Challenge.all
     puts "Updating #{challenges.size} challenges"
     challenges.each do |challenge|
-      UpdateChallengeJob.perform_later(challenge)
+      UpdateChallengeJob.perform_now(challenge)
       puts "Challenge updated. New status #{challenge.status}"
     end
   end
