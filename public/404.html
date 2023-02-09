@@ -4,64 +4,56 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .keeprunning-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+  .errorcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  html, body {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
     margin: 0;
+    height: 100%;
+    overflow: hidden
   }
 
-  .keeprunning-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  html {
+    box-sizing: border-box;
+    user-select: none;
   }
 
-  .keeprunning-default-error-page div.dialog > div {
-    border: 1px solid #FEFF00;
-    border-right-color: #FEFF00;
-    border-left-color: #FEFF00;
-    border-bottom-color: #FEFF00;
-    border-top: #FEFF00 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  body {
+    background-color: #000;
   }
 
-  .keeprunning-default-error-page h1 {
-    font-size: 100%;
-    color: #FC4C02;
-    line-height: 1.5em;
+  *, *:before, *:after {
+    box-sizing: inherit;
   }
 
-  .keeprunning-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: white;
-    border: 1px solid #FEFF00;
-    border-right-color: #FEFF00;
-    border-left-color: #FEFF00;
-    border-bottom-color: #FEFF00;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #2E2F30;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  p {
+    color: #fff;
+    font-size: 24px;
+    letter-spacing: .2px;
+    margin: 0;
+    text-align: center;
   }
   </style>
 </head>
 
-<body class="keeprunning-default-error-page">
+<body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
+  <div class="errorcontainer">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <img src="/images/keeprunninglogo.png" alt="keeprunninglogo" style="width: 50rem;">
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="m-1 text-center justify-content-center align-items-center">
+      <p>404, page not found.</p>
+    </div>
   </div>
 </body>
 </html>
