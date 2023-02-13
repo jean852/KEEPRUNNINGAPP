@@ -3,4 +3,4 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 
-console.log("Hello from app/javascript/application.js")
+// console.log("Hello from app/javascript/application.js")

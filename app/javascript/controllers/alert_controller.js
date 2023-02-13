@@ -5,9 +5,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "clickable" ]
 
-  connect() {
-    console.log("alertcontroller connected", this.element)
-  }
+  // connect() {
+  //   console.log("alertcontroller connected", this.element)
+  // }
 
   display() {
     alert("🚨 When connecting with Strava, please make sure all 3 boxes to allow data when on window 'Authorize KeepRunning to connect to Strava' are checked. If not, challenges will not be able to be synced 🚨")

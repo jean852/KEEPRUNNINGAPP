@@ -16,8 +16,5 @@ application.register("challengetype", ChallengetypeController)
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import StepController from "./step_controller"
 application.register("step", StepController)

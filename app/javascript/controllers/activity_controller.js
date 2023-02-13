@@ -2,9 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
     static targets = [ "activity", "cycling", "running"]
-  connect() {
-    console.log("activitycontroller");
-  }
+  // connect() {
+  //   console.log("activitycontroller");
+  // }
 
    running() {
      console.log("running")
