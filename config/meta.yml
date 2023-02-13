@@ -1,5 +1,5 @@
 meta_product_name: "Keep Running - Don't stop, embrace the journey."
 meta_title: "Keep Running - The app that makes sure you don't break your running habit"
 meta_description: "Transform your fitness journey with Keep Running - A web app that provides personalized challenges and support, empowering you to reach your running goals and stick to a habit."
-meta_image: "app/assets/images/cover.png" # should exist in `app/assets/images/`
+meta_image: "keeprunning_meta_image.png" # should exist in `app/assets/images/`
 twitter_account: "@alljean852"   # required for Twitter Cards
