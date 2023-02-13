@@ -7,6 +7,9 @@ import { application } from "./application"
 import ActivityController from "./activity_controller"
 application.register("activity", ActivityController)
 
+import AlertController from "./alert_controller"
+application.register("alert", AlertController)
+
 import ChallengetypeController from "./challengetype_controller"
 application.register("challengetype", ChallengetypeController)
 

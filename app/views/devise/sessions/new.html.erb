@@ -9,8 +9,10 @@
     <%= image_tag("runningtiger.png", :alt => "run away from the keeprunning tiger", class: "tiger-image")  %>
   </div>
 
-  <div class="text-center mb-6">
-    <%= render "devise/shared/links" %>
+  <div data-controller="alert" class="text-center mb-6">
+    <div data-target="alert.clickable" data-action="click->alert#display">
+      <%= render "devise/shared/links" %>
+    </div>
     <p>Need help to keep running? Connect now</p>
   </div>
 </div>
