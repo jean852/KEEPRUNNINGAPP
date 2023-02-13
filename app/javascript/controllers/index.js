@@ -7,14 +7,14 @@ import { application } from "./application"
 import ActivityController from "./activity_controller"
 application.register("activity", ActivityController)
 
+import AlertController from "./alert_controller"
+application.register("alert", AlertController)
+
 import ChallengetypeController from "./challengetype_controller"
 application.register("challengetype", ChallengetypeController)
 
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
-
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
 
 import StepController from "./step_controller"
 application.register("step", StepController)

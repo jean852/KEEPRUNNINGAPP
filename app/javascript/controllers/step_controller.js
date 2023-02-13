@@ -2,9 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
     static targets = [ "step1", "step2", "step2Running", "step3", "step3Distance", "step3Sessions", "step4" ]
-  connect() {
-    console.log("ERddddD");
-  }
+  // connect() {
+  //   console.log("stepcontroller connected")
+  // }
 
    to_step2() {
      console.log("next_step")
