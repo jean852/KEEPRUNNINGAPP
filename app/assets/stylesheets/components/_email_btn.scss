@@ -44,6 +44,8 @@
   }
 }
 
-button.email-button {
-  font-family: 'Manrope', sans-serif;
+@media screen and (max-width: 991px) {
+  .email-button {
+    min-width: 10rem;
+  }
 }
