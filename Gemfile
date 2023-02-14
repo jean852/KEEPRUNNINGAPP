@@ -61,7 +61,6 @@ gem 'multi_json', '~> 1.11', '>= 1.11.2'
 # # Strava Gem
 gem 'strava-ruby-client'
 
-
 # for Sidekiq and run background jobs
 gem "sidekiq", "~> 6.5.8"
 gem "sidekiq-failures", "~> 1.0"
