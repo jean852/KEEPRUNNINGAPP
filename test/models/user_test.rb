@@ -1,6 +1,8 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  # fixtures :users
+
   # create a unit test for the model
   # test "user attributes must not be empty" do
   #   # create a new user object

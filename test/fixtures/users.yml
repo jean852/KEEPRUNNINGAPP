@@ -7,17 +7,3 @@ one:
   provider: ""
   uid: ""
   admin: false
-
-# two:
-#   email: user2@example.com
-#   # password: secret
-#   athlete_id: 654321
-#   created_at: <%= 2.days.ago %>
-#   updated_at: <%= 1.day.ago %>
-
-# three:
-#   email: user3@example.com
-#   # password: secret
-#   athlete_id: 345678
-#   created_at: <%= 3.days.ago %>
-#   updated_at: <%= 2.days.ago %>
