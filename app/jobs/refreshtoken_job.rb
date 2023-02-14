@@ -5,8 +5,8 @@ class RefreshtokenJob < ApplicationJob
     # Do something later
     puts "I'm starting the job for user: #{user.profile.first_name}"
     oauth_client ||= Strava::OAuth::Client.new(
-      client_id: ENV['STRAVA_CLIENT_ID'],
-      client_secret: ENV['STRAVA_CLIENT_SECRET']
+      client_id: ENV.fetch('STRAVA_CLIENT_ID', nil),
+      client_secret: ENV.fetch('STRAVA_CLIENT_SECRET', nil)
     )
 
     if user.sl_access_token.expires_at && Time.now + 1.hour < user.sl_access_token.expires_at
@@ -30,6 +30,7 @@ class RefreshtokenJob < ApplicationJob
       # puts slaccesstoken.expires_at
       slaccesstoken.save!
     end
+
     puts "Access Token Refresh process done now"
   end
 end

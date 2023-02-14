@@ -8,7 +8,6 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def update?
-
   end
   # class Scope < Scope
   #   # NOTE: Be explicit about which records you allow access to!

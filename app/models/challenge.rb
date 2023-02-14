@@ -11,38 +11,44 @@ class Challenge < ApplicationRecord
   CHALLENGE_TYPE = ['KM', 'Sessions']
 
   def all_activities
-    activities = Activity.where('start_date >= ? AND start_date <= ? AND user_id = ?', self.start_date, self.end_date, self.user_id ).sort_by { |a| a.start_date }.reverse
+    activities = Activity.where('start_date >= ? AND start_date <= ? AND user_id = ?', start_date, end_date,
+                                user_id).sort_by do |a|
+      a.start_date
+    end.reverse
     return activities
   end
 
   ## Distance
   def all_activities_km
     distance = 0
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ?", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ?", start_date, end_date,
+                                user_id)
     activities.each do |a|
       distance += a.distance
     end
-    distance = distance / 1000.00
+    distance /= 1000.00
     return distance
   end
 
   def run_activities_km
     distance = 0
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Run'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Run'",
+                                start_date, end_date, user_id)
     activities.each do |a|
       distance += a.distance
     end
-    distance = distance / 1000.00
+    distance /= 1000.00
     return distance
   end
 
   def bike_activities_km
     distance = 0
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Ride'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Ride'",
+                                start_date, end_date, user_id)
     activities.each do |a|
       distance += a.distance
     end
-    distance = distance / 1000.00
+    distance /= 1000.00
     return distance
   end
 
@@ -56,17 +62,20 @@ class Challenge < ApplicationRecord
 
   ## Sessions
   def all_activities_sessions
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ?", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ?", start_date, end_date,
+                                user_id)
     return activities.count
   end
 
   def run_activities_sessions
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Run'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Run'",
+                                start_date, end_date, user_id)
     return activities.count
   end
 
   def bike_activities_sessions
-    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Ride'", self.start_date, self.end_date, self.user_id )
+    activities = Activity.where("start_date >= ? AND start_date <= ? AND user_id = ? AND activity_type = 'Ride'",
+                                start_date, end_date, user_id)
     return activities.count
   end
 
@@ -80,22 +89,18 @@ class Challenge < ApplicationRecord
 
   def progress_text
     if challenge_type == "KM"
-      progress_distance = self.type_dependant_km / target_distance
+      progress_distance = type_dependant_km / target_distance
     else
-      progress_distance = self.type_dependant_sessions / target_sessions
+      progress_distance = type_dependant_sessions / target_sessions
     end
     progress_time = (Date.today - start_date).fdiv(end_date - start_date)
 
     delta = progress_distance - progress_time
 
     if challenge_type == "KM"
-      if target_distance <= self.type_dependant_km
-        status = "Completed"
-      end
+      status = "Completed" if target_distance <= type_dependant_km
     elsif challenge_type == "Sessions"
-      if target_sessions <= self.type_dependant_sessions
-        status = "Completed"
-      end
+      status = "Completed" if target_sessions <= type_dependant_sessions
     end
 
     if status == "Completed"

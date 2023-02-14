@@ -10,5 +10,4 @@ class RefreshToken < ApplicationRecord
       refreshtoken
     end
   end
-
 end
