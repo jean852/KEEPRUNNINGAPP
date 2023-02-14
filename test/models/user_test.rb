@@ -20,10 +20,10 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   test "create user from strava" do
-    provider_data = Struct.new(:athlete).new(Struct.new(:id).new(123456789))
+    provider_data = Struct.new(:athlete).new(Struct.new(:id).new(123_456_789))
     user = User.create_from_strava(provider_data)
     assert_equal '123456789@strava.com', user.email
-    assert_equal 123456789, user.athlete_id
+    assert_equal 123_456_789, user.athlete_id
   end
 
   # test "calculate total distance in the last 30 days" do
