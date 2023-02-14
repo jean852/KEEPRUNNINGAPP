@@ -1,90 +1,87 @@
 <div data-controller="flatpickr" class="container my-0">
-
   <%= simple_form_for @challenge do|f|%>
-      <div data-controller='step'>
-
-        <%# 1) SELECT ACTIVITY TYPE %>
-        <div data-step-target="step1" class="container-fluid d-flex flex-column justify-content-around align-items-center">
-
-          <div data-controller='activity'>
-            <%= f.input :name, placeholder: "Your challenge name", required: true %>
-            <div class="text-center mb-2 border-yellow" role="button" data-activity-target="running">
-              <div  data-action="click->activity#running"><%= image_tag("runningwild.png", :alt => "run away from the keeprunning tiger", class: "activity-image", input_html: { data: { action: "click->activity#running" }}) %></div>
-              <h3>Running</h3>
-            </div>
-            <div class="text-center border-yellow" role="button" data-activity-target="cycling">
-            <div  data-action="click->activity#cycling"><%= image_tag("bicycle.png", :alt => "cycle away from the keeprunning tiger", class: "activity-image", data_action: "click->activity#cycling") %></div>
-            <h3>Cycling</h3>
-            </div>
-            <%= f.input :activity_type, as: :hidden, required: true, input_html: { data: { activity_target: "activity" }} %>
-          </div>
-
-          <div data-action="click->step#to_step2", class="m-2 btn challenge-btn">Continue</div>
+    <div data-controller='step'>
+    
+    <%# 1) SELECT ACTIVITY TYPE %>
+    <div data-step-target="step1" class="container-fluid d-flex flex-column justify-content-around align-items-center">
+      <div data-controller='activity'>
+        <%= f.input :name, placeholder: "Your challenge name", required: true %>
+        <div class="text-center mb-2 border-yellow" role="button" data-activity-target="running">
+          <div  data-action="click->activity#running"><%= image_tag("runningwild.png", :alt => "run away from the keeprunning tiger", class: "activity-image", input_html: { data: { action: "click->activity#running" }}) %></div>
+          <h3>Running</h3>
         </div>
-
-        <%# 2) SELECT CHALLENGE TYPE %>
-        <%# Running  %>
-        <div data-step-target="step2" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
-          <div>
-            <p class="supertitle-gradient text-center my-5">Select your <br> challenge type:</p>
-          </div>
-          <div data-controller='challengetype' style="min-height:100%">
-              <div class="text-center p-3 my-3 border-yellow" role="button" data-action="click->challengetype#km" data-challengetype-target="length">
-                <%# <h4><u>Challenge per distance:</u></h4> %>
-                <h6><strong>How <u>far</u> are you willing to go?</strong></h6>
-                <%# <p style="font-size: 14px;">KM: total distance</p> %>
-                <%# <p>Push yourself in terms of distance...</p> %>
-                <p style="font-size: 14px;">E.g. if you are new to this activity, we suggest to create one new weekly challenge for 10k and try to complete two 5k's in a week.</p>
-              </div>
-              <div class="text-center p-3 my-3 border-yellow" role="button" data-action="click->challengetype#sessions" data-challengetype-target="quantity">
-              <%# <h4><u>Challenge per amount:</u></h4> %>
-              <h6><strong>How <u>often</u> are you willing to go?</strong></h6>
-              <%# <p style="font-size: 14px;">Quantity: total amount</p> %>
-              <%# <p class="m-0 p-2">Push yourself in terms of total activities...</p> %>
-              <p style="font-size: 14px;">E.g. if you are new to this activity, we suggest a new monthly challenge with a total of 12 sessions: that's 3 sessions per week at whatever distance you choose.</p>
-              </div>
-            <%= f.input :challenge_type, as: :hidden, required: true, input_html: { data: { challengetype_target: "challengetype" }}%>
-          </div>
-          <div data-action="click->step#to_step3", class="btn challenge-btn my-3">Continue</div>
+        <div class="text-center border-yellow" role="button" data-activity-target="cycling">
+          <div  data-action="click->activity#cycling"><%= image_tag("bicycle.png", :alt => "cycle away from the keeprunning tiger", class: "activity-image", data_action: "click->activity#cycling") %></div>
+          <h3>Cycling</h3>
         </div>
+        <%= f.input :activity_type, as: :hidden, required: true, input_html: { data: { activity_target: "activity" }} %>
+      </div>
+      <div data-action="click->step#to_step2", class="m-2 btn challenge-btn">Continue</div>
+    </div>
 
-        <%# 3) SELECT CHALLENGE PARAMETERS %>
-        <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh">
-          <div class="text-center my-5">
-            <%# Distance  %>
-            <div data-step-target="step3Distance" class="d-none">
-              <h2 class="my-5">Target Distance (km)?</h2>
-              <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
-            </div>
-            <%# Sessions  %>
-            <div data-step-target="step3Sessions" class="d-none">
-              <h2 class="my-5">Target number of sessions?</h2>
-              <%= f.input :target_sessions, label: false, input_html: {class:"form_input"} %>
-            </div>
-            <h2 class="my-5">Over which period of time?</h2>
-            <%= f.input :start_date, as: :string, placeholder: "Start date",  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
-            <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
-          </div>
-          <div data-action="click->step#to_step4", class="btn challenge-btn w-100 my-5">Continue</div>
+    <%# 2) SELECT CHALLENGE TYPE %>
+    <%# Running  %>
+    <div data-step-target="step2" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height:80vh">
+      <div>
+        <p class="supertitle-gradient text-center my-5">Select your <br> challenge type:</p>
+      </div>
+      <div data-controller='challengetype' style="min-height:100%">
+        <div class="text-center p-3 my-3 border-yellow" role="button" data-action="click->challengetype#km" data-challengetype-target="length">
+          <%# <h4><u>Challenge per distance:</u></h4> %>
+          <h6><strong>How <u>far</u> are you willing to go?</strong></h6>
+          <%# <p style="font-size: 14px;">KM: total distance</p> %>
+          <%# <p>Push yourself in terms of distance...</p> %>
+          <p style="font-size: 14px;">E.g. if you are new to this activity, we suggest to create one new weekly challenge for 10k and try to complete two 5k's in a week.</p>
         </div>
+        <div class="text-center p-3 my-3 border-yellow" role="button" data-action="click->challengetype#sessions" data-challengetype-target="quantity">
+          <%# <h4><u>Challenge per amount:</u></h4> %>
+          <h6><strong>How <u>often</u> are you willing to go?</strong></h6>
+          <%# <p style="font-size: 14px;">Quantity: total amount</p> %>
+          <%# <p class="m-0 p-2">Push yourself in terms of total activities...</p> %>
+          <p style="font-size: 14px;">E.g. if you are new to this activity, we suggest a new monthly challenge with a total of 12 sessions: that's 3 sessions per week at whatever distance you choose.</p>
+        </div>
+        <%= f.input :challenge_type, as: :hidden, required: true, input_html: { data: { challengetype_target: "challengetype" }}%>
+      </div>
+      <div data-action="click->step#to_step3", class="btn challenge-btn my-3">Continue</div>
+    </div>
 
-        <%# 4) SELECT AMOUNT TO BET PARAMETERS %>
-        <div data-step-target="step4" class="d-none d-flex flex-column justify-content-center align-items-center text-center" style="min-height:80vh">
+    <%# 3) SELECT CHALLENGE PARAMETERS %>
+    <div data-step-target="step3" class="d-none d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh">
+      <div class="text-center my-5">
+        <%# Distance  %>
+        <div data-step-target="step3Distance" class="d-none">
+          <h2 class="my-5">Target Distance (km)?</h2>
+          <%= f.input :target_distance, label: false, input_html: {class:"form_input"} %>
+        </div>
+        <%# Sessions  %>
+        <div data-step-target="step3Sessions" class="d-none">
+          <h2 class="my-5">Target number of sessions?</h2>
+          <%= f.input :target_sessions, label: false, input_html: {class:"form_input"} %>
+        </div>
+        <h2 class="my-5">Over which period of time?</h2>
+        <%= f.input :start_date, as: :string, placeholder: "Start date",  label: false, input_html: { data: { flatpickr_target: "startTime" },class:"form_input" }%>
+        <%= f.input :end_date, as: :string, placeholder: "End date", label: false, input_html: { data: { flatpickr_target: "endTime" },class:"form_input"} %>
+      </div>
+      <div data-action="click->step#to_step4", class="btn challenge-btn w-100 my-5">Continue</div>
+    </div>
+
+    <%# 4) SELECT AMOUNT TO BET PARAMETERS %>
+    <div data-step-target="step4" class="d-none d-flex flex-column justify-content-center align-items-center text-center" style="min-height:80vh">
+      <div class="my-5">
+        <div class="my-5">
+          <h2>Bet on your success!</h2>
+        </div>
+        <div class="my-5">
+          <p>The amount that you deposit here will be kept safely for the duration of the challenge.
+            It will be returned to you as soon as you succeed the challenge. If you fail, we will keep it! You will never skip your runs again.
+          </p>
           <div class="my-5">
-            <div class="my-5">
-              <h2>Bet on your success!</h2>
-            </div>
-            <div class="my-5">
-              <p>The amount that you deposit here will be kept safely for the duration of the challenge.
-              It will be returned to you as soon as you succeed the challenge. If you fail, we will keep it! You will never skip your runs again.
-              </p>
-              <div class="my-5">
-                <%= f.input :price, placeholder: "0,00", label: false, input_html: {class:"form_input"}, label: "Amount (€)"%>
-              </div>
-            </div>
+            <%= f.input :price, placeholder: "0,00", label: false, input_html: {class:"form_input"}, label: "Amount (€)"%>
           </div>
-          <div class="w-100 my-5"><%= f.button :submit, class: "btn challenge-btn" %></div>
         </div>
       </div>
+      <div class="w-100 my-5"><%= f.button :submit, class: "btn challenge-btn" %></div>
+    </div>
+    </div>
   <% end %>
 </div>
