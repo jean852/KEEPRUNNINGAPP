@@ -1,21 +1,20 @@
-<div class="container-fluid m-4 d-flex flex-column justify-content-around align-items-center">
+<div class="container-fluid m-5 d-flex flex-column justify-content-around align-items-center">
   <div class="heading-wrapper">
     <div class="heading-container">
-      <h1><%= @user.profile.first_name %></h1>
+      <h1><%= @user.profile.first_name %>'s Account</h1>
     </div>
   </div>
 
-  <div class="container-fluid mb-4 d-flex flex-column justify-content-around align-items-center">
-    <p class = "m-4">Please kindly check if your email address is correct or update it!</p>
+  <div class="container-fluid m-4 d-flex flex-column justify-content-around align-items-center">
+    <h5 class="m-4">Please kindly check if your email address is correct and update it if not:</h5>
 
     <%= form_for @user do |f| %>
-      <div>
+      <div class="m-4">
         <%= f.text_field :email, class: "email-input" %>
       </div>
-      <div>
+      <div class="m-4">
       <%= f.submit "Update", class: "email-button" %>
       </div>
     <% end %>
   </div>
-
 </div>
