@@ -1,22 +1,22 @@
 <div data-controller="flatpickr" class="container my-0">
   <%= simple_form_for @challenge do|f|%>
     <div data-controller='step'>
-    
-    <%# 1) SELECT ACTIVITY TYPE %>
-    <div data-step-target="step1" class="container-fluid d-flex flex-column justify-content-around align-items-center">
-      <div data-controller='activity'>
-        <%= f.input :name, placeholder: "Your challenge name", required: true %>
-        <div class="text-center mb-2 border-yellow" role="button" data-activity-target="running">
-          <div  data-action="click->activity#running"><%= image_tag("runningwild.png", :alt => "run away from the keeprunning tiger", class: "activity-image", input_html: { data: { action: "click->activity#running" }}) %></div>
-          <h3>Running</h3>
+
+      <%# 1) SELECT ACTIVITY TYPE %>
+      <div data-step-target="step1" class="container-fluid d-flex flex-column justify-content-around align-items-center">
+        <div data-controller='activity'>
+          <%= f.input :name, placeholder: "Your challenge name", required: true %>
+          <div class="text-center mb-2 border-yellow" role="button" data-activity-target="running">
+            <div data-action="click->activity#running"><%= image_tag("runningwild.png", :alt => "run away from the keeprunning tiger", class: "activity-image", input_html: { data: { action: "click->activity#running" }}) %></div>
+            <h3>Running</h3>
+          </div>
+          <div class="text-center border-yellow" role="button" data-activity-target="cycling">
+            <div data-action="click->activity#cycling"><%= image_tag("bicycle.png", :alt => "cycle away from the keeprunning tiger", class: "activity-image", data_action: "click->activity#cycling") %></div>
+            <h3>Cycling</h3>
+          </div>
+          <%= f.input :activity_type, as: :hidden, required: true, input_html: { data: { activity_target: "activity" }} %>
         </div>
-        <div class="text-center border-yellow" role="button" data-activity-target="cycling">
-          <div  data-action="click->activity#cycling"><%= image_tag("bicycle.png", :alt => "cycle away from the keeprunning tiger", class: "activity-image", data_action: "click->activity#cycling") %></div>
-          <h3>Cycling</h3>
-        </div>
-        <%= f.input :activity_type, as: :hidden, required: true, input_html: { data: { activity_target: "activity" }} %>
-      </div>
-      <div data-action="click->step#to_step2", class="m-2 btn challenge-btn">Continue</div>
+        <div data-action="click->step#to_step2", class="m-2 btn challenge-btn">Continue</div>
     </div>
 
     <%# 2) SELECT CHALLENGE TYPE %>
@@ -81,7 +81,6 @@
         </div>
       </div>
       <div class="w-100 my-5"><%= f.button :submit, class: "btn challenge-btn" %></div>
-    </div>
     </div>
   <% end %>
 </div>
