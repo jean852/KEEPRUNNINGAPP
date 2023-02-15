@@ -1,12 +1,26 @@
-# profiles.yml
-
 one:
-  user_id: <%= users(:user).id %>
-  first_name: "George"
-  last_name: "Abitbol"
-  country: "France"
-  username: "george.abitbol"
-  sex: "Male"
-  profile_url: "https://www.strava.com/athletes/123456789"
-  created_at: <%= 1.day.ago %>
-  updated_at: <%= Time.current %>
+  user_id: 1
+  first_name: George
+  last_name: Abitbol
+  country: France
+  username: georgeab
+  sex: M
+  profile_url: https://example.com/georgeab
+
+two:
+  user_id: 2
+  first_name: Jane
+  last_name: Smith
+  country: Canada
+  username: georgeab
+  sex: F
+  profile_url: https://example.com/georgeab
+
+three:
+  user_id: 3
+  first_name: John
+  last_name: Doe
+  country: UK
+  username: georgeab
+  sex: M
+  profile_url: https://example.com/georgeab

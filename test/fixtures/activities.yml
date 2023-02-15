@@ -1,0 +1,21 @@
+activity1:
+  strava_id: 123
+  user: user1
+  name: "Morning Run"
+  distance: 5000
+  moving_time: 1800
+  elapsed_time: 2000
+  activity_type: "Run"
+  start_date: "2022-01-01"
+  average_speed: 2.78
+
+activity2:
+  strava_id: 456
+  user: user2
+  name: "Afternoon Ride"
+  distance: 15000
+  moving_time: 3600
+  elapsed_time: 4000
+  activity_type: "Ride"
+  start_date: "2022-01-02"
+  average_speed: 4.17
