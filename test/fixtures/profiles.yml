@@ -7,20 +7,20 @@ one:
   sex: M
   profile_url: https://example.com/georgeab
 
-two:
-  user_id: 2
-  first_name: Jane
-  last_name: Smith
-  country: Canada
-  username: georgeab
-  sex: F
-  profile_url: https://example.com/georgeab
+# two:
+#   user_id: 2
+#   first_name: Jane
+#   last_name: Smith
+#   country: Canada
+#   username: janesm
+#   sex: F
+#   profile_url: https://example.com/janesm
 
-three:
-  user_id: 3
-  first_name: John
-  last_name: Doe
-  country: UK
-  username: georgeab
-  sex: M
-  profile_url: https://example.com/georgeab
+# three:
+#   user_id: 3
+#   first_name: John
+#   last_name: Doe
+#   country: UK
+#   username: johndo
+#   sex: M
+#   profile_url: https://example.com/johndo

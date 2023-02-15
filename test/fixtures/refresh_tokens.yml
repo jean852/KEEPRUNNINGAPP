@@ -6,10 +6,10 @@ refresh_token_1:
   created_at: <%= Time.now %>
   updated_at: <%= Time.now %>
 
-refresh_token_2:
-  user_id: 2
-  athlete_id: 321098765
-  refresh_token_code: "hijklmn789012"
-  scope: false
-  created_at: <%= Time.now %>
-  updated_at: <%= Time.now %>
+# refresh_token_2:
+#   user_id: 2
+#   athlete_id: 321098765
+#   refresh_token_code: "hijklmn789012"
+#   scope: false
+#   created_at: <%= Time.now %>
+#   updated_at: <%= Time.now %>

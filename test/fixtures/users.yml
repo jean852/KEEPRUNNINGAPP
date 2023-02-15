@@ -1,4 +1,4 @@
-user:
+user1:
   email: "12356789@strava.com"
   encrypted_password: "$2a$12$Pbv93f62zz2aHHG3q/mXz.xc5av5Mx7piR5e6U5ZlEeUMePp7mdI6" # Sample hashed password
   reset_password_token: ""
@@ -11,35 +11,35 @@ user:
   athlete_id: 123456789
   admin: false
 
-user_with_profile:
-  email: "987654321@strava.com"
-  encrypted_password: "$2a$12$Pbv93f62zz2aHHG3q/mXz.xc5av5Mx7piR5e6U5ZlEeUMePp7mdI6" # Sample hashed password
-  reset_password_token: ""
-  reset_password_sent_at: ""
-  remember_created_at: ""
-  created_at: "2022-01-13 00:00:56"
-  updated_at: "2022-02-14 12:34:56"
-  provider: ""
-  uid: ""
-  athlete_id: 987654321
-  admin: false
-  profile:
-    first_name: "John"
-    last_name: "Doe"
-    country: "USA"
-    username: "johndoe"
-    sex: "male"
-    profile_url: "https://example.com/johndoe"
+# user_with_profile:
+#   email: "987654321@strava.com"
+#   encrypted_password: "$2a$12$Pbv93f62zz2aHHG3q/mXz.xc5av5Mx7piR5e6U5ZlEeUMePp7mdI6" # Sample hashed password
+#   reset_password_token: ""
+#   reset_password_sent_at: ""
+#   remember_created_at: ""
+#   created_at: "2022-01-13 00:00:56"
+#   updated_at: "2022-02-14 12:34:56"
+#   provider: ""
+#   uid: ""
+#   athlete_id: 987654321
+#   admin: false
+#   profile:
+#     first_name: "John"
+#     last_name: "Doe"
+#     country: "USA"
+#     username: "johndoe"
+#     sex: "male"
+#     profile_url: "https://example.com/johndoe"
 
-admin_user:
-  email: "admin@example.com"
-  encrypted_password: "$2a$12$Pbv93f62zz2aHHG3q/mXz.xc5av5Mx7piR5e6U5ZlEeUMePp7mdI6" # Sample hashed password
-  reset_password_token: ""
-  reset_password_sent_at: ""
-  remember_created_at: ""
-  created_at: "2022-02-14 12:34:56"
-  updated_at: "2022-02-14 12:34:56"
-  provider: ""
-  uid: ""
-  athlete_id: 321098765
-  admin: true
+# admin_user:
+#   email: "admin@example.com"
+#   encrypted_password: "$2a$12$Pbv93f62zz2aHHG3q/mXz.xc5av5Mx7piR5e6U5ZlEeUMePp7mdI6" # Sample hashed password
+#   reset_password_token: ""
+#   reset_password_sent_at: ""
+#   remember_created_at: ""
+#   created_at: "2022-02-14 12:34:56"
+#   updated_at: "2022-02-14 12:34:56"
+#   provider: ""
+#   uid: ""
+#   athlete_id: 321098765
+#   admin: true

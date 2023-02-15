@@ -1,5 +1,5 @@
 activity1:
-  strava_id: 123
+  strava_id: 123456789
   user: user1
   name: "Morning Run"
   distance: 5000
