@@ -4,6 +4,7 @@ one:
   scope: true
   sl_access_token_code: abc123
   expires_at: <%= 1.month.from_now %>
+
 # two:
 #   user_id: 2
 #   athlete_id: 987654321
