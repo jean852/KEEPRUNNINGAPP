@@ -15,6 +15,7 @@ class UsersTest < ApplicationSystemTestCase
 
   test "user can sign in with Strava" do
     # user visits sign_in page and clicks on the connect button
+
     visit new_user_session_path
     sleep 1
     accept_alert do
@@ -22,9 +23,9 @@ class UsersTest < ApplicationSystemTestCase
     end
     sleep 1
     assert_selector "h1", text: "Log In"
-    # save_and_open_screenshot
 
     # user enters their Strava credentials and clicks on the login button
+
     find('#email').fill_in with: ENV.fetch('STRAVA_TEST_EMAIL')
     find('#password').fill_in with: ENV.fetch('STRAVA_TEST_PASSWORD')
     find('#login-button').click
