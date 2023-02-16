@@ -32,18 +32,10 @@ class UsersTest < ApplicationSystemTestCase
     # user checks the checkbox's, authorizes Strava API and lands on dashboard
 
     assert_selector "h3", text: "Authorize KeepRunning to connect to Strava"
+    check "View your private non-activity data such as segments and routes"
+    check "View data about your private activities"
+    find('#authorize').click
     # save_and_open_screenshot
-    # check "View your private non-activity data such as segments and routes"
-    # check "View data about your private activities"
-    # find.button('.btn-primary').click
-    # assert_equal "/dashboard", page.current_path
-
-    # within_window(-> { page.title == "Authorize KeepRunning to connect to Strava" }) do
-    #   # Check all checkboxes
-    #   check "View your private non-activity data such as segments and routes"
-    #   check " View data about your private activities"
-    #   # Click the authorize button
-    #   click_button "Authorize"
-    # end
+    assert_equal "/dashboard", page.current_path
   end
 end
