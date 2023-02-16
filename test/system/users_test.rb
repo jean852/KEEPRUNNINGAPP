@@ -10,23 +10,40 @@ class UsersTest < ApplicationSystemTestCase
 
   test "visiting the sign_in" do
     visit new_user_session_path
-
-    # save_and_open_screenshot
-    # change assert_selector for the button
     assert_selector "p", text: "Connect now"
   end
 
-  test "user can sign in with Strava" do
+  test "user can sign up with Strava" do
     # user visits sign_in page and clicks on the connect button
     visit new_user_session_path
-    find('.stravalogin').click
-    # accept_alert do
-    #   click_button '.stravalogin'
+    sleep 1
+    accept_alert do
+      find('.stravalogin').click
+    end
+    sleep 1
+    assert_selector "h1", text: "Log In"
+    # save_and_open_screenshot
+
+    # user enters their Strava credentials and clicks on the login button
+    find('#email').fill_in with: ENV.fetch('STRAVA_TEST_EMAIL')
+    find('#password').fill_in with: ENV.fetch('STRAVA_TEST_PASSWORD')
+    find('#login-button').click
+
+    # user checks the checkbox's, authorizes Strava API and lands on dashboard
+
+    assert_selector "h3", text: "Authorize KeepRunning to connect to Strava"
+    # save_and_open_screenshot
+    # check "View your private non-activity data such as segments and routes"
+    # check "View data about your private activities"
+    # find.button('.btn-primary').click
+    # assert_equal "/dashboard", page.current_path
+
+    # within_window(-> { page.title == "Authorize KeepRunning to connect to Strava" }) do
+    #   # Check all checkboxes
+    #   check "View your private non-activity data such as segments and routes"
+    #   check " View data about your private activities"
+    #   # Click the authorize button
+    #   click_button "Authorize"
     # end
-
-  #   # user enters his Strava credentials and authorizes
-  #   # fill_in "Email", with: "111400793@strava.com"
-  #   # find('.btn-primary').click
-  # end
+  end
 end
-
