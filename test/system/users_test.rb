@@ -13,7 +13,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector "p", text: "Connect now"
   end
 
-  test "user can sign up with Strava" do
+  test "user can sign in with Strava" do
     # user visits sign_in page and clicks on the connect button
     visit new_user_session_path
     sleep 1
