@@ -19,12 +19,12 @@ class UpdateChallengeStatus
  #   end
  # end
 
-  def perform
-    challenges = Challenge.all
-    challenges.each do |challenge|
-      if challenge.status == 'Not started' || challenge.status == "Started"
-        challenge.update(status: challenge.live_status)
-      end
-    end
-  end
+ # def perform
+ #   challenges = Challenge.all
+ #   challenges.each do |challenge|
+ #     if challenge.status == 'Not started' || challenge.status == "Started"
+ #       challenge.update(status: challenge.live_status)
+ #     end
+ #   end
+ # end
 end
