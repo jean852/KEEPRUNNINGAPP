@@ -1,5 +1,5 @@
-update_challenge_status:
-  cron: "*/5 * * * *"
-  class: "UpdateChallengeStatus"
-  queue: default
-  first_in: '10s'
+# update_challenge_status:
+#   cron: "*/5 * * * *"
+#   class: "UpdateChallengeStatus"
+#   queue: default
+#   first_in: '10s'
