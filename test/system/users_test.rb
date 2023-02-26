@@ -26,15 +26,20 @@ class UsersTest < ApplicationSystemTestCase
 
     # user enters their Strava credentials and clicks on the login button
 
+    sleep 5
     find('#email').fill_in with: ENV.fetch('STRAVA_TEST_EMAIL')
+    sleep 10
     find('#password').fill_in with: ENV.fetch('STRAVA_TEST_PASSWORD')
+    sleep 5
     find('#login-button').click
 
     # user checks the checkbox's, authorizes Strava API and lands on dashboard
 
     assert_selector "h3", text: "Authorize KeepRunning to connect to Strava"
     check "View your private non-activity data such as segments and routes"
+    sleep 2
     check "View data about your private activities"
+    sleep 1
     find('#authorize').click
     # save_and_open_screenshot
     assert_equal "/dashboard", page.current_path
