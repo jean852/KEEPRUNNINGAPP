@@ -6,26 +6,26 @@ namespace :webhook do
     uri = URI('https://www.strava.com/api/v3/push_subscriptions')
     req = Net::HTTP::Post.new(uri)
     req.set_form(
-  [
-    [
-      'client_id',
-      ENV['STRAVA_CLIENT_ID']
-    ],
-    [
-      'client_secret',
-      ENV['STRAVA_CLIENT_SECRET']
-    ],
-    [
-      'callback_url',
-      ENV['STRAVA_CALLBACK_URL']
-    ],
-    [
-      'verify_token',
-      'STRAVA'
-    ]
-  ],
-  'multipart/form-data'
-)
+      [
+        [
+          'client_id',
+          ENV.fetch('STRAVA_CLIENT_ID', nil)
+        ],
+        [
+          'client_secret',
+          ENV.fetch('STRAVA_CLIENT_SECRET', nil)
+        ],
+        [
+          'callback_url',
+          ENV.fetch('STRAVA_CALLBACK_URL', nil)
+        ],
+        [
+          'verify_token',
+          'STRAVA'
+        ]
+      ],
+      'multipart/form-data'
+    )
 
     req_options = {
       use_ssl: uri.scheme == 'https'
@@ -38,14 +38,13 @@ namespace :webhook do
     case res
     when Net::HTTPSuccess, Net::HTTPRedirection
       # OK
-    puts "sucessfully created subscription..."
+      puts "sucessfully created subscription..."
 
     else
       res.value
     end
   end
-    puts "Rake finished..."
-
+  puts "Rake finished..."
 end
 
 # ENV['STRAVA_CLIENT_ID']

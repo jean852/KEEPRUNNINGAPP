@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include Pundit
-  before_action :authorize_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:edit, :update]
+  before_action :authorize_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[edit update]
 
   def index
     @users = policy_scope(User)
@@ -31,7 +31,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   private
 
   def user_params
@@ -45,5 +44,4 @@ class UsersController < ApplicationController
   def set_user
     @user = current_user
   end
-
 end

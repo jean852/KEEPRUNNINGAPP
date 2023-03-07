@@ -10,5 +10,4 @@ class NilClassPolicy < ApplicationPolicy
   def update?
     true
   end
-
 end

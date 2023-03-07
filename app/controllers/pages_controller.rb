@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :webhook, :handle_activities]
+  skip_before_action :authenticate_user!, only: %i[home webhook handle_activities]
   skip_before_action :verify_authenticity_token
 
   def dashboard

@@ -1,9 +1,7 @@
 class OrdersController < ApplicationController
-
-
   def create
     challenge = Challenge.find(params[:challenge_id])
-    @order = Order.create!(challenge: challenge, amount: challenge.price_cents, state: 'pending', user: current_user)
+    @order = Order.create!(challenge:, amount: challenge.price_cents, state: 'pending', user: current_user)
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -17,11 +15,11 @@ class OrdersController < ApplicationController
           unit_amount: challenge.price_cents
         },
         quantity: 1
-        }],
-        mode: 'payment',
-        success_url: order_url(@order),
-        cancel_url: order_url(@order)
-      )
+      }],
+      mode: 'payment',
+      success_url: order_url(@order),
+      cancel_url: order_url(@order)
+    )
 
     authorize @order
     @order.update(checkout_session_id: session.id)
@@ -32,5 +30,4 @@ class OrdersController < ApplicationController
     @order = current_user.orders.find(params[:id])
     authorize @order
   end
-
 end

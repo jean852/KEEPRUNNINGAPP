@@ -45,12 +45,12 @@ class OmniauthController < Devise::OmniauthCallbacksController
 
   def oauth_client
     @oauth_client ||= Strava::OAuth::Client.new(
-      client_id: ENV['STRAVA_CLIENT_ID'],
-      client_secret: ENV['STRAVA_CLIENT_SECRET']
+      client_id: ENV.fetch('STRAVA_CLIENT_ID', nil),
+      client_secret: ENV.fetch('STRAVA_CLIENT_SECRET', nil)
     )
   end
 
   def get_access_token!(code)
-    oauth_client.oauth_token(code: code, grant_type: 'authorization_code')
+    oauth_client.oauth_token(code:, grant_type: 'authorization_code')
   end
 end

@@ -61,7 +61,6 @@ gem 'multi_json', '~> 1.11', '>= 1.11.2'
 # # Strava Gem
 gem 'strava-ruby-client'
 
-
 # for Sidekiq and run background jobs
 gem "sidekiq", "~> 6.5.8"
 gem "sidekiq-failures", "~> 1.0"
@@ -74,12 +73,10 @@ gem "pundit"
 # instal Redis
 gem 'redis'
 
-#install stripe
+# install stripe
 gem 'money-rails', '~>1.12'
 gem 'stripe', '~> 8.0'
 gem 'stripe_event'
-
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
